@@ -1,3 +1,3 @@
-# BARFEAR
+# BARFEAND
 
-Web oficial de BARFEAR.
+Web oficial de BARFEAND.
