@@ -1,15 +1,101 @@
 "use strict";
-document.addEventListener("DOMContentLoaded",()=>{
- const toggle=document.querySelector(".menu-toggle"),nav=document.querySelector(".nav");
- const setMenu=open=>{if(!toggle||!nav)return;toggle.setAttribute("aria-expanded",String(open));toggle.setAttribute("aria-label",open?"Tancar el menú":"Obrir el menú");nav.classList.toggle("open",open);document.body.classList.toggle("menu-open",open)};
- if(toggle&&nav){toggle.addEventListener("click",()=>setMenu(toggle.getAttribute("aria-expanded")!=="true"));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});window.addEventListener("resize",()=>{if(innerWidth>1000)setMenu(false)})}
- document.querySelectorAll(".product-card").forEach(card=>{
-  const photo=card.querySelector(".product-photo"),price=card.querySelector(".price");
-  card.querySelectorAll("button.format").forEach(btn=>btn.addEventListener("click",()=>{card.querySelectorAll("button.format").forEach(x=>{x.classList.remove("active");x.setAttribute("aria-pressed","false")});btn.classList.add("active");btn.setAttribute("aria-pressed","true");if(photo){photo.src=btn.dataset.image;photo.alt=`Paquet BARFEAND ${card.querySelector('h3').textContent} de ${btn.dataset.weight==='1000'?'1 kg':'500 g'}`};if(price)price.textContent=btn.dataset.price}))
- });
- const dialog=document.getElementById("label-dialog"),title=document.getElementById("dialog-title"),dprice=document.getElementById("dialog-price"),dweight=document.getElementById("dialog-weight"),ding=document.getElementById("dialog-ingredients");
- document.querySelectorAll(".label-button").forEach(btn=>btn.addEventListener("click",()=>{const card=btn.closest(".product-card"),active=card.querySelector("button.format.active"),name=btn.dataset.productName,price=card.querySelector(".price").textContent,weight=active?(active.dataset.weight==="1000"?"1 KG":"500 GR"):"500 GR",ingredients=card.querySelector(".ingredients").innerHTML;if(title)title.textContent=name;if(dprice)dprice.textContent=price;if(dweight)dweight.textContent=`Pes: ${weight}`;if(ding)ding.innerHTML=ingredients;dialog?.showModal()}));
- document.querySelector(".dialog-close")?.addEventListener("click",()=>dialog?.close());dialog?.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
- document.querySelectorAll(".accordion details").forEach(current=>current.addEventListener("toggle",()=>{if(current.open)document.querySelectorAll(".accordion details").forEach(other=>{if(other!==current)other.open=false})}));
- const year=document.getElementById("year");if(year)year.textContent=new Date().getFullYear();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const botoMenu = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".nav");
+
+  function canviarMenu(obert) {
+    if (!botoMenu || !menu) return;
+
+    botoMenu.setAttribute("aria-expanded", String(obert));
+    botoMenu.setAttribute("aria-label", obert ? "Tancar el menú" : "Obrir el menú");
+    menu.classList.toggle("open", obert);
+    document.body.classList.toggle("menu-open", obert);
+  }
+
+  if (botoMenu && menu) {
+    botoMenu.addEventListener("click", () => {
+      const obert = botoMenu.getAttribute("aria-expanded") === "true";
+      canviarMenu(!obert);
+    });
+
+    menu.querySelectorAll("a").forEach((enllac) => {
+      enllac.addEventListener("click", () => canviarMenu(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") canviarMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 1000) canviarMenu(false);
+    });
+  }
+
+  document.querySelectorAll(".product-card").forEach((targeta) => {
+    const foto = targeta.querySelector(".product-photo");
+    const preu = targeta.querySelector(".price");
+    const nom = targeta.querySelector("h3")?.textContent?.trim() || "producte";
+
+    targeta.querySelectorAll("button.format").forEach((botoFormat) => {
+      botoFormat.addEventListener("click", () => {
+        targeta.querySelectorAll("button.format").forEach((boto) => {
+          boto.classList.remove("active");
+          boto.setAttribute("aria-pressed", "false");
+        });
+
+        botoFormat.classList.add("active");
+        botoFormat.setAttribute("aria-pressed", "true");
+
+        if (foto && botoFormat.dataset.image) {
+          const pes = botoFormat.dataset.weight === "1000" ? "1 kg" : "500 g";
+          foto.src = botoFormat.dataset.image;
+          foto.alt = `Paquet BARFEAND de ${nom.toLowerCase()} de ${pes}`;
+        }
+
+        if (preu && botoFormat.dataset.price) {
+          preu.textContent = botoFormat.dataset.price;
+        }
+      });
+    });
+  });
+
+  const dialeg = document.getElementById("label-dialog");
+  const titolDialeg = document.getElementById("dialog-title");
+  const imatgeEtiqueta = document.getElementById("dialog-label-image");
+  const botoTancar = document.querySelector(".dialog-close");
+
+  document.querySelectorAll(".label-button").forEach((boto) => {
+    boto.addEventListener("click", () => {
+      const targeta = boto.closest(".product-card");
+      if (!targeta || !dialeg || !imatgeEtiqueta) return;
+
+      const nom = targeta.dataset.labelName || targeta.querySelector("h3")?.textContent || "Producte BARFEAND";
+      const etiqueta = targeta.dataset.labelImage;
+      if (!etiqueta) return;
+
+      if (titolDialeg) titolDialeg.textContent = nom;
+      imatgeEtiqueta.src = etiqueta;
+      imatgeEtiqueta.alt = `Etiqueta de referència de BARFEAND ${nom}`;
+      dialeg.showModal();
+    });
+  });
+
+  botoTancar?.addEventListener("click", () => dialeg?.close());
+
+  dialeg?.addEventListener("click", (event) => {
+    if (event.target === dialeg) dialeg.close();
+  });
+
+  document.querySelectorAll(".accordion details").forEach((actual) => {
+    actual.addEventListener("toggle", () => {
+      if (!actual.open) return;
+      document.querySelectorAll(".accordion details").forEach((altre) => {
+        if (altre !== actual) altre.open = false;
+      });
+    });
+  });
+
+  const any = document.getElementById("year");
+  if (any) any.textContent = new Date().getFullYear();
 });
