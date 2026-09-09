@@ -1,0 +1,44 @@
+name: Optimitzar imatges principals BARFEAND
+on:
+  push:
+    branches: [revisio-catala-20260910]
+    paths: ['.github/workflows/optimitzar-assets.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  optimitzar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: revisio-catala-20260910
+      - name: Instal·lar Pillow
+        run: python3 -m pip install Pillow
+      - name: Crear versions WebP optimitzades
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          jobs = [
+              ('imagenes/logo/logo-barfeand.png','imagenes/logo/logo-barfeand.webp',512,86),
+              ('imagenes/web/bol-barf.png','imagenes/web/bol-barf.webp',1400,84),
+          ]
+          for src,dst,max_w,quality in jobs:
+              im=Image.open(src).convert('RGBA')
+              if im.width > max_w:
+                  h=round(im.height*max_w/im.width)
+                  im=im.resize((max_w,h),Image.Resampling.LANCZOS)
+              Path(dst).parent.mkdir(parents=True,exist_ok=True)
+              im.save(dst,'WEBP',quality=quality,method=6)
+              print(dst, Path(dst).stat().st_size)
+          PY
+      - name: Guardar imatges optimitzades
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add imagenes/logo/logo-barfeand.webp imagenes/web/bol-barf.webp
+          if ! git diff --cached --quiet; then
+            git commit -m 'Optimitzar logotip i imatge principal en WebP'
+            git push origin HEAD:revisio-catala-20260910
+          fi
