@@ -332,3 +332,36 @@
   .label-dialog { width: calc(100% - 20px) !important; padding: 18px !important; }
   .label-reference img { max-height: 72vh !important; }
 }
+
+/* Capçalera de vídeo en mòbil */
+@media (max-width: 700px) {
+  .hero--video {
+    min-height:max(680px,calc(100svh - 72px)) !important;
+    background-position:58% center !important;
+  }
+
+  .hero--video::after {
+    background:linear-gradient(180deg,rgba(12,10,9,.25) 0%,rgba(12,10,9,.52) 35%,rgba(12,10,9,.91) 100%) !important;
+  }
+
+  .hero--video .hero__video {
+    object-position:58% center !important;
+  }
+
+  .hero--video .hero__grid {
+    display:flex !important;
+    align-items:flex-end !important;
+    min-height:inherit !important;
+    padding-top:180px !important;
+    padding-bottom:42px !important;
+  }
+
+  .hero--video h1 {
+    max-width:590px !important;
+    color:#fff !important;
+  }
+
+  .hero--video .lead { color:rgba(255,255,255,.9) !important; }
+  .hero--video .quick { color:#fff !important; }
+  .hero--video .button--outline { border-color:#fff !important;color:#fff !important; }
+}

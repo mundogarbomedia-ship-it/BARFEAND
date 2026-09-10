@@ -10,7 +10,7 @@
   <link rel="icon" href="favicon.ico?v=20260910" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="imagenes/logo/favicon-32.png?v=20260910">
   <link rel="apple-touch-icon" sizes="180x180" href="imagenes/logo/apple-touch-icon.png?v=20260910">
-  <link rel="preload" as="image" href="imagenes/web/bol-barf.webp" type="image/webp">
+  <link rel="preload" as="image" href="imagenes/video/barfeand-gos-gat-poster.webp" type="image/webp">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="BARFEAND">
   <meta property="og:locale" content="ca_AD">
@@ -36,8 +36,8 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="css/estilos.css?v=20260910-1719">
-  <link rel="stylesheet" href="css/mobile-v2.css?v=20260910-1719">
+  <link rel="stylesheet" href="css/estilos.css?v=20260910-1940">
+  <link rel="stylesheet" href="css/mobile-v2.css?v=20260910-1940">
 </head>
 <body>
 <a class="skip" href="#contingut">Anar al contingut principal</a>
@@ -55,16 +55,18 @@
   </div>
 </header>
 <main id="contingut">
-  <section id="inici" class="hero">
+  <section id="inici" class="hero hero--video">
+    <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="imagenes/video/barfeand-gos-gat-poster.webp" aria-hidden="true">
+      <source src="imagenes/video/barfeand-gos-gat.mp4" type="video/mp4">
+    </video>
     <div class="container hero__grid">
-      <div>
+      <div class="hero__content">
         <p class="eyebrow">Alimentació BARF · elaborada a Andorra</p>
         <h1>La salut de la teva mascota comença aquí.</h1>
         <p class="lead">Receptes BARF elaborades amb carn, ossos carnosos, vísceres, verdura i fruita. Tria una recepta monoproteica o la nostra multiproteïna i calcula una ració diària orientativa.</p>
         <div class="hero__actions"><a class="button" href="#productes">Veure la gamma</a><a class="button button--outline" href="#calculadora">Calcular la ració</a></div>
         <ul class="quick" aria-label="Informació destacada"><li>Elaborat a Andorra</li><li>Conservació a −18 °C</li><li>Formats de 500 g i 1 kg</li></ul>
       </div>
-      <figure class="hero__media"><img src="imagenes/web/bol-barf.webp" alt="Bol amb alimentació BARF" width="1536" height="1024" fetchpriority="high"></figure>
     </div>
   </section>
 
@@ -147,5 +149,5 @@
     <figcaption>Mostra d’etiqueta. El lot, la data de caducitat i altres dades variables poden canviar segons la producció i el format del paquet.</figcaption>
   </figure>
 </dialog>
-<script src="js/principal.js?v=20260910-1719" defer></script><script src="js/calculadora.js?v=20260910-1719" defer></script>
+<script src="js/principal.js?v=20260910-1940" defer></script><script src="js/calculadora.js?v=20260910-1940" defer></script>
 </body></html>

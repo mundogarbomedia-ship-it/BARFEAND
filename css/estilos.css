@@ -23,3 +23,51 @@
 .label-reference{margin:0}.label-reference img{width:100%;max-height:70vh;object-fit:contain;border:1px solid var(--line);border-radius:16px;background:#fff}
 .label-reference figcaption{margin-top:12px;color:var(--muted);font-size:.8rem;line-height:1.5}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Capçalera panoràmica amb vídeo */
+.hero--video{
+  position:relative;
+  isolation:isolate;
+  min-height:clamp(600px,calc(100svh - 92px),760px);
+  overflow:hidden;
+  background:#3f392b url('../imagenes/video/barfeand-gos-gat-poster.webp') center 52%/cover no-repeat;
+  color:#fff;
+}
+.hero--video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(14,12,10,.84) 0%,rgba(14,12,10,.69) 38%,rgba(14,12,10,.24) 68%,rgba(14,12,10,.08) 100%),linear-gradient(0deg,rgba(12,10,8,.35),transparent 55%);
+}
+.hero__video{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 52%;
+}
+.hero--video .hero__grid{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  min-height:inherit;
+  padding-block:64px;
+}
+.hero--video .hero__content{width:min(100%,720px)}
+.hero--video h1{
+  max-width:720px;
+  color:#fff;
+  font-size:clamp(3rem,6vw,5.4rem);
+  text-shadow:0 3px 24px rgba(0,0,0,.28);
+}
+.hero--video .eyebrow{color:#ff8cb2}
+.hero--video .lead{color:rgba(255,255,255,.9);text-shadow:0 2px 15px rgba(0,0,0,.28)}
+.hero--video .quick{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
+.hero--video .button--outline{border-color:#fff;color:#fff}
+.hero--video .button--outline:hover{background:#fff;border-color:#fff;color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.hero__video{display:none}}
