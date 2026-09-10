@@ -32,6 +32,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* Pegatines oficials de les gammes BARFEAND. */
+  const graellaPegatines = document.querySelector(".badge-row");
+  if (graellaPegatines) {
+    const pegatines = [
+      ["Xai", "imagenes/pegatinas/xai.webp"],
+      ["Conill", "imagenes/pegatinas/conill.webp"],
+      ["Pollastre", "imagenes/pegatinas/pollastre.webp"],
+      ["Gall d’indi", "imagenes/pegatinas/gall-indi.webp"],
+      ["Vedella", "imagenes/pegatinas/vedella.webp"],
+      ["Porc", "imagenes/pegatinas/porc.webp"]
+    ];
+
+    graellaPegatines.className = "sticker-grid";
+    graellaPegatines.setAttribute("aria-label", "Pegatines de la gamma monoproteica BARFEAND");
+    graellaPegatines.innerHTML = pegatines
+      .map(([nom, src]) => `<figure class="sticker-figure"><img src="${src}" alt="Pegatina BARFEAND Monoproteïna ${nom}" width="220" height="220" loading="lazy"></figure>`)
+      .join("");
+  }
+
+  const distintiuMulti = document.querySelector(".multi-badge");
+  if (distintiuMulti) {
+    distintiuMulti.className = "sticker-multi";
+    distintiuMulti.setAttribute("aria-label", "Pegatina blanca BARFEAND Multiproteïna");
+    distintiuMulti.innerHTML = '<img src="imagenes/pegatinas/multiproteina.webp" alt="Pegatina blanca BARFEAND Multiproteïna" width="180" height="180" loading="lazy">';
+  }
+
+  if (!document.getElementById("estil-pegatines-barfeand")) {
+    const estil = document.createElement("style");
+    estil.id = "estil-pegatines-barfeand";
+    estil.textContent = `
+      .sticker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:30px;align-items:center}
+      .sticker-figure{display:grid;place-items:center;margin:0}
+      .sticker-figure img{display:block;width:100%;max-width:190px;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 10px 24px rgba(25,20,22,.10)}
+      .sticker-multi{display:grid;place-items:center;width:100%;margin:0 auto 25px}
+      .sticker-multi img{display:block;width:100%;max-width:310px;aspect-ratio:1;object-fit:cover;border-radius:50%;background:#fff;box-shadow:0 10px 24px rgba(25,20,22,.10)}
+      @media(max-width:650px){.sticker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sticker-figure img{max-width:165px}.sticker-multi img{max-width:260px}}
+    `;
+    document.head.appendChild(estil);
+  }
+
   document.querySelectorAll(".product-card").forEach((targeta) => {
     const foto = targeta.querySelector(".product-photo");
     const preu = targeta.querySelector(".price");
