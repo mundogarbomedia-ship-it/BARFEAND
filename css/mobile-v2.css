@@ -351,17 +351,33 @@
   .hero--video .hero__grid {
     display:flex !important;
     align-items:flex-end !important;
+    justify-content:center !important;
     min-height:inherit !important;
     padding-top:180px !important;
     padding-bottom:42px !important;
   }
 
-  .hero--video h1 {
-    max-width:590px !important;
-    color:#fff !important;
+  .hero--video .hero__content {
+    width:min(100%,520px) !important;
+    margin-inline:auto !important;
+    text-align:center !important;
   }
 
+  .hero--video h1 {
+    max-width:590px !important;
+    margin-inline:auto !important;
+    color:#fff !important;
+    text-align:center !important;
+  }
+
+  .hero--video .eyebrow,
+  .hero--video .lead { text-align:center !important; }
   .hero--video .lead { color:rgba(255,255,255,.9) !important; }
-  .hero--video .quick { color:#fff !important; }
+  .hero--video .hero__actions { width:100% !important; }
+  .hero--video .quick {
+    justify-content:center !important;
+    color:#fff !important;
+    text-align:center !important;
+  }
   .hero--video .button--outline { border-color:#fff !important;color:#fff !important; }
 }
