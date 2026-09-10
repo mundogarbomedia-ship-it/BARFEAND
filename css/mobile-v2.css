@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+/* BARFEAND · correcció mòbil robusta · 2026-09-10 */
+@media (max-width: 700px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  body {
+    margin: 0;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: auto !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  /* El salt d'accessibilitat no ha de ser visible excepte quan rep focus. */
+  .skip {
+    position: fixed !important;
+    top: 8px !important;
+    left: 8px !important;
+    z-index: 9999 !important;
+    transform: translateY(-180%) !important;
+  }
+  .skip:focus { transform: none !important; }
+
+  /* Capçalera */
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
+    background: rgba(255,255,255,.98) !important;
+    border-bottom: 1px solid #e6ded8 !important;
+  }
+
+  .header__inner {
+    min-height: 72px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    position: relative !important;
+  }
+
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
+    min-width: 0 !important;
+  }
+
+  .brand img {
+    display: block !important;
+    width: 48px !important;
+    height: 48px !important;
+    flex: 0 0 48px !important;
+    object-fit: contain !important;
+  }
+
+  .brand span {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  .brand strong {
+    font-size: .88rem !important;
+    letter-spacing: .09em !important;
+    white-space: nowrap !important;
+  }
+
+  .brand small {
+    margin-top: 4px !important;
+    font-size: .62rem !important;
+    white-space: nowrap !important;
+  }
+
+  .menu-toggle {
+    display: flex !important;
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    margin-left: auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+  }
+
+  .nav {
+    position: absolute !important;
+    top: 72px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    display: none !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 14px 18px 18px !important;
+    background: #fff !important;
+    border-bottom: 1px solid #e6ded8 !important;
+    box-shadow: 0 18px 35px rgba(20,20,20,.12) !important;
+  }
+
+  .nav.open { display: flex !important; }
+
+  .nav > a:not(.button) {
+    display: block !important;
+    padding: 12px 4px !important;
+    border-bottom: 1px solid #e6ded8 !important;
+    font-size: .95rem !important;
+  }
+
+  .nav .button {
+    display: inline-flex !important;
+    width: 100% !important;
+    margin-top: 14px !important;
+  }
+
+  /* Tipografia */
+  h1 {
+    max-width: none !important;
+    margin-bottom: 20px !important;
+    font-size: clamp(2.35rem, 11.5vw, 3.05rem) !important;
+    line-height: 1.01 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  h2 {
+    font-size: clamp(1.95rem, 9vw, 2.65rem) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.04em !important;
+  }
+
+  h3 { font-size: 1.35rem !important; }
+
+  .eyebrow {
+    margin-bottom: 12px !important;
+    font-size: .7rem !important;
+    letter-spacing: .13em !important;
+  }
+
+  .lead {
+    max-width: none !important;
+    font-size: 1rem !important;
+    line-height: 1.62 !important;
+  }
+
+  /* Hero */
+  .hero__grid {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    align-items: start !important;
+    gap: 30px !important;
+    min-height: 0 !important;
+    padding-top: 38px !important;
+    padding-bottom: 50px !important;
+  }
+
+  .hero__actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 24px 0 !important;
+  }
+
+  .hero__actions .button {
+    display: inline-flex !important;
+    width: 100% !important;
+  }
+
+  .quick {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+    font-size: .84rem !important;
+  }
+
+  .hero__media {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 9px !important;
+    border-radius: 22px !important;
+    transform: none !important;
+  }
+
+  .hero__media:hover { transform: none !important; }
+
+  .hero__media img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    border-radius: 15px !important;
+  }
+
+  /* Seccions */
+  .values, .ranges, .products, .calculator, .faq, .dark-section {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .value-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin-top: 28px !important;
+  }
+
+  .value-grid article {
+    display: block !important;
+    padding: 24px 20px !important;
+    background: #f7f3ef !important;
+    border-radius: 20px !important;
+    text-align: center !important;
+  }
+
+  .value-icon {
+    margin: 0 auto 12px !important;
+  }
+
+  .split, .range-grid, .calc-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 30px !important;
+  }
+
+  .formula {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .formula div { padding: 18px !important; }
+  .formula strong { display: block !important; font-size: 1.8rem !important; }
+  .formula span { display: block !important; }
+
+  .section-head { margin-bottom: 30px !important; }
+  .range-grid { gap: 16px !important; }
+  .range-card { padding: 22px 16px !important; border-radius: 20px !important; }
+
+  .sticker-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .sticker-figure { margin: 0 !important; }
+  .sticker-figure img { width: 100% !important; max-width: 145px !important; height: auto !important; margin: auto !important; }
+  .sticker-multi img { width: 100% !important; max-width: 230px !important; height: auto !important; margin: auto !important; }
+
+  /* Calculadora */
+  .calc-form {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 22px 16px !important;
+    border-radius: 22px !important;
+  }
+
+  .calc-form label { display: flex !important; }
+  .calc-form input, .calc-form select { width: 100% !important; min-height: 50px !important; }
+  .calc-button, .calc-result, .note { grid-column: auto !important; }
+
+  /* Productes */
+  .product-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 18px !important;
+  }
+
+  .product-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+  }
+
+  .product-visual {
+    width: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+  }
+
+  .product-photo {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    padding: 12px !important;
+    object-fit: contain !important;
+  }
+
+  .product-body { padding: 20px !important; }
+  .product-title { display: block !important; }
+  .product-title h3 { margin-bottom: 5px !important; }
+  .price { display: block !important; margin-bottom: 12px !important; font-size: 1.35rem !important; }
+  .format-switch { display: flex !important; flex-wrap: wrap !important; }
+  .mini-formula { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .ingredients { min-height: 0 !important; }
+  .label-button { left: 12px !important; bottom: 12px !important; max-width: calc(100% - 24px) !important; }
+
+  /* Peu i modal */
+  .footer__grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .footer p:last-child { text-align: left !important; }
+  .label-dialog { width: calc(100% - 20px) !important; padding: 18px !important; }
+  .label-reference img { max-height: 72vh !important; }
+}
