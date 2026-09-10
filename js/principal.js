@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (distintiuMulti) {
     distintiuMulti.className = "sticker-multi";
     distintiuMulti.setAttribute("aria-label", "Pegatina blanca BARFEAND Multiproteïna");
-    distintiuMulti.innerHTML = '<img src="imagenes/pegatinas/multiproteina.webp" alt="Pegatina blanca BARFEAND Multiproteïna" width="180" height="180" loading="lazy">';
+    distintiuMulti.innerHTML = '<img src="imagenes/pegatinas/multiproteina.webp" alt="Pegatina blanca BARFEAND Multiproteïna" width="310" height="310" loading="lazy">';
   }
 
   if (!document.getElementById("estil-pegatines-barfeand")) {
@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     estil.textContent = `
       .sticker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:30px;align-items:center}
       .sticker-figure{display:grid;place-items:center;margin:0}
-      .sticker-figure img{display:block;width:100%;max-width:190px;aspect-ratio:1;object-fit:cover;border-radius:50%;box-shadow:0 10px 24px rgba(25,20,22,.10)}
+      .sticker-figure img{display:block;width:100%;max-width:190px;height:auto;object-fit:contain;border-radius:0;box-shadow:none}
       .sticker-multi{display:grid;place-items:center;width:100%;margin:0 auto 25px}
-      .sticker-multi img{display:block;width:100%;max-width:310px;aspect-ratio:1;object-fit:cover;border-radius:50%;background:#fff;box-shadow:0 10px 24px rgba(25,20,22,.10)}
+      .sticker-multi img{display:block;width:100%;max-width:310px;height:auto;object-fit:contain;border-radius:0;background:transparent;box-shadow:none}
       @media(max-width:650px){.sticker-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sticker-figure img{max-width:165px}.sticker-multi img{max-width:260px}}
     `;
     document.head.appendChild(estil);
