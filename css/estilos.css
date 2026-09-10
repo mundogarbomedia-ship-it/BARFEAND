@@ -72,3 +72,22 @@
 .hero--video .button--outline{border-color:#fff;color:#fff}
 .hero--video .button--outline:hover{background:#fff;border-color:#fff;color:var(--ink)}
 @media(prefers-reduced-motion:reduce){.hero__video{display:none}}
+
+.collaborators{padding-block:68px;background:var(--cream)}
+.collaborators .section-head{margin-bottom:28px}
+.collaborator-card{display:grid;grid-template-columns:minmax(220px,.7fr) 1.8fr;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:white;box-shadow:0 18px 45px rgba(20,20,20,.08)}
+.collaborator-brand{position:relative;min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#f2eee8;color:#241b16;text-align:center}
+.collaborator-brand::before,.collaborator-brand::after{content:"";position:absolute;border-radius:50%;background:#d87834}
+.collaborator-brand::before{width:120px;height:120px;top:-48px;left:-42px}
+.collaborator-brand::after{width:75px;height:75px;right:-25px;bottom:-28px}
+.collaborator-brand strong{font-size:clamp(2.6rem,5vw,4.5rem);line-height:1;letter-spacing:.04em}
+.collaborator-brand span{margin-top:10px;color:#c95042;font-size:.9rem;letter-spacing:.16em}
+.collaborator-content{display:flex;flex-direction:column;justify-content:center;padding:38px 42px}
+.collaborator-content h3{margin:0 0 12px;font-size:1.55rem}
+.collaborator-content>p{margin:0 0 18px;color:var(--muted)}
+.collaborator-content address{font-style:normal}
+.collaborator-content address p{margin:0 0 16px}
+.collaborator-links{display:flex;flex-wrap:wrap;gap:10px}
+.collaborator-links a{display:inline-flex;align-items:center;min-height:38px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:.86rem;font-weight:750;text-decoration:none;transition:.2s ease}
+.collaborator-links a:hover{border-color:#d87834;color:#b54f2f;transform:translateY(-1px)}
+@media(max-width:760px){.collaborators{padding-block:50px}.collaborator-card{grid-template-columns:1fr}.collaborator-brand{min-height:180px}.collaborator-content{padding:28px 22px}.collaborator-links{flex-direction:column;align-items:stretch}.collaborator-links a{justify-content:center}}
