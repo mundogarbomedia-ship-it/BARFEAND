@@ -32,6 +32,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* Icones oficials dels quatre valors BARFEAND. */
+  const iconesValors = [...document.querySelectorAll(".value-icon")];
+  iconesValors.forEach((icona, index) => {
+    if (index > 3) return;
+    icona.textContent = "";
+    icona.classList.add("value-icon--brand", `value-icon--${index + 1}`);
+  });
+
+  if (iconesValors.length && !document.getElementById("estil-icones-valors-barfeand")) {
+    const estilValors = document.createElement("style");
+    estilValors.id = "estil-icones-valors-barfeand";
+    estilValors.textContent = `
+      .value-icon--brand{
+        width:100px;
+        height:100px;
+        border:0;
+        border-radius:0;
+        background-color:transparent;
+        background-image:url("imagenes/iconos/valors.webp");
+        background-repeat:no-repeat;
+        background-size:400% 100%;
+        box-shadow:none;
+      }
+      .value-icon--1{background-position:0% 0}
+      .value-icon--2{background-position:33.333% 0}
+      .value-icon--3{background-position:66.667% 0}
+      .value-icon--4{background-position:100% 0}
+      @media(max-width:650px){.value-icon--brand{width:92px;height:92px}}
+    `;
+    document.head.appendChild(estilValors);
+  }
+
   /* Pegatines oficials de les gammes BARFEAND. */
   const graellaPegatines = document.querySelector(".badge-row");
   if (graellaPegatines) {
