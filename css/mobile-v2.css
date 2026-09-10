@@ -337,7 +337,7 @@
 @media (max-width: 700px) {
   .hero--video {
     min-height:max(680px,calc(100svh - 72px)) !important;
-    background-position:58% center !important;
+    background-position:32% center !important;
   }
 
   .hero--video::after {
@@ -345,7 +345,7 @@
   }
 
   .hero--video .hero__video {
-    object-position:58% center !important;
+    object-position:32% center !important;
   }
 
   .hero--video .hero__grid {
