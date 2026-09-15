@@ -40,13 +40,53 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!videoHero) return;
     if (movimentReduit.matches) {
       videoHero.pause();
+      videoHero.classList.remove("is-playing");
       return;
     }
+
+    videoHero.muted = true;
+    videoHero.defaultMuted = true;
+    videoHero.setAttribute("muted", "");
+    videoHero.setAttribute("playsinline", "");
     videoHero.play().catch(() => {});
   }
 
+  videoHero?.addEventListener("playing", () => videoHero.classList.add("is-playing"));
+  videoHero?.addEventListener("loadeddata", actualitzarVideoHero, { once: true });
   actualitzarVideoHero();
   movimentReduit.addEventListener?.("change", actualitzarVideoHero);
+
+  /* Navegació ràpida fixa per a pantalles mòbils. */
+  const navegacioMobil = document.querySelector(".mobile-quick-nav");
+  const enllacosRapids = [...(navegacioMobil?.querySelectorAll("a[data-section]") || [])];
+  const seccionsRapides = enllacosRapids
+    .map((enllac) => document.getElementById(enllac.dataset.section))
+    .filter(Boolean);
+
+  function marcarSeccioActiva(id) {
+    enllacosRapids.forEach((enllac) => {
+      if (enllac.dataset.section === id) {
+        enllac.setAttribute("aria-current", "location");
+      } else {
+        enllac.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  enllacosRapids.forEach((enllac) => {
+    enllac.addEventListener("click", () => marcarSeccioActiva(enllac.dataset.section));
+  });
+
+  if (seccionsRapides.length && "IntersectionObserver" in window) {
+    const observadorSeccions = new IntersectionObserver((entrades) => {
+      const visible = entrades
+        .filter((entrada) => entrada.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) marcarSeccioActiva(visible.target.id);
+    }, { rootMargin: "-24% 0px -58% 0px", threshold: [0, .15, .35] });
+
+    seccionsRapides.forEach((seccio) => observadorSeccions.observe(seccio));
+  }
 
   /* Icones oficials dels quatre valors BARFEAND. */
   const iconesValors = [...document.querySelectorAll(".value-icon")];

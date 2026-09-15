@@ -36,8 +36,8 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="css/estilos.css?v=20260910-2325">
-  <link rel="stylesheet" href="css/mobile-v2.css?v=20260910-2215">
+  <link rel="stylesheet" href="css/estilos.css?v=20260915-1200">
+  <link rel="stylesheet" href="css/mobile-v2.css?v=20260915-1200">
 </head>
 <body>
 <a class="skip" href="#contingut">Anar al contingut principal</a>
@@ -56,7 +56,8 @@
 </header>
 <main id="contingut">
   <section id="inici" class="hero hero--video">
-    <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="imagenes/video/barfeand-gos-gat-poster.webp" aria-hidden="true">
+    <video class="hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="imagenes/video/barfeand-gos-gat-poster.webp" disablepictureinpicture tabindex="-1" aria-hidden="true">
+      <source src="imagenes/video/barfeand-gos-gat-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
       <source src="imagenes/video/barfeand-gos-gat.mp4" type="video/mp4">
     </video>
     <div class="container hero__grid">
@@ -137,6 +138,13 @@
     <details><summary>On puc comprar BARFEAND?</summary><p>Online a El Rebost del Nord, amb les opcions de lliurament o recollida que ofereix la botiga. També pots trobar BARFEAND a SÜNA, perruqueria canina i felina i botiga especialitzada, a l’avinguda del Pessebre, 90, Escaldes-Engordany.</p></details>
   </div></div></section>
 </main>
+<nav class="mobile-quick-nav" aria-label="Navegació ràpida">
+  <a href="#inici" data-section="inici" aria-current="location">Inici</a>
+  <a href="#barf" data-section="barf">Què és</a>
+  <a href="#gammes" data-section="gammes">Gammes</a>
+  <a href="#calculadora" data-section="calculadora">Ració</a>
+  <a href="#productes" data-section="productes">Productes</a>
+</nav>
 <div class="wholesale-strip"><div class="container">Som majoristes, contacta’ns per a la teva botiga.</div></div>
 <section class="collaborators" aria-labelledby="collaborators-title">
   <div class="container">
@@ -178,5 +186,5 @@
     <figcaption>Mostra d’etiqueta. El lot, la data de caducitat i altres dades variables poden canviar segons la producció i el format del paquet.</figcaption>
   </figure>
 </dialog>
-<script src="js/principal.js?v=20260910-1940" defer></script><script src="js/calculadora.js?v=20260910-1940" defer></script>
+<script src="js/principal.js?v=20260915-1200" defer></script><script src="js/calculadora.js?v=20260910-1940" defer></script>
 </body></html>
