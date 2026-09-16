@@ -190,21 +190,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dialeg = document.getElementById("label-dialog");
   const titolDialeg = document.getElementById("dialog-title");
-  const imatgeEtiqueta = document.getElementById("dialog-label-image");
+  const vistaEtiqueta = document.getElementById("dialog-label-preview");
+  const nomEtiqueta = document.getElementById("label-product-name");
+  const preuTotalEtiqueta = document.getElementById("label-total-price");
+  const preuQuiloEtiqueta = document.getElementById("label-price-kg");
+  const pesEtiqueta = document.getElementById("label-weight");
+  const ingredientsEtiqueta = document.getElementById("label-ingredients");
   const botoTancar = document.querySelector(".dialog-close");
 
   document.querySelectorAll(".label-button").forEach((boto) => {
     boto.addEventListener("click", () => {
       const targeta = boto.closest(".product-card");
-      if (!targeta || !dialeg || !imatgeEtiqueta) return;
+      if (!targeta || !dialeg || !vistaEtiqueta) return;
 
       const nom = targeta.dataset.labelName || targeta.querySelector("h3")?.textContent || "Producte BARFEAND";
-      const etiqueta = targeta.dataset.labelImage;
-      if (!etiqueta) return;
+      const formatActiu = targeta.querySelector("button.format.active") || targeta.querySelector("button.format");
+      const pes = formatActiu?.dataset.weight === "500" ? "500 g" : "1 KG";
+      const preuTotal = formatActiu?.dataset.price || targeta.querySelector(".price")?.textContent?.trim() || "—";
+      const preuQuilo = targeta.querySelector(".perkg")?.textContent?.split("·")[0]?.trim() || "—";
+      const ingredients = targeta.querySelector(".ingredients")?.textContent?.replace(/^Ingredients:\s*/i, "").trim() || "—";
 
-      if (titolDialeg) titolDialeg.textContent = nom;
-      imatgeEtiqueta.src = etiqueta;
-      imatgeEtiqueta.alt = `Etiqueta de referència de BARFEAND ${nom}`;
+      if (titolDialeg) titolDialeg.textContent = `${nom} · ${pes === "1 KG" ? "1 kg" : pes}`;
+      if (nomEtiqueta) nomEtiqueta.textContent = nom;
+      if (preuTotalEtiqueta) preuTotalEtiqueta.textContent = preuTotal;
+      if (preuQuiloEtiqueta) preuQuiloEtiqueta.textContent = preuQuilo.replace("€/kg", "").trim();
+      if (pesEtiqueta) pesEtiqueta.textContent = pes;
+      if (ingredientsEtiqueta) ingredientsEtiqueta.textContent = ingredients;
+      vistaEtiqueta.setAttribute("aria-label", `Etiqueta de referència de BARFEAND ${nom}, format ${pes}`);
       dialeg.showModal();
     });
   });

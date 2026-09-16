@@ -36,7 +36,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="css/estilos.css?v=20260915-1200">
+  <link rel="stylesheet" href="css/estilos.css?v=20260916-3">
   <link rel="stylesheet" href="css/mobile-v2.css?v=20260915-1200">
 </head>
 <body>
@@ -182,9 +182,26 @@
     <h2 id="dialog-title">Producte BARFEAND</h2>
   </div>
   <figure class="label-reference">
-    <img id="dialog-label-image" src="" alt="" width="1200" height="800">
-    <figcaption>Mostra d’etiqueta. El lot, la data de caducitat i altres dades variables poden canviar segons la producció i el format del paquet.</figcaption>
+    <div id="dialog-label-preview" class="label-preview" role="img" aria-label="Etiqueta de referència del producte seleccionat">
+      <div class="label-brand">
+        <img src="imagenes/logo/logo-barfeand.webp" alt="" width="512" height="512">
+        <span>By El Rebost del Nord</span>
+      </div>
+      <div class="label-main">
+        <p>DIETA BARF</p>
+        <h3 id="label-product-name">Producte</h3>
+        <div class="label-total-row"><span>Total import:</span><strong id="label-total-price">—</strong></div>
+        <div class="label-details"><span>Preu €/kg: <b id="label-price-kg">—</b></span><span>Pes: <b id="label-weight">—</b></span></div>
+      </div>
+      <div class="label-storage">CONSERVAR A −18 °C</div>
+      <div class="label-meta"><span>Lot: —</span><span>Data de caducitat: —</span></div>
+      <div class="label-bottom">
+        <div class="label-formula"><b>CARN 60%</b><b>OSSOS 20%</b><b>VÍSCERES 15%</b><b>VERDURES 5%</b></div>
+        <p><strong>Ingredients:</strong><span id="label-ingredients">—</span></p>
+      </div>
+    </div>
+    <figcaption>Mostra d’etiqueta adaptada al format seleccionat. El lot, la data de caducitat i altres dades variables poden canviar segons la producció.</figcaption>
   </figure>
 </dialog>
-<script src="js/principal.js?v=20260915-1200" defer></script><script src="js/calculadora.js?v=20260910-1940" defer></script>
+<script src="js/principal.js?v=20260916-3" defer></script><script src="js/calculadora.js?v=20260910-1940" defer></script>
 </body></html>
