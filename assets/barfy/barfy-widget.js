@@ -10,7 +10,7 @@
   const apiUrl = script?.dataset.api || 'https://api.barfeand.com/asistente-v2.php';
   const avatarUrl = script?.dataset.avatar
     ? new URL(script.dataset.avatar, document.baseURI).href
-    : new URL('barfy-avatar.png', scriptBase).href;
+    : new URL('barfy-avatar-daxter.png', scriptBase).href;
 
   const host = document.createElement('div');
   host.id = 'barfy-assistant-host';
@@ -364,7 +364,7 @@
       listening: 'T’escolto…',
       thinking: 'Estic pensant…',
       speaking: 'Barfy està parlant…',
-      intro: 'Hola! Soc Barfy. Em pots preguntar sobre la dieta BARF, les receptes, les racions o com comprar.',
+      intro: 'Hola! Soc en Barfy, l’assistent de BARFEAND. En què puc ajudar la teva mascota avui?',
       languageReady: 'Perfecte, parlem en català. Si vols canviar, digues castellano. Què vols saber?',
       unheard: 'No t’he sentit bé. Toca en Barfy i torna-ho a provar.',
       permission: 'Necessito permís per utilitzar el micròfon. Activa’l al navegador i torna-ho a provar.',
@@ -405,8 +405,10 @@
   const languageRetry = 'No t’he entès. Digues només català o castellano. No te he entendido. Di solo català o español.';
   const detectedPageLanguage = (document.documentElement.lang || '').toLowerCase();
 
-  let language = detectedPageLanguage.startsWith('es') ? 'es' : 'ca';
-  let languageChosen = false;
+  // Barfy always welcomes visitors in Catalan. The API detects the language
+  // of every answer and returns it so the next turn uses the matching voice.
+  let language = 'ca';
+  let languageChosen = true;
   let selectingLanguage = false;
   let history = [];
   let recognizer = null;
@@ -537,8 +539,9 @@
 
     const utterance = new SpeechSynthesisUtterance(value);
     utterance.lang = forcedLanguage || (language === 'ca' ? 'ca-ES' : 'es-ES');
-    utterance.pitch = 1.16;
-    utterance.rate = 1.02;
+    // Un tono algo más alegre y expresivo, sin llegar a una voz caricaturesca.
+    utterance.pitch = 1.24;
+    utterance.rate = 1.04;
 
     const voices = window.speechSynthesis.getVoices();
     const voice = voices.find((item) => item.lang?.toLowerCase().startsWith(utterance.lang.slice(0, 2)));
