@@ -417,6 +417,11 @@
   let voiceSessionActive = false;
   let requestPending = false;
   let activeController = null;
+  let speechController = null;
+  let audioContext = null;
+  let activeAudioSource = null;
+  let activeHtmlAudio = null;
+  let activeAudioUrl = '';
   let sessionVersion = 0;
   let speechVersion = 0;
 
@@ -493,9 +498,50 @@
     }
   }
 
+  function ensureAudioContext() {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return null;
+    try {
+      if (!audioContext) audioContext = new AudioContextClass();
+      if (audioContext.state === 'suspended') audioContext.resume().catch(() => {});
+      return audioContext;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function clearSpeechPlayback() {
+    if (speechController) {
+      speechController.abort();
+      speechController = null;
+    }
+    if (activeAudioSource) {
+      try {
+        activeAudioSource.onended = null;
+        activeAudioSource.stop();
+      } catch (_) {
+        /* Audio was already stopped. */
+      }
+      activeAudioSource.disconnect();
+      activeAudioSource = null;
+    }
+    if (activeHtmlAudio) {
+      activeHtmlAudio.onended = null;
+      activeHtmlAudio.onerror = null;
+      activeHtmlAudio.pause();
+      activeHtmlAudio.removeAttribute('src');
+      activeHtmlAudio = null;
+    }
+    if (activeAudioUrl) {
+      URL.revokeObjectURL(activeAudioUrl);
+      activeAudioUrl = '';
+    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
   function cancelSpeech() {
     speechVersion += 1;
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    clearSpeechPlayback();
   }
 
   function stopConversation() {
@@ -524,22 +570,14 @@
     launcher.focus();
   }
 
-  function speak(value, onEnd, forcedLanguage) {
-    stopRecognition(true);
-    isListening = false;
-
+  function speakWithBrowser(value, forcedLanguage, finish) {
     if (!('speechSynthesis' in window)) {
-      onEnd?.();
+      finish();
       return;
     }
 
-    const currentSpeech = speechVersion + 1;
-    speechVersion = currentSpeech;
-    window.speechSynthesis.cancel();
-
     const utterance = new SpeechSynthesisUtterance(value);
     utterance.lang = forcedLanguage || (language === 'ca' ? 'ca-ES' : 'es-ES');
-    // Un tono algo más alegre y expresivo, sin llegar a una voz caricaturesca.
     utterance.pitch = 1.24;
     utterance.rate = 1.04;
 
@@ -547,12 +585,86 @@
     const voice = voices.find((item) => item.lang?.toLowerCase().startsWith(utterance.lang.slice(0, 2)));
     if (voice) utterance.voice = voice;
 
-    const finish = () => {
-      if (currentSpeech === speechVersion) onEnd?.();
-    };
     utterance.onend = finish;
     utterance.onerror = finish;
     window.speechSynthesis.speak(utterance);
+  }
+
+  async function speak(value, onEnd, forcedLanguage) {
+    stopRecognition(true);
+    isListening = false;
+
+    const currentSpeech = speechVersion + 1;
+    speechVersion = currentSpeech;
+    clearSpeechPlayback();
+    const speechLanguage = forcedLanguage
+      ? (forcedLanguage.toLowerCase().startsWith('es') ? 'es' : 'ca')
+      : language;
+    const controller = new AbortController();
+    speechController = controller;
+    const timeout = window.setTimeout(() => controller.abort(), 35000);
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      window.clearTimeout(timeout);
+      if (speechController === controller) speechController = null;
+      if (activeHtmlAudio) activeHtmlAudio = null;
+      if (activeAudioUrl) {
+        URL.revokeObjectURL(activeAudioUrl);
+        activeAudioUrl = '';
+      }
+      if (currentSpeech === speechVersion) onEnd?.();
+    };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify({
+          mode: 'speech',
+          text: String(value).slice(0, 600),
+          language: speechLanguage
+        }),
+        signal: controller.signal
+      });
+
+      if (!response.ok) throw new Error(`TTS HTTP ${response.status}`);
+      const audioData = await response.arrayBuffer();
+      window.clearTimeout(timeout);
+      if (!audioData.byteLength || currentSpeech !== speechVersion) return;
+
+      const context = ensureAudioContext();
+      if (context) {
+        await context.resume();
+        const audioBuffer = await context.decodeAudioData(audioData.slice(0));
+        if (controller.signal.aborted || currentSpeech !== speechVersion) return;
+        const source = context.createBufferSource();
+        activeAudioSource = source;
+        source.buffer = audioBuffer;
+        source.connect(context.destination);
+        source.onended = () => {
+          if (activeAudioSource === source) activeAudioSource = null;
+          source.disconnect();
+          finish();
+        };
+        source.start(0);
+        return;
+      }
+
+      const blob = new Blob([audioData], { type: 'audio/wav' });
+      activeAudioUrl = URL.createObjectURL(blob);
+      const audio = new Audio(activeAudioUrl);
+      activeHtmlAudio = audio;
+      audio.onended = finish;
+      audio.onerror = finish;
+      await audio.play();
+    } catch (error) {
+      window.clearTimeout(timeout);
+      if (currentSpeech !== speechVersion) return;
+      console.warn('Barfy TTS:', error);
+      speakWithBrowser(value, forcedLanguage, finish);
+    }
   }
 
   function startListening(forLanguageChoice = false) {
@@ -629,6 +741,7 @@
   }
 
   function startOrResumeConversation() {
+    ensureAudioContext();
     openPanel();
     if (!recognizer) {
       setCaption(text().unsupported);
