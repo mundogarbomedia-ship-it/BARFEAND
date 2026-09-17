@@ -31,33 +31,47 @@
       }
 
       *, *::before, *::after { box-sizing: border-box; }
-      button, input, select { font: inherit; }
+      button { font: inherit; }
 
       .launcher {
         position: fixed;
         right: 22px;
-        bottom: 22px;
+        bottom: max(22px, calc(env(safe-area-inset-bottom) + 12px));
         z-index: 2147483000;
-        width: 72px;
-        height: 72px;
-        padding: 3px;
-        overflow: hidden;
-        border: 3px solid #fff;
+        display: flex;
+        width: auto;
+        min-width: 164px;
+        height: 54px;
+        align-items: center;
+        gap: 9px;
+        padding: 6px 17px 6px 7px;
+        border: 2px solid #fff;
         border-radius: 999px;
         background: var(--barfy-pink);
+        color: #fff;
         cursor: pointer;
         box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
         transition: transform .18s ease, box-shadow .18s ease;
       }
 
+      .launcher-avatar {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, .9);
+        border-radius: 999px;
+        background: #fff;
+      }
+      .launcher-label { font-size: 13px; font-weight: 750; white-space: nowrap; }
+
       .launcher:hover { transform: translateY(-2px) scale(1.03); }
       .launcher:focus-visible,
       button:focus-visible,
-      input:focus-visible,
-      select:focus-visible,
       a:focus-visible { outline: 3px solid #ff8db1; outline-offset: 3px; }
 
-      .launcher img,
+      .launcher-avatar img,
       .avatar img,
       .orb img {
         display: block;
@@ -72,8 +86,9 @@
         bottom: 108px;
         z-index: 2147483000;
         display: flex;
-        width: min(380px, calc(100vw - 32px));
-        height: min(570px, calc(100vh - 140px));
+        width: min(360px, calc(100vw - 32px));
+        min-height: 350px;
+        max-height: min(470px, calc(100vh - 135px));
         flex-direction: column;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, .09);
@@ -96,18 +111,18 @@
 
       .header {
         display: flex;
-        min-height: 70px;
+        min-height: 60px;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
-        padding: 12px 14px;
+        padding: 9px 13px;
         border-bottom: 1px solid rgba(255, 255, 255, .08);
       }
 
       .identity { display: flex; min-width: 0; align-items: center; gap: 10px; }
       .avatar {
-        width: 43px;
-        height: 43px;
+        width: 38px;
+        height: 38px;
         flex: 0 0 auto;
         overflow: hidden;
         border: 2px solid var(--barfy-pink);
@@ -126,17 +141,15 @@
         white-space: nowrap;
       }
 
-      .header-actions { display: flex; align-items: center; gap: 7px; }
-      .language {
-        max-width: 86px;
-        height: 32px;
-        border: 1px solid rgba(255, 255, 255, .16);
-        border-radius: 10px;
-        background: #203026;
-        color: var(--barfy-text);
-        font-size: 11px;
-        cursor: pointer;
+      .header-actions { display: flex; align-items: center; gap: 9px; }
+      .status-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: #70806d;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, .04);
       }
+      .status-dot.active { background: var(--barfy-pink); }
       .close {
         width: 32px;
         height: 32px;
@@ -156,14 +169,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 13px;
-        padding: 18px 20px 14px;
+        gap: 12px;
+        padding: 17px 15px 13px;
       }
 
       .orb {
         position: relative;
-        width: 124px;
-        height: 124px;
+        width: 108px;
+        height: 108px;
         flex: 0 0 auto;
         padding: 5px;
         overflow: hidden;
@@ -212,16 +225,22 @@
       }
       .caption {
         width: 100%;
-        min-height: 68px;
-        max-height: 116px;
+        min-height: 78px;
+        max-height: 124px;
         overflow: auto;
         margin: 0;
+        padding: 12px 13px;
+        border-radius: 13px;
+        background: rgba(0, 0, 0, .2);
         color: var(--barfy-text);
-        font-size: 14.5px;
+        font-size: 13.5px;
         line-height: 1.5;
-        text-align: center;
+        text-align: left;
       }
       .caption.user { color: #ff8db1; font-weight: 650; }
+      .caption-final,
+      .caption-interim { display: block; }
+      .caption-interim { opacity: .72; font-style: italic; }
 
       .actions {
         display: flex;
@@ -248,49 +267,9 @@
       }
       .action.secondary { background: transparent; }
 
-      .end {
-        border: 0;
-        background: transparent;
-        color: var(--barfy-muted);
-        font-size: 11.5px;
-        cursor: pointer;
-        text-decoration: underline;
-        text-underline-offset: 3px;
-      }
-
-      .composer {
-        display: flex;
-        gap: 8px;
-        padding: 12px;
-        border-top: 1px solid rgba(255, 255, 255, .08);
-        background: rgba(0, 0, 0, .12);
-      }
-      .composer input {
-        min-width: 0;
-        height: 42px;
-        flex: 1;
-        padding: 0 13px;
-        border: 1px solid rgba(255, 255, 255, .16);
-        border-radius: 12px;
-        background: #203026;
-        color: #fff;
-        font-size: 13px;
-      }
-      .composer input::placeholder { color: #91a08c; }
-      .composer button {
-        width: 44px;
-        height: 42px;
-        border: 0;
-        border-radius: 12px;
-        background: var(--barfy-pink);
-        color: #fff;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      .composer button[disabled] { cursor: wait; opacity: .55; }
       .hint {
-        min-height: 25px;
-        padding: 0 14px 10px;
+        min-height: 20px;
+        padding: 0 14px 12px;
         color: #82907e;
         font-size: 10.5px;
         line-height: 1.35;
@@ -298,17 +277,22 @@
       }
 
       @media (max-width: 520px) {
-        .launcher { right: 15px; bottom: 15px; width: 66px; height: 66px; }
+        .launcher {
+          right: 15px;
+          bottom: max(15px, calc(env(safe-area-inset-bottom) + 8px));
+          min-width: 152px;
+          height: 50px;
+        }
         .panel {
           right: 8px;
-          bottom: 91px;
+          bottom: max(78px, calc(env(safe-area-inset-bottom) + 70px));
           width: calc(100vw - 16px);
-          height: min(620px, calc(100dvh - 108px));
-          max-height: none;
+          min-height: 340px;
+          max-height: calc(100dvh - 95px);
           transform-origin: center bottom;
         }
         .body { padding-top: 14px; }
-        .orb { width: 112px; height: 112px; }
+        .orb { width: 102px; height: 102px; }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -316,8 +300,9 @@
       }
     </style>
 
-    <button class="launcher" type="button" aria-label="Obrir Barfy" aria-expanded="false">
-      <img src="${avatarUrl}" alt="">
+    <button class="launcher" type="button" aria-label="Parlar amb Barfy" aria-expanded="false">
+      <span class="launcher-avatar"><img src="${avatarUrl}" alt=""></span>
+      <span class="launcher-label">Parla amb Barfy</span>
     </button>
 
     <section class="panel" role="dialog" aria-modal="false" aria-label="Barfy" aria-hidden="true">
@@ -330,10 +315,7 @@
           </div>
         </div>
         <div class="header-actions">
-          <select class="language" aria-label="Idioma">
-            <option value="ca">Català</option>
-            <option value="es">Español</option>
-          </select>
+          <span class="status-dot" aria-hidden="true"></span>
           <button class="close" type="button" aria-label="Tancar">×</button>
         </div>
       </header>
@@ -346,96 +328,139 @@
           </span>
         </button>
         <div class="state" aria-live="polite"></div>
-        <p class="caption" aria-live="polite"></p>
+        <p class="caption">
+          <span class="caption-final" aria-live="polite"></span>
+          <span class="caption-interim" aria-hidden="true"></span>
+        </p>
         <div class="actions"></div>
-        <button class="end" type="button"></button>
       </div>
 
-      <form class="composer">
-        <input type="text" maxlength="800" autocomplete="off">
-        <button type="submit" aria-label="Enviar">➜</button>
-      </form>
       <div class="hint"></div>
     </section>
   `;
 
   const $ = (selector) => shadow.querySelector(selector);
   const launcher = $('.launcher');
+  const launcherLabel = $('.launcher-label');
   const panel = $('.panel');
   const closeButton = $('.close');
-  const languageSelect = $('.language');
+  const statusDot = $('.status-dot');
   const subtitle = $('.subtitle');
   const orb = $('.orb');
   const state = $('.state');
   const caption = $('.caption');
+  const captionFinal = $('.caption-final');
+  const captionInterim = $('.caption-interim');
   const actions = $('.actions');
-  const endButton = $('.end');
-  const form = $('.composer');
-  const input = $('.composer input');
-  const sendButton = $('.composer button');
   const hint = $('.hint');
 
   const copy = {
     ca: {
-      open: 'Obrir Barfy',
       close: 'Tancar',
+      start: 'Parla amb Barfy',
+      stop: 'Atura',
       subtitle: 'T’ajudo amb la dieta BARF i els productes',
-      idle: 'Toca la imatge per parlar',
+      idle: 'Toca en Barfy per parlar',
       listening: 'T’escolto…',
       thinking: 'Estic pensant…',
       speaking: 'Barfy està parlant…',
       intro: 'Hola! Soc Barfy. Em pots preguntar sobre la dieta BARF, les receptes, les racions o com comprar.',
-      placeholder: 'Escriu la teva pregunta…',
-      end: 'Finalitzar conversa',
-      unheard: 'No t’he sentit bé. Toca la imatge i torna-ho a provar.',
-      unsupported: 'El teu navegador no permet parlar amb Barfy. Pots escriure la pregunta.',
+      languageReady: 'Perfecte, parlem en català. Si vols canviar, digues castellano. Què vols saber?',
+      unheard: 'No t’he sentit bé. Toca en Barfy i torna-ho a provar.',
+      permission: 'Necessito permís per utilitzar el micròfon. Activa’l al navegador i torna-ho a provar.',
+      microphone: 'No trobo cap micròfon disponible.',
+      voiceNetwork: 'El reconeixement de veu no està disponible ara mateix.',
+      unsupported: 'Aquest navegador no permet la conversa per veu amb Barfy.',
       unavailable: 'Ara mateix no puc respondre. Torna-ho a provar d’aquí a uns segons.',
-      empty: 'No he rebut cap resposta. Ho tornem a provar?'
+      empty: 'No he rebut cap resposta. Ho tornem a provar?',
+      hint: 'Només veu · Digues «castellano» per canviar d’idioma',
+      you: 'Tu',
+      barfy: 'Barfy'
     },
     es: {
-      open: 'Abrir Barfy',
       close: 'Cerrar',
+      start: 'Habla con Barfy',
+      stop: 'Detener',
       subtitle: 'Te ayudo con la dieta BARF y los productos',
-      idle: 'Toca la imagen para hablar',
+      idle: 'Toca a Barfy para hablar',
       listening: 'Te escucho…',
       thinking: 'Estoy pensando…',
       speaking: 'Barfy está hablando…',
       intro: '¡Hola! Soy Barfy. Puedes preguntarme sobre la dieta BARF, las recetas, las raciones o cómo comprar.',
-      placeholder: 'Escribe tu pregunta…',
-      end: 'Terminar conversación',
-      unheard: 'No te he oído bien. Toca la imagen y vuelve a intentarlo.',
-      unsupported: 'Tu navegador no permite hablar con Barfy. Puedes escribir la pregunta.',
+      languageReady: 'Perfecto, hablamos en español. Si quieres cambiar, di català. ¿Qué quieres saber?',
+      unheard: 'No te he oído bien. Toca a Barfy y vuelve a intentarlo.',
+      permission: 'Necesito permiso para usar el micrófono. Actívalo en el navegador y vuelve a intentarlo.',
+      microphone: 'No encuentro ningún micrófono disponible.',
+      voiceNetwork: 'El reconocimiento de voz no está disponible ahora mismo.',
+      unsupported: 'Este navegador no permite la conversación por voz con Barfy.',
       unavailable: 'Ahora mismo no puedo responder. Inténtalo de nuevo en unos segundos.',
-      empty: 'No he recibido ninguna respuesta. ¿Lo intentamos otra vez?'
+      empty: 'No he recibido ninguna respuesta. ¿Lo intentamos otra vez?',
+      hint: 'Solo voz · Di «català» para cambiar de idioma',
+      you: 'Tú',
+      barfy: 'Barfy'
     }
   };
 
+  const languagePrompt = 'Per començar, digues català o castellano. Para empezar, di català o español.';
+  const languageRetry = 'No t’he entès. Digues només català o castellano. No te he entendido. Di solo català o español.';
   const detectedPageLanguage = (document.documentElement.lang || '').toLowerCase();
+
   let language = detectedPageLanguage.startsWith('es') ? 'es' : 'ca';
+  let languageChosen = false;
+  let selectingLanguage = false;
   let history = [];
   let recognizer = null;
+  let isListening = false;
+  let recognitionHandled = false;
   let voiceSessionActive = false;
   let requestPending = false;
-
-  languageSelect.value = language;
+  let activeController = null;
+  let sessionVersion = 0;
+  let speechVersion = 0;
 
   function text() {
     return copy[language];
   }
 
+  function setCaption(value, speaker = 'barfy') {
+    const isUser = speaker === 'user';
+    const prefix = isUser ? text().you : text().barfy;
+    caption.classList.toggle('user', isUser);
+    captionFinal.textContent = `${prefix}: ${value}`;
+    captionInterim.textContent = '';
+  }
+
+  function setInterimCaption(value) {
+    caption.classList.add('user');
+    captionFinal.textContent = '';
+    captionInterim.textContent = value ? `${text().you}: ${value}` : '';
+  }
+
+  function setLauncherActive(active) {
+    statusDot.classList.toggle('active', active);
+    launcherLabel.textContent = active ? text().stop : text().start;
+    launcher.setAttribute('aria-label', active ? text().stop : text().start);
+  }
+
+  function syncControls() {
+    orb.disabled = !recognizer || requestPending;
+  }
+
   function applyLanguage() {
     const t = text();
-    launcher.setAttribute('aria-label', t.open);
     closeButton.setAttribute('aria-label', t.close);
     orb.setAttribute('aria-label', language === 'ca' ? 'Parlar amb Barfy' : 'Hablar con Barfy');
-    subtitle.textContent = t.subtitle;
-    input.placeholder = t.placeholder;
-    endButton.textContent = t.end;
+    subtitle.textContent = languageChosen ? t.subtitle : 'Assistent de veu · Asistente de voz';
+    hint.textContent = languageChosen ? t.hint : 'Tria l’idioma parlant · Elige el idioma hablando';
+    setLauncherActive(voiceSessionActive);
     if (!requestPending && !orb.classList.contains('listening') && !orb.classList.contains('speaking')) {
-      state.textContent = t.idle;
+      state.textContent = languageChosen ? t.idle : 'Toca per començar · Toca para empezar';
     }
-    if (!history.length) caption.textContent = t.intro;
+    if (!captionFinal.textContent && !captionInterim.textContent) {
+      setCaption(languageChosen ? t.intro : languagePrompt);
+    }
     if (recognizer) recognizer.lang = language === 'ca' ? 'ca-ES' : 'es-ES';
+    syncControls();
   }
 
   function setMode(mode) {
@@ -456,6 +481,39 @@
     launcher.setAttribute('aria-expanded', 'true');
   }
 
+  function stopRecognition(useAbort = true) {
+    if (!recognizer) return;
+    try {
+      if (useAbort) recognizer.abort();
+      else recognizer.stop();
+    } catch (_) {
+      /* Recognition was already stopped. */
+    }
+  }
+
+  function cancelSpeech() {
+    speechVersion += 1;
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+  }
+
+  function stopConversation() {
+    sessionVersion += 1;
+    voiceSessionActive = false;
+    selectingLanguage = false;
+    recognitionHandled = true;
+    isListening = false;
+    if (activeController) {
+      activeController.abort();
+      activeController = null;
+    }
+    requestPending = false;
+    stopRecognition(true);
+    cancelSpeech();
+    setMode('idle');
+    setLauncherActive(false);
+    syncControls();
+  }
+
   function closePanel() {
     panel.classList.remove('open');
     panel.setAttribute('aria-hidden', 'true');
@@ -464,48 +522,132 @@
     launcher.focus();
   }
 
-  function stopConversation() {
-    voiceSessionActive = false;
-    if (recognizer) {
-      try { recognizer.stop(); } catch (_) { /* already stopped */ }
-    }
-    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-    setMode('idle');
-  }
+  function speak(value, onEnd, forcedLanguage) {
+    stopRecognition(true);
+    isListening = false;
 
-  function guessSpeechLanguage(value) {
-    const sample = ` ${value.toLowerCase()} `;
-    const catalanHints = [' que ', ' amb ', ' per ', ' els ', ' les ', ' una ', ' ració', ' productes', ' gràcies', ' aquí', ' també'];
-    const catalanScore = catalanHints.filter((word) => sample.includes(word)).length;
-    return catalanScore >= 2 ? 'ca-ES' : (language === 'ca' ? 'ca-ES' : 'es-ES');
-  }
-
-  function speak(value, onEnd) {
     if (!('speechSynthesis' in window)) {
       onEnd?.();
       return;
     }
 
+    const currentSpeech = speechVersion + 1;
+    speechVersion = currentSpeech;
     window.speechSynthesis.cancel();
+
     const utterance = new SpeechSynthesisUtterance(value);
-    utterance.lang = guessSpeechLanguage(value);
-    utterance.pitch = 1.2;
-    utterance.rate = 1.03;
+    utterance.lang = forcedLanguage || (language === 'ca' ? 'ca-ES' : 'es-ES');
+    utterance.pitch = 1.16;
+    utterance.rate = 1.02;
 
     const voices = window.speechSynthesis.getVoices();
-    const exactVoice = voices.find((voice) => voice.lang?.toLowerCase().startsWith(utterance.lang.slice(0, 2)));
-    if (exactVoice) utterance.voice = exactVoice;
+    const voice = voices.find((item) => item.lang?.toLowerCase().startsWith(utterance.lang.slice(0, 2)));
+    if (voice) utterance.voice = voice;
 
-    utterance.onend = () => onEnd?.();
-    utterance.onerror = () => onEnd?.();
+    const finish = () => {
+      if (currentSpeech === speechVersion) onEnd?.();
+    };
+    utterance.onend = finish;
+    utterance.onerror = finish;
     window.speechSynthesis.speak(utterance);
   }
 
-  function startListening() {
-    if (!recognizer || requestPending) return;
+  function startListening(forLanguageChoice = false) {
+    if (!recognizer || requestPending || isListening || !voiceSessionActive) return;
+    selectingLanguage = forLanguageChoice;
+    recognitionHandled = false;
+    recognizer.lang = forLanguageChoice
+      ? (detectedPageLanguage.startsWith('es') ? 'es-ES' : 'ca-ES')
+      : (language === 'ca' ? 'ca-ES' : 'es-ES');
+    setLauncherActive(true);
+    setMode('listening');
+    isListening = true;
+    try {
+      recognizer.start();
+    } catch (_) {
+      isListening = false;
+      setMode('idle');
+    }
+  }
+
+  function normalizeSpeech(value) {
+    return value
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z ]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function languageFromSpeech(value, requireCommand = false) {
+    const normalized = normalizeSpeech(value);
+    const catalan = /\b(catala|catalan)\b/.test(normalized);
+    const spanish = /\b(espanol|espanyol|castellano|castella)\b/.test(normalized);
+    if (catalan === spanish) return null;
+
+    if (requireCommand) {
+      const exactChoice = /^(?:en )?(?:catala|catalan|espanol|espanyol|castellano|castella)(?: por favor| si us plau)?$/.test(normalized);
+      const changeCommand = /\b(cambia|cambiar|canvia|canviar|idioma|parla|parlar|habla|hablar)\b/.test(normalized);
+      if (!exactChoice && !changeCommand) return null;
+    }
+
+    return catalan ? 'ca' : 'es';
+  }
+
+  function confirmLanguage(nextLanguage) {
+    stopRecognition(false);
+    language = nextLanguage;
+    languageChosen = true;
+    selectingLanguage = false;
     voiceSessionActive = true;
-    recognizer.lang = language === 'ca' ? 'ca-ES' : 'es-ES';
-    try { recognizer.start(); } catch (_) { /* already listening */ }
+    applyLanguage();
+    const reply = text().languageReady;
+    setCaption(reply);
+    setMode('speaking');
+    const currentSession = sessionVersion;
+    speak(reply, () => {
+      if (currentSession === sessionVersion && voiceSessionActive) startListening(false);
+    });
+  }
+
+  function askForLanguage(retry = false) {
+    openPanel();
+    voiceSessionActive = true;
+    selectingLanguage = true;
+    setLauncherActive(true);
+    const prompt = retry ? languageRetry : languagePrompt;
+    setCaption(prompt);
+    setMode('speaking');
+    const currentSession = sessionVersion;
+    speak(prompt, () => {
+      if (currentSession === sessionVersion && voiceSessionActive) startListening(true);
+    }, detectedPageLanguage.startsWith('es') ? 'es-ES' : 'ca-ES');
+  }
+
+  function startOrResumeConversation() {
+    openPanel();
+    if (!recognizer) {
+      setCaption(text().unsupported);
+      return;
+    }
+    if (!languageChosen) {
+      askForLanguage(false);
+      return;
+    }
+
+    voiceSessionActive = true;
+    setLauncherActive(true);
+    if (!history.length) {
+      setCaption(text().intro);
+      setMode('speaking');
+      const currentSession = sessionVersion;
+      speak(text().intro, () => {
+        if (currentSession === sessionVersion && voiceSessionActive) startListening(false);
+      });
+      return;
+    }
+    startListening(false);
   }
 
   function safeAction(action) {
@@ -539,21 +681,22 @@
       });
   }
 
-  async function processTurn(message, speakReply = true) {
+  async function processTurn(message) {
     const cleanMessage = message.trim().slice(0, 800);
     if (!cleanMessage || requestPending) return;
 
     requestPending = true;
-    sendButton.disabled = true;
-    input.disabled = true;
+    syncControls();
     renderActions([]);
+    const previousHistory = history.slice(-8);
     history.push({ role: 'user', content: cleanMessage });
     history = history.slice(-8);
-    caption.textContent = cleanMessage;
-    caption.className = 'caption user';
+    setCaption(cleanMessage, 'user');
     setMode('thinking');
 
     const controller = new AbortController();
+    const currentSession = sessionVersion;
+    activeController = controller;
     const timeout = window.setTimeout(() => controller.abort(), 30000);
 
     try {
@@ -562,7 +705,8 @@
         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body: JSON.stringify({
           message: cleanMessage,
-          history,
+          history: previousHistory,
+          language,
           page: {
             path: location.pathname,
             hash: location.hash,
@@ -574,6 +718,13 @@
 
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || `HTTP ${response.status}`);
+      if (controller.signal.aborted || currentSession !== sessionVersion) return;
+
+      if (result.language === 'ca' || result.language === 'es') {
+        language = result.language;
+        languageChosen = true;
+        applyLanguage();
+      }
 
       const reply = typeof result.reply === 'string' && result.reply.trim()
         ? result.reply.trim()
@@ -581,88 +732,128 @@
 
       history.push({ role: 'assistant', content: reply });
       history = history.slice(-8);
-      caption.textContent = reply;
-      caption.className = 'caption';
+      setCaption(reply);
       renderActions(result.actions);
-
-      if (speakReply) {
-        setMode('speaking');
-        speak(reply, () => {
-          if (voiceSessionActive && panel.classList.contains('open')) startListening();
-          else setMode('idle');
-        });
-      } else {
-        setMode('idle');
-      }
+      setMode('speaking');
+      speak(reply, () => {
+        if (
+          currentSession === sessionVersion
+          && voiceSessionActive
+          && panel.classList.contains('open')
+        ) {
+          startListening(false);
+        } else {
+          setMode('idle');
+        }
+      });
     } catch (error) {
+      if (controller.signal.aborted || currentSession !== sessionVersion || error?.name === 'AbortError') return;
       const reply = text().unavailable;
-      caption.textContent = reply;
-      caption.className = 'caption';
-      setMode('idle');
+      setCaption(reply);
+      setMode('speaking');
+      speak(reply, () => {
+        voiceSessionActive = false;
+        setLauncherActive(false);
+        setMode('idle');
+      });
       console.warn('Barfy:', error);
     } finally {
       window.clearTimeout(timeout);
-      requestPending = false;
-      sendButton.disabled = false;
-      input.disabled = false;
-      if (!voiceSessionActive) input.focus();
+      if (activeController === controller) {
+        activeController = null;
+        requestPending = false;
+        syncControls();
+      }
     }
   }
 
-  launcher.addEventListener('click', openPanel);
+  launcher.addEventListener('click', () => {
+    if (voiceSessionActive || requestPending) {
+      stopConversation();
+      return;
+    }
+    startOrResumeConversation();
+  });
   closeButton.addEventListener('click', closePanel);
-  endButton.addEventListener('click', stopConversation);
-  languageSelect.addEventListener('change', () => {
-    language = languageSelect.value === 'es' ? 'es' : 'ca';
-    stopConversation();
-    applyLanguage();
-  });
-
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const value = input.value;
-    input.value = '';
-    voiceSessionActive = false;
-    processTurn(value, true);
-  });
 
   orb.addEventListener('click', () => {
     if (!recognizer || requestPending) return;
-    if (!voiceSessionActive && !history.length) {
-      voiceSessionActive = true;
-      caption.textContent = text().intro;
-      caption.className = 'caption';
-      setMode('speaking');
-      speak(text().intro, startListening);
+    if (voiceSessionActive) {
+      stopConversation();
       return;
     }
-    startListening();
+    startOrResumeConversation();
   });
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SpeechRecognition) {
     recognizer = new SpeechRecognition();
-    recognizer.interimResults = false;
+    recognizer.interimResults = true;
     recognizer.continuous = false;
     recognizer.maxAlternatives = 1;
-    recognizer.onstart = () => setMode('listening');
-    recognizer.onresult = (event) => {
-      const transcript = event.results?.[0]?.[0]?.transcript || '';
-      processTurn(transcript, true);
+    recognizer.onstart = () => {
+      isListening = true;
+      setMode('listening');
     };
-    recognizer.onerror = (event) => {
-      if (event.error === 'aborted' || event.error === 'no-speech') {
-        setMode('idle');
+    recognizer.onresult = (event) => {
+      let finalTranscript = '';
+      let interimTranscript = '';
+
+      for (let index = event.resultIndex; index < event.results.length; index += 1) {
+        const transcript = event.results[index]?.[0]?.transcript || '';
+        if (event.results[index].isFinal) finalTranscript += transcript;
+        else interimTranscript += transcript;
+      }
+
+      if (interimTranscript && !finalTranscript) setInterimCaption(interimTranscript.trim());
+      finalTranscript = finalTranscript.trim();
+      if (!finalTranscript || recognitionHandled) return;
+
+      recognitionHandled = true;
+      stopRecognition(false);
+      setCaption(finalTranscript, 'user');
+
+      if (selectingLanguage) {
+        const chosenLanguage = languageFromSpeech(finalTranscript, false);
+        if (chosenLanguage) confirmLanguage(chosenLanguage);
+        else askForLanguage(true);
         return;
       }
+
+      const requestedLanguage = languageFromSpeech(finalTranscript, true);
+      if (requestedLanguage) {
+        confirmLanguage(requestedLanguage);
+        return;
+      }
+
+      processTurn(finalTranscript);
+    };
+    recognizer.onerror = (event) => {
+      isListening = false;
+      if (event.error === 'aborted') return;
+
+      const errorMessage = event.error === 'not-allowed' || event.error === 'service-not-allowed'
+        ? text().permission
+        : event.error === 'audio-capture'
+          ? text().microphone
+          : event.error === 'network'
+            ? text().voiceNetwork
+            : text().unheard;
+
       voiceSessionActive = false;
-      caption.textContent = text().unheard;
-      caption.className = 'caption';
-      setMode('idle');
+      selectingLanguage = false;
+      setLauncherActive(false);
+      setCaption(errorMessage);
+      setMode('speaking');
+      speak(errorMessage, () => setMode('idle'));
+    };
+    recognizer.onend = () => {
+      isListening = false;
+      if (orb.classList.contains('listening')) setMode('idle');
     };
   } else {
-    orb.disabled = true;
     hint.textContent = text().unsupported;
+    setCaption(text().unsupported);
   }
 
   applyLanguage();
