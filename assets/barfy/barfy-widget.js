@@ -845,13 +845,16 @@
       const reply = typeof result.reply === 'string' && result.reply.trim()
         ? result.reply.trim()
         : text().empty;
+      const speechReply = typeof result.speech_reply === 'string' && result.speech_reply.trim()
+        ? result.speech_reply.trim()
+        : reply;
 
       history.push({ role: 'assistant', content: reply });
       history = history.slice(-8);
       setCaption(reply);
       renderActions(result.actions);
       setMode('speaking');
-      speak(reply, () => {
+      speak(speechReply, () => {
         if (
           currentSession === sessionVersion
           && voiceSessionActive
