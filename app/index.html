@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Calculadora BARFEAND | Ració BARF orientativa</title>
+  <meta name="description" content="Calcula la ració diària orientativa de dieta BARF per al teu gos o gat i instal·la la calculadora BARFEAND al mòbil.">
+  <link rel="canonical" href="https://barfeand.com/app/">
+  <meta name="theme-color" content="#d2265f">
+  <meta name="application-name" content="Calculadora BARFEAND">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BARFEAND">
+  <meta property="og:locale" content="ca_AD">
+  <meta property="og:title" content="Calculadora BARFEAND">
+  <meta property="og:description" content="Calcula una ració BARF diària orientativa per al teu gos o gat.">
+  <meta property="og:url" content="https://barfeand.com/app/">
+  <meta property="og:image" content="https://barfeand.com/imagenes/social.jpg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="BARFEAND">
+  <style>
+    :root {
+      --ink: #161516;
+      --muted: #6d6769;
+      --pink: #d2265f;
+      --pink-dark: #ad174a;
+      --pink-soft: #f9e8ee;
+      --cream: #f7f3ef;
+      --white: #fff;
+      --line: #e6ded8;
+      --shadow: 0 22px 55px rgba(30, 22, 24, .10);
+      --radius: 26px;
+      --max: 520px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      min-height: 100dvh;
+      padding: calc(24px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, Montserrat, Arial, Helvetica, sans-serif;
+    }
+
+    .app { width: 100%; max-width: var(--max); }
+    header { margin-bottom: 20px; text-align: center; }
+    header .logo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 10px;
+      display: block;
+      border-radius: 24px;
+    }
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--pink);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    header h1 { margin: 0 0 8px; font-size: 1.55rem; line-height: 1.12; }
+    header p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+
+    .install-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 13px 15px;
+      border-radius: 16px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: .84rem;
+      line-height: 1.35;
+    }
+    .install-bar.show { display: flex; }
+    .install-bar strong { display: block; margin-bottom: 2px; }
+    .install-bar button {
+      flex: 0 0 auto;
+      padding: 9px 13px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--pink);
+      color: var(--white);
+      font: inherit;
+      font-size: .8rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .calc-form { display: flex; flex-direction: column; gap: 16px; }
+    .calc-form label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .calc-form select,
+    .calc-form input {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--cream);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 500;
+    }
+    .calc-form select:focus,
+    .calc-form input:focus {
+      outline: 2px solid var(--pink);
+      outline-offset: 1px;
+      background: var(--white);
+    }
+    .unit { position: relative; display: flex; align-items: center; }
+    .unit input { padding-right: 44px; }
+    .unit b {
+      position: absolute;
+      right: 14px;
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 700;
+      pointer-events: none;
+    }
+    .button {
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 14px;
+      appearance: none;
+      background: var(--pink);
+      color: var(--white);
+      font: inherit;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+    .button:hover, .button:active { background: var(--pink-dark); }
+    .calc-result { margin-top: 4px; padding-top: 20px; border-top: 1px dashed var(--line); }
+    .calc-result h3 { margin: 0 0 6px; font-size: 1.9rem; }
+    .calc-result p { line-height: 1.5; }
+    .calc-result ul {
+      margin: 12px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      list-style: none;
+    }
+    .calc-result li { padding: 10px 14px; border-radius: 12px; background: var(--pink-soft); font-size: .92rem; }
+    .calc-packages { margin-top: 14px; padding: 14px; border-radius: 14px; background: var(--cream); font-size: .9rem; }
+    .calc-packages strong { display: block; margin-bottom: 6px; }
+    .calc-packages p { margin: 4px 0; color: var(--muted); }
+    .small-copy { margin-top: 14px; color: var(--muted); font-size: .8rem; }
+    .calc-error { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--pink-soft); color: var(--pink-dark); font-weight: 700; }
+    .disclaimer { margin-top: 18px; color: var(--muted); font-size: .78rem; line-height: 1.5; text-align: center; }
+    footer { margin-top: 22px; color: var(--muted); font-size: .78rem; text-align: center; }
+    footer a { color: var(--pink); font-weight: 700; text-decoration: none; }
+    :focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+
+    @media (max-width: 390px) {
+      body { padding-inline: 12px; }
+      .card { padding: 20px; }
+      .install-bar { align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div id="install-bar" class="install-bar">
+      <span><strong>Instal·la la calculadora</strong>Afegeix-la a la pantalla d’inici i utilitza-la sense connexió.</span>
+      <button id="install-button" type="button">Instal·lar</button>
+    </div>
+
+    <div id="ios-install-bar" class="install-bar">
+      <span><strong>Instal·la-la a l’iPhone</strong>A Safari, toca Compartir i després «Afegir a la pantalla d’inici».</span>
+      <button id="ios-install-close" type="button" aria-label="Tancar les instruccions">Entesos</button>
+    </div>
+
+    <header>
+      <img class="logo" src="icon-192.png" alt="" width="192" height="192">
+      <p class="eyebrow">Calculadora BARFEAND</p>
+      <h1>Calcula la ració diària orientativa</h1>
+      <p>Introdueix les dades de la mascota per obtenir una estimació inicial de la seva ració BARF.</p>
+    </header>
+
+    <section class="card" aria-label="Calculadora de ració BARF">
+      <form id="formulari-calculadora" class="calc-form">
+        <label>Mascota
+          <select id="especie" required>
+            <option value="gos">Gos</option>
+            <option value="gat">Gat</option>
+          </select>
+        </label>
+        <label>Pes actual
+          <span class="unit">
+            <input id="pes" type="number" min="0.5" max="120" step="0.1" inputmode="decimal" placeholder="20" required>
+            <b>kg</b>
+          </span>
+        </label>
+        <label>Etapa
+          <select id="etapa" required>
+            <option value="adult">Adult</option>
+            <option value="cadell">Cadell</option>
+            <option value="senior">Sènior</option>
+          </select>
+        </label>
+        <label>Activitat
+          <select id="activitat" required>
+            <option value="normal">Normal</option>
+            <option value="baixa">Baixa</option>
+            <option value="alta">Alta</option>
+          </select>
+        </label>
+        <label>Objectiu
+          <select id="objectiu" required>
+            <option value="mantenir">Mantenir el pes</option>
+            <option value="baixar">Perdre pes</option>
+            <option value="augmentar">Augmentar el pes</option>
+          </select>
+        </label>
+        <button class="button" type="submit">Calcular la ració</button>
+        <div id="resultat-calculadora" class="calc-result" aria-live="polite" hidden></div>
+      </form>
+    </section>
+
+    <p class="disclaimer">Càlcul orientatiu. No substitueix l’assessorament veterinari o nutricional individual, especialment en cadells, animals gestants o mascotes amb patologies.</p>
+
+    <footer><a href="../">Tornar a barfeand.com</a></footer>
+  </main>
+
+  <script>
+    "use strict";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const formulari = document.getElementById("formulari-calculadora");
+      const resultat = document.getElementById("resultat-calculadora");
+
+      if (!formulari || !resultat) return;
+
+      const percentatgesBase = {
+        gos: { cadell: 6, adult: 2.5, senior: 2 },
+        gat: { cadell: 5, adult: 3, senior: 2.5 }
+      };
+      const ajustActivitat = { baixa: -0.3, normal: 0, alta: 0.5 };
+      const ajustObjectiu = { baixar: -0.3, mantenir: 0, augmentar: 0.4 };
+      const limits = { cadell: [4, 10], adult: [1.5, 4], senior: [1.5, 3.5] };
+      const formatDecimal = new Intl.NumberFormat("ca-AD", {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      });
+      const arrodonir5 = (grams) => Math.round(grams / 5) * 5;
+
+      function textPaquets1kg(quilogramsMensuals) {
+        const mitjosQuilos = Math.ceil(quilogramsMensuals * 2);
+        const paquetsQuilo = Math.floor(mitjosQuilos / 2);
+        const migQuilo = mitjosQuilos % 2;
+        const parts = [];
+
+        if (paquetsQuilo > 0) {
+          parts.push(`${paquetsQuilo} ${paquetsQuilo === 1 ? "paquet" : "paquets"} d’1 kg`);
+        }
+        if (migQuilo) parts.push("1 paquet de 500 g");
+        return parts.join(" + ");
+      }
+
+      formulari.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!formulari.checkValidity()) {
+          formulari.reportValidity();
+          return;
+        }
+
+        const especie = document.getElementById("especie").value;
+        const pes = Number.parseFloat(document.getElementById("pes").value);
+        const etapa = document.getElementById("etapa").value;
+        const activitat = document.getElementById("activitat").value;
+        const objectiu = document.getElementById("objectiu").value;
+
+        if (!Number.isFinite(pes) || pes < 0.5 || pes > 120) {
+          resultat.hidden = false;
+          resultat.innerHTML = '<p class="calc-error">Introdueix un pes vàlid entre 0,5 i 120 kg.</p>';
+          resultat.setAttribute("tabindex", "-1");
+          resultat.focus();
+          return;
+        }
+
+        let percentatge = percentatgesBase[especie][etapa] + ajustActivitat[activitat] + ajustObjectiu[objectiu];
+        percentatge = Math.min(Math.max(percentatge, limits[etapa][0]), limits[etapa][1]);
+
+        const gramsDiaris = arrodonir5(pes * (percentatge / 100) * 1000);
+        const minim = arrodonir5(gramsDiaris * 0.9);
+        const maxim = arrodonir5(gramsDiaris * 1.1);
+        const quilosSetmanals = (gramsDiaris * 7) / 1000;
+        const quilosMensuals = (gramsDiaris * 30) / 1000;
+        const paquetsConill = Math.ceil(quilosMensuals / 0.5);
+
+        resultat.hidden = false;
+        resultat.innerHTML = `
+          <p class="eyebrow">Ració diària orientativa</p>
+          <h3>${gramsDiaris} g al dia</h3>
+          <p>Rang aproximat: <strong>${minim}–${maxim} g diaris</strong>.</p>
+          <ul>
+            <li><strong>${formatDecimal.format(quilosSetmanals)} kg</strong> per setmana.</li>
+            <li><strong>${formatDecimal.format(quilosMensuals)} kg</strong> cada 30 dies.</li>
+          </ul>
+          <div class="calc-packages">
+            <strong>Formats aproximats per a 30 dies</strong>
+            <p>Receptes amb formats d’1 kg i 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
+            <p>Si tries Conill, disponible només en 500 g: ${paquetsConill} ${paquetsConill === 1 ? "paquet" : "paquets"} de 500 g.</p>
+          </div>
+          <p class="small-copy">Percentatge aplicat al càlcul: ${formatDecimal.format(percentatge)} % del pes corporal.</p>
+        `;
+
+        resultat.setAttribute("tabindex", "-1");
+        resultat.focus();
+      });
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+
+    let deferredPrompt = null;
+    const installBar = document.getElementById("install-bar");
+    const installButton = document.getElementById("install-button");
+    const iosInstallBar = document.getElementById("ios-install-bar");
+    const iosInstallClose = document.getElementById("ios-install-close");
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    if (isIos && !isStandalone && iosInstallBar) {
+      iosInstallBar.classList.add("show");
+    }
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
+      if (installBar) installBar.classList.add("show");
+    });
+
+    if (installButton) {
+      installButton.addEventListener("click", async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        if (installBar) installBar.classList.remove("show");
+      });
+    }
+
+    if (iosInstallClose) {
+      iosInstallClose.addEventListener("click", () => iosInstallBar?.classList.remove("show"));
+    }
+
+    window.addEventListener("appinstalled", () => {
+      if (installBar) installBar.classList.remove("show");
+    });
+  </script>
+</body>
+</html>
