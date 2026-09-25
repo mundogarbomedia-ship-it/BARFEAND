@@ -111,3 +111,9 @@
 .nav .language-link{display:inline-flex;justify-content:center;min-width:35px;padding:5px 8px;border:1px solid var(--line);border-radius:9px;color:var(--pink-dark);font-weight:900}
 .nav .language-link:hover{border-color:var(--pink);background:var(--pink-soft)}
 @media(min-width:1001px) and (max-width:1350px){.nav{gap:12px}.nav>a:not(.button){font-size:.82rem}}
+
+/* Selector CA / ES / FR. */
+.language-switch{display:inline-flex;align-items:center;gap:4px;flex-shrink:0}
+.nav .language-switch .language-link{min-width:30px;padding:5px 6px;font-size:.78rem;line-height:1.4;text-decoration:none}
+.nav .language-link[aria-current="page"]{background:var(--pink-soft);border-color:var(--pink)}
+@media(max-width:1000px){.language-switch{padding:14px 7px;gap:8px}.nav .language-switch .language-link{min-width:40px;padding:8px;font-size:.9rem}}

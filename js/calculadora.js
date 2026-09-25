@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultat = document.getElementById("resultat-calculadora");
 
   if (!formulari || !resultat) return;
+  const enFrancais = document.documentElement.lang.toLowerCase().startsWith("fr");
   const enEspanol = document.documentElement.lang.toLowerCase().startsWith("es");
 
   const percentatgesBase = {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ajustObjectiu = { baixar: -0.3, mantenir: 0, augmentar: 0.4 };
   const limits = { cadell: [4, 10], adult: [1.5, 4], senior: [1.5, 3.5] };
 
-  const formatDecimal = new Intl.NumberFormat(enEspanol ? "es-AD" : "ca-AD", {
+  const formatDecimal = new Intl.NumberFormat(enFrancais ? "fr-FR" : (enEspanol ? "es-AD" : "ca-AD"), {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1
   });
@@ -30,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const parts = [];
 
     if (paquetsQuilo > 0) {
-      parts.push(`${paquetsQuilo} ${paquetsQuilo === 1 ? (enEspanol ? "paquete" : "paquet") : (enEspanol ? "paquetes" : "paquets")} ${enEspanol ? "de " : "d’"}1 kg`);
+      parts.push(`${paquetsQuilo} ${paquetsQuilo === 1 ? (enFrancais ? "paquet" : (enEspanol ? "paquete" : "paquet")) : (enFrancais ? "paquets" : (enEspanol ? "paquetes" : "paquets"))} ${enFrancais ? "de " : (enEspanol ? "de " : "d’")}1 kg`);
     }
-    if (migQuilo) parts.push(`1 ${enEspanol ? "paquete" : "paquet"} de 500 g`);
+    if (migQuilo) parts.push(`1 ${enFrancais ? "paquet" : (enEspanol ? "paquete" : "paquet")} de 500 g`);
     return parts.join(" + ");
   }
 
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!Number.isFinite(pes) || pes < 0.5 || pes > 120) {
       resultat.hidden = false;
-      resultat.innerHTML = `<p class="calc-error">${enEspanol ? "Introduce un peso válido entre 0,5 y 120 kg." : "Introdueix un pes vàlid entre 0,5 i 120 kg."}</p>`;
+      resultat.innerHTML = `<p class="calc-error">${enFrancais ? "Saisissez un poids compris entre 0,5 et 120 kg." : (enEspanol ? "Introduce un peso válido entre 0,5 y 120 kg." : "Introdueix un pes vàlid entre 0,5 i 120 kg.")}</p>`;
       resultat.setAttribute("tabindex", "-1");
       resultat.focus();
       return;
@@ -69,7 +70,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const paquetsConill = Math.ceil(quilosMensuals / 0.5);
 
     resultat.hidden = false;
-    resultat.innerHTML = enEspanol ? `
+    resultat.innerHTML = enFrancais ? `
+      <p class="eyebrow">Ration quotidienne indicative</p>
+      <h3>${gramsDiaris} g par jour</h3>
+      <p>Fourchette indicative : <strong>${minim}–${maxim} g par jour</strong>.</p>
+      <ul>
+        <li><strong>${formatDecimal.format(quilosSetmanals)} kg</strong> par semaine.</li>
+        <li><strong>${formatDecimal.format(quilosMensuals)} kg</strong> pour 30 jours.</li>
+      </ul>
+      <div class="calc-packages">
+        <strong>Formats estimés pour 30 jours</strong>
+        <p>Recettes en formats de 1 kg et de 500 g : ${textPaquets1kg(quilosMensuals)}.</p>
+        <p>Si vous choisissez le lapin en format de 500 g : ${paquetsConill} ${paquetsConill === 1 ? "paquet" : "paquets"} de 500 g.</p>
+      </div>
+      <p class="small-copy">Pourcentage appliqué au calcul : ${formatDecimal.format(percentatge)} % du poids corporel.</p>
+    ` : enEspanol ? `
       <p class="eyebrow">Ración diaria orientativa</p>
       <h3>${gramsDiaris} g al día</h3>
       <p>Intervalo aproximado: <strong>${minim}–${maxim} g diarios</strong>.</p>
