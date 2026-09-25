@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const pes = formatActiu?.dataset.weight === "500" ? "500 g" : "1 KG";
       const preuTotal = formatActiu?.dataset.price || targeta.querySelector(".price")?.textContent?.trim() || "—";
       const preuQuilo = targeta.querySelector(".perkg")?.textContent?.split("·")[0]?.trim() || "—";
-      const ingredients = targeta.querySelector(".ingredients")?.textContent?.replace(/^Ingredients:\s*/i, "").trim() || "—";
+      const ingredients = targeta.querySelector(".ingredients")?.textContent?.replace(/^(?:Ingredients|Ingredientes):\s*/i, "").trim() || "—";
 
       if (titolDialeg) titolDialeg.textContent = `${nom} · ${pes === "1 KG" ? "1 kg" : pes}`;
       if (nomEtiqueta) nomEtiqueta.textContent = nom;
