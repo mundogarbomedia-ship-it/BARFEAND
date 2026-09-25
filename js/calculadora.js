@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultat = document.getElementById("resultat-calculadora");
 
   if (!formulari || !resultat) return;
+  const enEspanol = document.documentElement.lang.toLowerCase().startsWith("es");
 
   const percentatgesBase = {
     gos: { cadell: 6, adult: 2.5, senior: 2 },
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ajustObjectiu = { baixar: -0.3, mantenir: 0, augmentar: 0.4 };
   const limits = { cadell: [4, 10], adult: [1.5, 4], senior: [1.5, 3.5] };
 
-  const formatDecimal = new Intl.NumberFormat("ca-AD", {
+  const formatDecimal = new Intl.NumberFormat(enEspanol ? "es-AD" : "ca-AD", {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1
   });
@@ -29,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const parts = [];
 
     if (paquetsQuilo > 0) {
-      parts.push(`${paquetsQuilo} ${paquetsQuilo === 1 ? "paquet" : "paquets"} d’1 kg`);
+      parts.push(`${paquetsQuilo} ${paquetsQuilo === 1 ? (enEspanol ? "paquete" : "paquet") : (enEspanol ? "paquetes" : "paquets")} ${enEspanol ? "de " : "d’"}1 kg`);
     }
-    if (migQuilo) parts.push("1 paquet de 500 g");
+    if (migQuilo) parts.push(`1 ${enEspanol ? "paquete" : "paquet"} de 500 g`);
     return parts.join(" + ");
   }
 
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!Number.isFinite(pes) || pes < 0.5 || pes > 120) {
       resultat.hidden = false;
-      resultat.innerHTML = '<p class="calc-error">Introdueix un pes vàlid entre 0,5 i 120 kg.</p>';
+      resultat.innerHTML = `<p class="calc-error">${enEspanol ? "Introduce un peso válido entre 0,5 y 120 kg." : "Introdueix un pes vàlid entre 0,5 i 120 kg."}</p>`;
       resultat.setAttribute("tabindex", "-1");
       resultat.focus();
       return;
@@ -68,7 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const paquetsConill = Math.ceil(quilosMensuals / 0.5);
 
     resultat.hidden = false;
-    resultat.innerHTML = `
+    resultat.innerHTML = enEspanol ? `
+      <p class="eyebrow">Ración diaria orientativa</p>
+      <h3>${gramsDiaris} g al día</h3>
+      <p>Intervalo aproximado: <strong>${minim}–${maxim} g diarios</strong>.</p>
+      <ul>
+        <li><strong>${formatDecimal.format(quilosSetmanals)} kg</strong> por semana.</li>
+        <li><strong>${formatDecimal.format(quilosMensuals)} kg</strong> cada 30 días.</li>
+      </ul>
+      <div class="calc-packages">
+        <strong>Formatos aproximados para 30 días</strong>
+        <p>Recetas en formatos de 1 kg y 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
+        <p>Si eliges Conejo, disponible en 500 g: ${paquetsConill} ${paquetsConill === 1 ? "paquete" : "paquetes"} de 500 g.</p>
+      </div>
+      <p class="small-copy">Porcentaje aplicado al cálculo: ${formatDecimal.format(percentatge)} % del peso corporal.</p>
+    ` : `
       <p class="eyebrow">Ració diària orientativa</p>
       <h3>${gramsDiaris} g al dia</h3>
       <p>Rang aproximat: <strong>${minim}–${maxim} g diaris</strong>.</p>

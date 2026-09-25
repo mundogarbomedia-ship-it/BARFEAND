@@ -1,6 +1,7 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const enEspanol = document.documentElement.lang.toLowerCase().startsWith("es");
   const botoMenu = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".nav");
 
@@ -8,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!botoMenu || !menu) return;
 
     botoMenu.setAttribute("aria-expanded", String(obert));
-    botoMenu.setAttribute("aria-label", obert ? "Tancar el menú" : "Obrir el menú");
+    botoMenu.setAttribute("aria-label", obert
+      ? (enEspanol ? "Cerrar el menú" : "Tancar el menú")
+      : (enEspanol ? "Abrir el menú" : "Obrir el menú"));
     menu.classList.toggle("open", obert);
     document.body.classList.toggle("menu-open", obert);
   }
@@ -106,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         border:0;
         border-radius:0;
         background-color:transparent;
-        background-image:url("imagenes/iconos/valors.webp");
+        background-image:url("/imagenes/iconos/valors.webp");
         background-repeat:no-repeat;
         background-size:400% 100%;
         box-shadow:none;
@@ -124,26 +127,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const graellaPegatines = document.querySelector(".badge-row");
   if (graellaPegatines) {
     const pegatines = [
-      ["Xai", "imagenes/pegatinas/xai.webp"],
-      ["Conill", "imagenes/pegatinas/conill.webp"],
-      ["Pollastre", "imagenes/pegatinas/pollastre.webp"],
-      ["Gall d’indi", "imagenes/pegatinas/gall-indi.webp"],
-      ["Vedella", "imagenes/pegatinas/vedella.webp"],
-      ["Porc", "imagenes/pegatinas/porc.webp"]
+      [enEspanol ? "Cordero" : "Xai", "/imagenes/pegatinas/xai.webp"],
+      [enEspanol ? "Conejo" : "Conill", "/imagenes/pegatinas/conill.webp"],
+      [enEspanol ? "Pollo" : "Pollastre", "/imagenes/pegatinas/pollastre.webp"],
+      [enEspanol ? "Pavo" : "Gall d’indi", "/imagenes/pegatinas/gall-indi.webp"],
+      [enEspanol ? "Ternera" : "Vedella", "/imagenes/pegatinas/vedella.webp"],
+      [enEspanol ? "Cerdo" : "Porc", "/imagenes/pegatinas/porc.webp"]
     ];
 
     graellaPegatines.className = "sticker-grid";
-    graellaPegatines.setAttribute("aria-label", "Pegatines de la gamma monoproteica BARFEAND");
+    graellaPegatines.setAttribute("aria-label", enEspanol ? "Etiquetas de la gama monoproteica BARFEAND" : "Pegatines de la gamma monoproteica BARFEAND");
     graellaPegatines.innerHTML = pegatines
-      .map(([nom, src]) => `<figure class="sticker-figure"><img src="${src}" alt="Pegatina BARFEAND Monoproteïna ${nom}" width="220" height="220" loading="lazy"></figure>`)
+      .map(([nom, src]) => `<figure class="sticker-figure"><img src="${src}" alt="${enEspanol ? "Etiqueta BARFEAND Monoproteína" : "Pegatina BARFEAND Monoproteïna"} ${nom}" width="220" height="220" loading="lazy"></figure>`)
       .join("");
   }
 
   const distintiuMulti = document.querySelector(".multi-badge");
   if (distintiuMulti) {
     distintiuMulti.className = "sticker-multi";
-    distintiuMulti.setAttribute("aria-label", "Pegatina blanca BARFEAND Multiproteïna");
-    distintiuMulti.innerHTML = '<img src="imagenes/pegatinas/multiproteina.webp" alt="Pegatina blanca BARFEAND Multiproteïna" width="310" height="310" loading="lazy">';
+    distintiuMulti.setAttribute("aria-label", enEspanol ? "Etiqueta blanca BARFEAND Multiproteína" : "Pegatina blanca BARFEAND Multiproteïna");
+    distintiuMulti.innerHTML = `<img src="/imagenes/pegatinas/multiproteina.webp" alt="${enEspanol ? "Etiqueta blanca BARFEAND Multiproteína" : "Pegatina blanca BARFEAND Multiproteïna"}" width="310" height="310" loading="lazy">`;
   }
 
   if (!document.getElementById("estil-pegatines-barfeand")) {
@@ -178,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (foto && botoFormat.dataset.image) {
           const pes = botoFormat.dataset.weight === "1000" ? "1 kg" : "500 g";
           foto.src = botoFormat.dataset.image;
-          foto.alt = `Paquet BARFEAND de ${nom.toLowerCase()} de ${pes}`;
+          foto.alt = `${enEspanol ? "Paquete" : "Paquet"} BARFEAND de ${nom.toLowerCase()} de ${pes}`;
         }
 
         if (preu && botoFormat.dataset.price) {
@@ -203,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const targeta = boto.closest(".product-card");
       if (!targeta || !dialeg || !vistaEtiqueta) return;
 
-      const nom = targeta.dataset.labelName || targeta.querySelector("h3")?.textContent || "Producte BARFEAND";
+    const nom = targeta.dataset.labelName || targeta.querySelector("h3")?.textContent || (enEspanol ? "Producto BARFEAND" : "Producte BARFEAND");
       const formatActiu = targeta.querySelector("button.format.active") || targeta.querySelector("button.format");
       const pes = formatActiu?.dataset.weight === "500" ? "500 g" : "1 KG";
       const preuTotal = formatActiu?.dataset.price || targeta.querySelector(".price")?.textContent?.trim() || "—";
@@ -216,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (preuQuiloEtiqueta) preuQuiloEtiqueta.textContent = preuQuilo.replace("€/kg", "").trim();
       if (pesEtiqueta) pesEtiqueta.textContent = pes;
       if (ingredientsEtiqueta) ingredientsEtiqueta.textContent = ingredients;
-      vistaEtiqueta.setAttribute("aria-label", `Etiqueta de referència de BARFEAND ${nom}, format ${pes}`);
+      vistaEtiqueta.setAttribute("aria-label", `${enEspanol ? "Etiqueta de referencia" : "Etiqueta de referència"} de BARFEAND ${nom}, ${enEspanol ? "formato" : "format"} ${pes}`);
       dialeg.showModal();
     });
   });

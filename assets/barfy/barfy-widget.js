@@ -405,9 +405,8 @@
   const languageRetry = 'No t’he entès. Digues només català o castellano. No te he entendido. Di solo català o español.';
   const detectedPageLanguage = (document.documentElement.lang || '').toLowerCase();
 
-  // Barfy always welcomes visitors in Catalan. The API detects the language
-  // of every answer and returns it so the next turn uses the matching voice.
-  let language = 'ca';
+  // Barfy starts in the language of the page, then follows the language of each answer.
+  let language = detectedPageLanguage.startsWith('es') ? 'es' : 'ca';
   let languageChosen = true;
   let selectingLanguage = false;
   let history = [];
