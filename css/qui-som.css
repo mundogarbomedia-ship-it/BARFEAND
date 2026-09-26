@@ -8,7 +8,7 @@
 .about-hero__copy .lead{max-width:650px}
 .about-hero__media{position:relative;margin:0 0 0 18px;padding:12px;border:1px solid var(--line);border-radius:32px;background:#fff;box-shadow:var(--shadow);transform:rotate(2deg)}
 .about-hero__media::before{content:"";position:absolute;inset:30px -19px -24px 30px;z-index:-1;border:2px solid var(--pink);border-radius:32px}
-.about-hero__media img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:50% 50%;border-radius:22px}
+.about-hero__media img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:22px}
 .about-hero__media figcaption{padding:13px 8px 4px;text-align:center;color:var(--muted);font-size:.85rem;font-weight:700}
 
 .about-origin{padding-block:118px}
@@ -55,7 +55,6 @@
   .about-hero__grid,.about-origin__grid,.about-training__intro{grid-template-columns:1fr}
   .about-hero__grid{padding-block:65px 85px}
   .about-hero__media{max-width:650px;margin:10px auto 0}
-  .about-hero__media img{aspect-ratio:4/3}
   .about-origin,.about-method,.about-training{padding-block:84px}
   .about-origin__grid,.about-training__intro{gap:12px}
   .about-method__grid{grid-template-columns:1fr}
@@ -66,7 +65,6 @@
   .about-hero__statement{font-size:1.72rem}
   .about-hero__media{margin:4px 12px 0 0;transform:none}
   .about-hero__media::before{inset:22px -12px -14px 22px}
-  .about-hero__media img{aspect-ratio:4/3}
   .about-origin,.about-method,.about-training{padding-block:72px}
   .about-origin__copy p{font-size:1.06rem}
   .about-method__grid article{padding:26px}
