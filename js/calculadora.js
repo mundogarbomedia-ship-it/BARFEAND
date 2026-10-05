@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const maxim = arrodonir5(gramsDiaris * 1.1);
     const quilosSetmanals = (gramsDiaris * 7) / 1000;
     const quilosMensuals = (gramsDiaris * 30) / 1000;
-    const paquetsConill = Math.ceil(quilosMensuals / 0.5);
 
     resultat.hidden = false;
     resultat.innerHTML = enFrancais ? `
@@ -81,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="calc-packages">
         <strong>Formats estimés pour 30 jours</strong>
         <p>Recettes en formats de 1 kg et de 500 g : ${textPaquets1kg(quilosMensuals)}.</p>
-        <p>Si vous choisissez le lapin en format de 500 g : ${paquetsConill} ${paquetsConill === 1 ? "paquet" : "paquets"} de 500 g.</p>
       </div>
       <p class="small-copy">Pourcentage appliqué au calcul : ${formatDecimal.format(percentatge)} % du poids corporel.</p>
     ` : enEspanol ? `
@@ -95,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="calc-packages">
         <strong>Formatos aproximados para 30 días</strong>
         <p>Recetas en formatos de 1 kg y 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
-        <p>Si eliges Conejo, disponible en 500 g: ${paquetsConill} ${paquetsConill === 1 ? "paquete" : "paquetes"} de 500 g.</p>
       </div>
       <p class="small-copy">Porcentaje aplicado al cálculo: ${formatDecimal.format(percentatge)} % del peso corporal.</p>
     ` : `
@@ -109,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="calc-packages">
         <strong>Formats aproximats per a 30 dies</strong>
         <p>Receptes amb formats d’1 kg i 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
-        <p>Si tries Conill, disponible només en 500 g: ${paquetsConill} ${paquetsConill === 1 ? "paquet" : "paquets"} de 500 g.</p>
       </div>
       <p class="small-copy">Percentatge aplicat al càlcul: ${formatDecimal.format(percentatge)} % del pes corporal.</p>
     `;

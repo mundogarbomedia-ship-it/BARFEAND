@@ -314,7 +314,6 @@
         const maxim = arrodonir5(gramsDiaris * 1.1);
         const quilosSetmanals = (gramsDiaris * 7) / 1000;
         const quilosMensuals = (gramsDiaris * 30) / 1000;
-        const paquetsConill = Math.ceil(quilosMensuals / 0.5);
 
         resultat.hidden = false;
         resultat.innerHTML = `
@@ -328,7 +327,6 @@
           <div class="calc-packages">
             <strong>Formats aproximats per a 30 dies</strong>
             <p>Receptes amb formats d’1 kg i 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
-            <p>Si tries Conill, disponible només en 500 g: ${paquetsConill} ${paquetsConill === 1 ? "paquet" : "paquets"} de 500 g.</p>
           </div>
           <p class="small-copy">Percentatge aplicat al càlcul: ${formatDecimal.format(percentatge)} % del pes corporal.</p>
         `;

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/* Páginas de guía BARFEAND (/es/...): artículo de lectura */
+.guide-hero{background:radial-gradient(circle at 82% 18%,#f8dbe5,transparent 34%),linear-gradient(130deg,#fff 15%,var(--cream) 100%)}
+.guide-hero__inner{padding-block:72px 64px}
+.guide-hero h1{max-width:900px;font-size:clamp(2.5rem,5.6vw,4.8rem);margin-bottom:20px}
+.guide-hero .lead{max-width:760px}
+.breadcrumbs{margin:0 0 26px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px;font-size:.85rem;font-weight:750;color:var(--muted)}
+.breadcrumbs li+li::before{content:"›";margin-right:6px;color:var(--pink)}
+.breadcrumbs a{color:var(--pink-dark)}
+.breadcrumbs a:hover{text-decoration:underline}
+
+.guide{padding-block:72px 96px}
+.guide__body{max-width:780px;margin-inline:auto}
+.guide__body h2{font-size:clamp(1.75rem,3.2vw,2.5rem);margin:56px 0 16px}
+.guide__body h2:first-child{margin-top:0}
+.guide__body h3{font-size:clamp(1.2rem,2vw,1.45rem);margin:30px 0 10px}
+.guide__body p,.guide__body li{font-size:1.06rem}
+.guide__body ul,.guide__body ol{padding-left:22px;margin:0 0 22px;color:var(--muted)}
+.guide__body li{margin-bottom:8px}
+.guide__body li strong,.guide__body p strong{color:var(--ink)}
+.guide__body a:not(.button){color:var(--pink-dark);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.guide__body a:not(.button):hover{color:var(--ink)}
+
+.guide-table{width:100%;margin:8px 0 28px;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;font-size:1rem}
+.guide-table th,.guide-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.guide-table thead th{background:var(--ink);color:#fff;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+.guide-table tbody tr:last-child td{border-bottom:0}
+.guide-table tbody tr:nth-child(even){background:var(--cream)}
+.guide-table td.num,.guide-table th.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-note{margin-top:-16px;font-size:.88rem}
+
+.guide-callout{margin:30px 0;padding:22px 24px;border-left:4px solid var(--pink);border-radius:0 16px 16px 0;background:var(--pink-soft)}
+.guide-callout p{margin:0;color:var(--ink)}
+
+.guide-steps{counter-reset:step;list-style:none;padding:0!important}
+.guide-steps>li{position:relative;padding-left:58px;margin-bottom:26px}
+.guide-steps>li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900}
+.guide-steps>li h3{margin-top:6px}
+
+.guide-ratio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:10px 0 30px}
+.guide-ratio div{padding:20px 14px;border-radius:18px;background:var(--ink);color:#fff;text-align:center}
+.guide-ratio strong{display:block;font-size:2rem;line-height:1;color:#f36b98}
+.guide-ratio span{display:block;margin-top:8px;font-size:.85rem;font-weight:750}
+
+.guide-faq{border-top:1px solid var(--line)}
+.guide-faq details{border-bottom:1px solid var(--line)}
+.guide-faq summary{padding:20px 40px 20px 0;font-weight:850;font-size:1.06rem;cursor:pointer}
+.guide-faq details p{padding-right:25px}
+
+.guide-related{padding-block:72px;background:var(--cream)}
+.guide-related__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.guide-related__grid a{display:flex;flex-direction:column;gap:6px;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;transition:.18s}
+.guide-related__grid a:hover{border-color:var(--pink);transform:translateY(-2px)}
+.guide-related__grid a strong{font-size:1.12rem}
+.guide-related__grid a span{color:var(--muted);font-size:.95rem}
+
+.calc-page{padding-block:72px 96px;background:linear-gradient(135deg,var(--pink-soft),#fff9fb 60%,white)}
+
+/* Bloque de guías en la portada */
+.guides-home{padding-block:96px}
+
+@media (max-width:850px){
+  .guide-related__grid{grid-template-columns:1fr}
+  .guide-ratio{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+  .guide-hero__inner{padding-block:46px 44px}
+  .guide{padding-block:50px 70px}
+  .guide-steps>li{padding-left:50px}
+  .guide-table th,.guide-table td{padding:11px 12px}
+  .guides-home,.guide-related{padding-block:64px}
+}
