@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "barfeand-calculadora-v3";
+const CACHE_NAME = "barfeand-calculadora-v4";
 const APP_SHELL = [
   "./",
   "./index.html",

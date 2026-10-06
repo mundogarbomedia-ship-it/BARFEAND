@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Calculadora BARFEAND | Ració BARF orientativa</title>
-  <meta name="description" content="Calcula la ració diària orientativa de dieta BARF per al teu gos o gat i instal·la la calculadora BARFEAND al mòbil.">
+  <title>Calculadora BARFEAND | Quantitat orientativa de BARF</title>
+  <meta name="description" content="Calcula la quantitat orientativa de BARF al dia per al teu gos o gat i instal·la la calculadora BARFEAND al mòbil.">
   <link rel="canonical" href="https://barfeand.com/app/">
   <meta name="theme-color" content="#d2265f">
   <meta name="application-name" content="Calculadora BARFEAND">
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="BARFEAND">
   <meta property="og:locale" content="ca_AD">
   <meta property="og:title" content="Calculadora BARFEAND">
-  <meta property="og:description" content="Calcula una ració BARF diària orientativa per al teu gos o gat.">
+  <meta property="og:description" content="Calcula la quantitat orientativa de BARF al dia per al teu gos o gat.">
   <meta property="og:url" content="https://barfeand.com/app/">
   <meta property="og:image" content="https://barfeand.com/imagenes/social.jpg">
   <link rel="manifest" href="manifest.webmanifest">
@@ -200,8 +200,8 @@
     <header>
       <img class="logo" src="icon-192.png" alt="" width="192" height="192">
       <p class="eyebrow">Calculadora BARFEAND</p>
-      <h1>Calcula la ració diària orientativa</h1>
-      <p>Introdueix les dades de la mascota per obtenir una estimació inicial de la seva ració BARF.</p>
+      <h1>Calcula la quantitat orientativa de BARF</h1>
+      <p>Introdueix les dades de la mascota per obtenir una estimació inicial dels grams de BARF al dia dins de la seva alimentació.</p>
     </header>
 
     <section class="card" aria-label="Calculadora de ració BARF">
@@ -244,6 +244,7 @@
       </form>
     </section>
 
+    <p class="disclaimer">BARFEAND és un aliment complementari per a gossos i gats. Per a una alimentació equilibrada, complementa’l amb els suplements recomanats (com ara olis rics en omega 3) i consulta el teu veterinari.</p>
     <p class="disclaimer">Càlcul orientatiu. No substitueix l’assessorament veterinari o nutricional individual, especialment en cadells, animals gestants o mascotes amb patologies.</p>
 
     <footer><a href="../">Tornar a barfeand.com</a></footer>
@@ -317,7 +318,7 @@
 
         resultat.hidden = false;
         resultat.innerHTML = `
-          <p class="eyebrow">Ració diària orientativa</p>
+          <p class="eyebrow">Quantitat orientativa de BARF al dia</p>
           <h3>${gramsDiaris} g al dia</h3>
           <p>Rang aproximat: <strong>${minim}–${maxim} g diaris</strong>.</p>
           <ul>

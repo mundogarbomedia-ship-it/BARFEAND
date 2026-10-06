@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     resultat.hidden = false;
     resultat.innerHTML = enFrancais ? `
-      <p class="eyebrow">Ration quotidienne indicative</p>
+      <p class="eyebrow">Quantité indicative de BARF par jour</p>
       <h3>${gramsDiaris} g par jour</h3>
       <p>Fourchette indicative : <strong>${minim}–${maxim} g par jour</strong>.</p>
       <ul>
@@ -81,9 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formats estimés pour 30 jours</strong>
         <p>Recettes en formats de 1 kg et de 500 g : ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
+      <p>BARFEAND est un aliment complémentaire pour chiens et chats. Pour une alimentation équilibrée, complétez-le avec les suppléments recommandés (comme les huiles riches en oméga 3) et consultez votre vétérinaire.</p>
       <p class="small-copy">Pourcentage appliqué au calcul : ${formatDecimal.format(percentatge)} % du poids corporel.</p>
     ` : enEspanol ? `
-      <p class="eyebrow">Ración diaria orientativa</p>
+      <p class="eyebrow">Cantidad orientativa de BARF al día</p>
       <h3>${gramsDiaris} g al día</h3>
       <p>Intervalo aproximado: <strong>${minim}–${maxim} g diarios</strong>.</p>
       <ul>
@@ -94,9 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formatos aproximados para 30 días</strong>
         <p>Recetas en formatos de 1 kg y 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
+      <p>BARFEAND es un alimento complementario para perros y gatos. Para una alimentación equilibrada, complétalo con los suplementos recomendados (como aceites ricos en omega 3) y consulta con tu veterinario.</p>
       <p class="small-copy">Porcentaje aplicado al cálculo: ${formatDecimal.format(percentatge)} % del peso corporal.</p>
     ` : `
-      <p class="eyebrow">Ració diària orientativa</p>
+      <p class="eyebrow">Quantitat orientativa de BARF al dia</p>
       <h3>${gramsDiaris} g al dia</h3>
       <p>Rang aproximat: <strong>${minim}–${maxim} g diaris</strong>.</p>
       <ul>
@@ -107,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formats aproximats per a 30 dies</strong>
         <p>Receptes amb formats d’1 kg i 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
+      <p>BARFEAND és un aliment complementari per a gossos i gats. Per a una alimentació equilibrada, complementa’l amb els suplements recomanats (com ara olis rics en omega 3) i consulta el teu veterinari.</p>
       <p class="small-copy">Percentatge aplicat al càlcul: ${formatDecimal.format(percentatge)} % del pes corporal.</p>
     `;
 
