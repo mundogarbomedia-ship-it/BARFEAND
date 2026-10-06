@@ -14,7 +14,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - Web estática (HTML, CSS y JS) en **https://barfeand.com**, publicada con **GitHub Pages** en cada push a `main` (`.github/workflows/deploy-pages.yml`).
 - Idiomas: catalán (principal, en `/`), castellano (`/es/`) y francés (`/fr/`).
 - **La compra se hace en la tienda WooCommerce de El Rebost del Nord** (elrebostdelnord.com). La web enlaza cada producto allí. No se monta tienda propia.
-- El asistente **Barfy** (`assets/barfy/`) usa `api.barfeand.com`, que está en el hosting Webempresa. No tocar ese servidor.
+- El asistente **Barfy** (`assets/barfy/`) usa `api.barfeand.com`, que está en el hosting Webempresa. No tocar ese servidor. Las respuestas se generan con la **API de Gemini de Google** (Google AI Studio, proyecto «BARFEAND-Barfy», facturación de pago Nivel 1): Google no usa los mensajes para mejorar sus productos. Así consta en las políticas de privacidad.
 - La carpeta `barfeand.com` del hosting Webempresa está vacía y no se usa. `barfear.com` redirige a barfeand.com con un `.htaccess`.
 
 ## Estructura
@@ -80,7 +80,7 @@ Basados en las prácticas habituales de alimentación BARF. Siempre con la indic
 
 ## Plan de trabajo (resumen)
 
-1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y la corrección de "alimento complementario". *Hecho el 6 de octubre de 2026* (también el botón flotante de WhatsApp). Pendiente: que un asesor revise los textos legales y confirmar qué proveedor de IA usa Barfy.
+1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y la corrección de "alimento complementario". *Hecho el 6 de octubre de 2026* (también el botón flotante de WhatsApp). Pendiente: que un asesor revise los textos legales y confirmar cuánto tiempo guarda el servidor de Barfy los mensajes.
 2. **Fichas de producto:** una página por receta, con fotos, ingredientes, formatos, conservación y botón a la tienda. Sin composición analítica.
 3. **Compra práctica:** calculadora que lleve al carrito, packs y complementos recomendados.
 4. **Idiomas completos:** guías y fichas en catalán y francés, y app de la calculadora en castellano y francés.
