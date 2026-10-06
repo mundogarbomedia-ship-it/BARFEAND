@@ -29,6 +29,9 @@ jobs:
         with:
           enablement: true
 
+      - name: Quitar archivos internos
+        run: rm -f CLAUDE.md README.md
+
       - name: Preparar sitio estático
         uses: actions/upload-pages-artifact@v3
         with:
