@@ -22,10 +22,30 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - `index.html`, `qui-som/` → catalán
 - `es/index.html`, `es/quienes-somos/` y 6 guías en castellano: `es/que-es-la-dieta-barf/`, `es/como-empezar-dieta-barf/`, `es/cantidad-barf-perro-gato/`, `es/calculadora-barf/`, `es/comprar-barf-andorra/`, `es/preguntas-frecuentes-barf/`
 - `fr/index.html`, `fr/qui-sommes-nous/` → francés
+- **Páginas legales** (enlazadas entre idiomas con `hreflang`, `x-default` = catalán):
+
+  | | Catalán | Castellano | Francés |
+  |---|---|---|---|
+  | Aviso legal | `avis-legal/` | `es/aviso-legal/` | `fr/mentions-legales/` |
+  | Privacidad | `politica-de-privacitat/` | `es/politica-de-privacidad/` | `fr/politique-de-confidentialite/` |
+  | Cookies | `politica-de-galetes/` | `es/politica-de-cookies/` | `fr/politique-de-cookies/` |
+  | Condiciones de venta | `condicions-de-venda/` | `es/condiciones-de-venta/` | `fr/conditions-de-vente/` |
+
 - `app/` → app de la calculadora (PWA, solo en catalán). Si cambias `app/index.html`, sube la versión de `CACHE_NAME` en `app/sw.js`.
-- `css/estilos.css`, `css/mobile-v2.css`, `css/qui-som.css`, `css/guias.css` (guías)
-- `js/principal.js` (menú, navegación) y `js/calculadora.js` (calculadora en los 3 idiomas)
+- `css/estilos.css`, `css/mobile-v2.css`, `css/qui-som.css`, `css/guias.css` (guías y páginas legales) y `css/comunes.css` (aviso de cookies, botón de WhatsApp y enlaces legales del pie)
+- `js/principal.js` (menú, navegación; marca solo el enlace del menú de la página actual), `js/calculadora.js` (calculadora en los 3 idiomas) y `js/comunes.js` (GA4, aviso de cookies, WhatsApp y eventos)
 - `sitemap.xml`, `robots.txt`
+
+## Elementos comunes a todas las páginas
+
+- **`js/comunes.js`** va en el `<head>`, justo después del `viewport` y **sin `defer`** (tiene que fijar el consentimiento antes de cargar Google Analytics). Se encarga de:
+  - **Google Analytics 4** (`G-8SJNE52H4V`) con **Consent Mode v2**: todo denegado por defecto. Al aceptar solo se concede `analytics_storage`; la publicidad queda siempre denegada.
+  - **Aviso de cookies** propio en CA/ES/FR (Aceptar / Rechazar + enlace a la política de cookies). Guarda la elección en `localStorage` (`barfeand-galetes`) durante 12 meses. Al rechazar, borra las cookies `_ga`. Cualquier botón con `data-obrir-galetes` vuelve a abrir el aviso (está en el pie y en la política de cookies).
+  - **Botón flotante de WhatsApp** (+376 678 536), abajo a la izquierda porque Barfy ocupa la derecha. En móvil sube por encima de la barra de navegación rápida.
+  - **Eventos GA4:** `clic_comprar` (enlaces a `/producte/` o `/categoria/` de elrebostdelnord.com; parámetros `producto` y `ubicacion`), `uso_calculadora` (`especie`, `etapa`, `actividad`, `objetivo`, `peso_kg`), `clic_whatsapp` y `clic_telefono`.
+- **Menú:** idéntico en todas las páginas de cada idioma, con rutas absolutas. CA y FR enlazan a las secciones de su portada (`/#barf`, `/fr/#barf`…); ES enlaza a las guías (`/es/que-es-la-dieta-barf/`, `/es/calculadora-barf/`, `/es/preguntas-frecuentes-barf/`) y a `/es/#gammes` y `/es/#productes`. No pongas `aria-current` a mano en el menú: lo pone `principal.js`.
+- **Pie:** correo, «Teléfono y WhatsApp» +376 678 536, «Tienda» +376 867 648 (fijo) y una fila `footer__legal` con los cuatro enlaces legales y «Configurar cookies».
+- Una página nueva necesita: `comunes.js` en el `<head>`, `comunes.css`, el menú de su idioma, el pie con `footer__legal` y su entrada en `sitemap.xml`.
 
 ## Convenciones
 
@@ -40,19 +60,14 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - **IMPORTANTE:** las recetas **NO son una dieta completa**. Son un **alimento complementario** para perros y gatos. Se recomiendan complementos (ver la lista de abajo).
 - **Entrega:** recogida en la carnicería y envío a domicilio en las zonas de Andorra configuradas en WooCommerce.
 - **Composición analítica:** no es obligatoria en Andorra y no se publica. La etiqueta lleva información comercial, conservación (−18 °C), descongelación y caducidad.
-- **Datos legales:** los mismos que El Rebost del Nord.
+- **Datos legales:** los mismos que El Rebost del Nord. Titular: **El Rebost del Nord**, NRT **F308823Z**, Av. Príncep Benlloch, 85, local 2, AD500 Andorra la Vella. Ley de protección de datos: **Llei 29/2021** (autoridad: APDA).
+- **Tienda online:** términos en `elrebostdelnord.com/termes-i-condicions/` (ES: `/es/terminos-y-condiciones/`) y envíos en `/enviaments/` (ES: `/es/envios/`). No hay versión francesa: desde FR se enlaza la catalana.
 - **Punto de venta externo:** SÜNA, Av. del Pessebre 90, Escaldes-Engordany (colaborador, no es del usuario).
-- **Contacto:** carnisseria@elrebostdelnord.com y WhatsApp +376 678 536. También vendemos a tiendas (mayoristas).
+- **Contacto:** carnisseria@elrebostdelnord.com, WhatsApp y móvil +376 678 536 y teléfono fijo de la tienda +376 867 648. También vendemos a tiendas (mayoristas).
 
-## Tarea urgente pendiente
+## Alimento complementario (hecho el 6 de octubre de 2026)
 
-Corregir los textos que presentan BARFEAND como dieta completa:
-
-- `es/como-empezar-dieta-barf/`: quitar "hasta llegar al 100 %" y explicar cómo incorporarlo junto con los complementos.
-- `es/cantidad-barf-perro-gato/`, `es/calculadora-barf/` y `js/calculadora.js`: presentar los gramos como cantidad orientativa de BARF dentro de su alimentación.
-- `es/preguntas-frecuentes-barf/` (también su JSON-LD FAQPage) y `es/que-es-la-dieta-barf/`.
-- Portadas CA/ES/FR y app: revisar la frase de la calculadora.
-- Texto base **aprobado por el usuario** (6 de octubre de 2026): *"BARFEAND es un alimento complementario para perros y gatos. Para una alimentación equilibrada, complétalo con los suplementos recomendados (como aceites ricos en omega 3) y consulta con tu veterinario."*
+Las guías, las portadas, la calculadora y la app ya presentan BARFEAND como alimento complementario. Texto base **aprobado por el usuario**: *"BARFEAND es un alimento complementario para perros y gatos. Para una alimentación equilibrada, complétalo con los suplementos recomendados (como aceites ricos en omega 3) y consulta con tu veterinario."* Las versiones en catalán y francés son traducciones de Claude. Úsalo igual en las páginas nuevas.
 
 ## Complementos recomendados (propuesta para la web)
 
@@ -65,7 +80,7 @@ Basados en las prácticas habituales de alimentación BARF. Siempre con la indic
 
 ## Plan de trabajo (resumen)
 
-1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y la corrección de "alimento complementario".
+1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y la corrección de "alimento complementario". *Hecho el 6 de octubre de 2026* (también el botón flotante de WhatsApp). Pendiente: que un asesor revise los textos legales y confirmar qué proveedor de IA usa Barfy.
 2. **Fichas de producto:** una página por receta, con fotos, ingredientes, formatos, conservación y botón a la tienda. Sin composición analítica.
 3. **Compra práctica:** calculadora que lleve al carrito, packs y complementos recomendados.
 4. **Idiomas completos:** guías y fichas en catalán y francés, y app de la calculadora en castellano y francés.

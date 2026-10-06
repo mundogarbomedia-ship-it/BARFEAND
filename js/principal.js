@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.toggle("menu-open", obert);
   }
 
+  /* El menú és idèntic a totes les pàgines: marca l'enllaç de la pàgina actual. */
+  menu?.querySelectorAll("a:not(.language-link):not(.button)").forEach((enllac) => {
+    const desti = new URL(enllac.href, location.href);
+    if (!desti.hash && desti.pathname === location.pathname) enllac.setAttribute("aria-current", "page");
+  });
+
   if (botoMenu && menu) {
     botoMenu.addEventListener("click", () => {
       const obert = botoMenu.getAttribute("aria-expanded") === "true";

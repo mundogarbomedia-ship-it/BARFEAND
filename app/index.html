@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <script src="../js/comunes.js?v=20261006"></script>
   <title>Calculadora BARFEAND | Quantitat orientativa de BARF</title>
   <meta name="description" content="Calcula la quantitat orientativa de BARF al dia per al teu gos o gat i instal·la la calculadora BARFEAND al mòbil.">
   <link rel="canonical" href="https://barfeand.com/app/">
@@ -173,6 +174,9 @@
     .disclaimer { margin-top: 18px; color: var(--muted); font-size: .78rem; line-height: 1.5; text-align: center; }
     footer { margin-top: 22px; color: var(--muted); font-size: .78rem; text-align: center; }
     footer a { color: var(--pink); font-weight: 700; text-decoration: none; }
+    .app-legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; margin: 12px 0 0; }
+    .app-legal a, .app-legal button { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600; cursor: pointer; }
+    .app-legal a:hover, .app-legal button:hover { color: var(--pink-dark); text-decoration: underline; }
     :focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
 
     @media (max-width: 390px) {
@@ -184,6 +188,7 @@
       * { transition: none !important; }
     }
   </style>
+  <link rel="stylesheet" href="../css/comunes.css?v=20261006">
 </head>
 <body>
   <main class="app">
@@ -247,7 +252,10 @@
     <p class="disclaimer">BARFEAND és un aliment complementari per a gossos i gats. Per a una alimentació equilibrada, complementa’l amb els suplements recomanats (com ara olis rics en omega 3) i consulta el teu veterinari.</p>
     <p class="disclaimer">Càlcul orientatiu. No substitueix l’assessorament veterinari o nutricional individual, especialment en cadells, animals gestants o mascotes amb patologies.</p>
 
-    <footer><a href="../">Tornar a barfeand.com</a></footer>
+    <footer>
+      <a href="../">Tornar a barfeand.com</a>
+      <nav class="app-legal" aria-label="Informació legal"><a href="/avis-legal/">Avís legal</a><a href="/politica-de-privacitat/">Privacitat</a><a href="/politica-de-galetes/">Galetes</a><a href="/condicions-de-venda/">Condicions de venda</a><button type="button" data-obrir-galetes>Configurar les galetes</button></nav>
+    </footer>
   </main>
 
   <script>

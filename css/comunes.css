@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* Elements comuns a totes les pàgines BARFEAND: avís de galetes, botó de WhatsApp i enllaços legals del peu */
+
+/* Peu: enllaços legals i contacte */
+.footer a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.footer a:hover{color:#ef6694}
+.footer__legal{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin-top:30px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.82rem}
+.footer__legal a,.footer__legal button{color:#bbb6b8;text-decoration:none}
+.footer__legal a:hover,.footer__legal button:hover{color:#fff;text-decoration:underline}
+.footer__legal button{padding:0;border:0;background:none;font:inherit;cursor:pointer}
+
+/* Botó flotant de WhatsApp (a l'esquerra, perquè Barfy ocupa la dreta) */
+.whatsapp-float{position:fixed;left:20px;bottom:max(20px,calc(env(safe-area-inset-bottom) + 12px));z-index:950;display:grid;place-items:center;width:56px;height:56px;border:2px solid #fff;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .18s ease,box-shadow .18s ease}
+.whatsapp-float:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,0,0,.3)}
+.whatsapp-float:focus-visible{outline:3px solid var(--pink,#d2265f);outline-offset:3px}
+.whatsapp-float svg{width:30px;height:30px;fill:currentColor}
+
+/* Avís de galetes */
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));z-index:2147483600;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px 26px;max-width:980px;margin-inline:auto;padding:22px 26px;border:1px solid rgba(210,38,95,.18);border-radius:22px;background:#fff;color:var(--ink,#161516);box-shadow:0 22px 60px rgba(20,14,16,.22);font-family:Inter,Montserrat,Arial,Helvetica,sans-serif;line-height:1.5}
+.cookie-banner[hidden]{display:none}
+.cookie-banner__title{margin:0 0 4px;font-size:1rem;font-weight:850}
+.cookie-banner__text{margin:0;color:var(--muted,#6d6769);font-size:.9rem}
+.cookie-banner__text a{color:var(--pink-dark,#ad174a);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.cookie-banner__actions{display:flex;flex-wrap:wrap;gap:10px}
+.cookie-banner__button{min-width:120px;min-height:46px;padding:10px 20px;border:2px solid var(--ink,#161516);border-radius:999px;background:transparent;color:var(--ink,#161516);font:inherit;font-size:.92rem;font-weight:850;cursor:pointer;transition:.18s}
+.cookie-banner__button:hover{background:var(--ink,#161516);color:#fff}
+.cookie-banner__button--accept{border-color:var(--pink,#d2265f);background:var(--pink,#d2265f);color:#fff}
+.cookie-banner__button--accept:hover{border-color:var(--pink-dark,#ad174a);background:var(--pink-dark,#ad174a)}
+.cookie-banner__button:focus-visible{outline:3px solid var(--pink,#d2265f);outline-offset:3px}
+
+/* Pàgines legals */
+.legal-updated{margin-top:-8px;color:var(--muted,#6d6769);font-size:.9rem}
+.legal-data{margin:8px 0 28px;padding:20px 24px;border:1px solid var(--line,#e6ded8);border-radius:18px;background:var(--cream,#f7f3ef)}
+.legal-data p{margin:0}
+
+@media (max-width:700px){
+  .whatsapp-float{left:14px;bottom:max(14px,calc(env(safe-area-inset-bottom) + 8px));width:52px;height:52px}
+  body.has-quick-nav .whatsapp-float{bottom:calc(62px + 12px + env(safe-area-inset-bottom))}
+  .cookie-banner{left:10px;right:10px;bottom:max(10px,calc(env(safe-area-inset-bottom) + 6px));grid-template-columns:1fr;padding:18px}
+  .cookie-banner__actions{display:grid;grid-template-columns:1fr 1fr}
+  .cookie-banner__button{min-width:0}
+}
+@media print{.whatsapp-float,.cookie-banner{display:none!important}}
