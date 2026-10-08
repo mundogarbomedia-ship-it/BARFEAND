@@ -31,6 +31,9 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
   | Cookies | `politica-de-galetes/` | `es/politica-de-cookies/` | `fr/politique-de-cookies/` |
   | Condiciones de venta | `condicions-de-venda/` | `es/condiciones-de-venta/` | `fr/conditions-de-vente/` |
 
+- **Blog (8 de octubre de 2026):** `blog/` (catalán) y `es/blog/` (castellano), enlazados con `hreflang` (`x-default` = catalán). Cada artículo va en su carpeta: `blog/<slug-ca>/` y `es/blog/<slug-es>/`. Primer artículo: `blog/gos-actiu-tardor-andorra/` ↔ `es/blog/perro-activo-otono-andorra/`. Sin versión francesa todavía (desde el blog el botón FR lleva a `/fr/`). Estilos en `css/blog.css` (después de `guias.css`). «Blog» está en el menú CA y ES, entre «Preguntes/Preguntas» y «Qui som/Quiénes somos».
+  - **Pensado para Google Discover:** todas las páginas llevan `<meta name="robots" content="max-image-preview:large">` (debajo del `canonical`). Cada artículo necesita: imagen grande propia (mínimo 1200 px de ancho) en `imagenes/blog/` con versiones `-16x9.jpg`, `-4x3.jpg` y `-1x1.jpg` (para el JSON-LD `BlogPosting` y `og:image`) más `-1600.webp` y `-800.webp` para la página; fecha de publicación visible y en `datePublished`; titular claro sin clickbait; el texto aprobado de alimento complementario; enlaces a la calculadora y a las recetas.
+  - Al publicar un artículo: añadir su tarjeta (la más nueva primero) y su entrada en `blogPost` del JSON-LD en los dos índices del blog, añadirlo a `sitemap.xml` y pedir la indexación en Search Console.
 - `app/` → app de la calculadora (PWA, solo en catalán). Si cambias `app/index.html`, sube la versión de `CACHE_NAME` en `app/sw.js`.
 - `css/estilos.css`, `css/mobile-v2.css`, `css/qui-som.css`, `css/guias.css` (guías y páginas legales) y `css/comunes.css` (aviso de cookies, botón de WhatsApp y enlaces legales del pie)
 - **Portadas (diseño comercial, 8 de octubre de 2026):** las tres portadas cargan además `css/portada.css` (clases `pt-*`). Orden: franja negra (envío, recogida, WhatsApp) → vídeo con un solo mensaje y «Comprar ara · des de 8,40 €» → franja de confianza → productos en cuadrícula (filtros Totes/Mono/Multi en `principal.js`; el ancla `#gammes` apunta a los filtros) → calculadora en fondo oscuro → «Com funciona» → «Què és BARF» → (ES: guías) → preguntas. Las tarjetas mantienen las clases que usan los JS (`product-card`, `product-photo`, `price`, `format`, `label-button`, `perkg` e `ingredients` ocultos). Sin barra de navegación inferior en móvil: Barfy ocupa la esquina, así que el botón «Comprar» va en la cabecera (`pt-header-buy`). Pendiente: sección de reseñas cuando haya opiniones reales de Google y fotos reales de los paquetes.
@@ -86,6 +89,6 @@ Basados en las prácticas habituales de alimentación BARF. Siempre con la indic
 3. **Compra práctica:** calculadora que lleve al carrito, packs y complementos recomendados.
 4. **Idiomas completos:** guías y fichas en catalán y francés, y app de la calculadora en castellano y francés.
 5. **Confianza y captación:** Perfil de Empresa de Google, reseñas, WhatsApp visible y formulario de mayoristas.
-6. **Crecimiento continuo:** una guía nueva al mes y revisión mensual de Search Console y Analytics.
+6. **Crecimiento continuo:** al menos un artículo nuevo en el blog (CA + ES) o una guía nueva al mes y revisión mensual de Search Console y Analytics.
 
 Plan completo: https://claude.ai/code/artifact/6629b502-997d-419f-a52e-39a8d00e061b
