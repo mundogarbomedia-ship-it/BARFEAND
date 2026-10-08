@@ -78,8 +78,11 @@
 .pt-calc .eyebrow{color:#ef6694}
 .pt-calc h2{color:#fff;margin-bottom:16px!important}
 .pt-calc__intro p{max-width:440px;color:#c9c3c5;font-size:1.05rem}
-.pt-calc .button--outline{margin-top:10px;border-color:rgba(255,255,255,.7);color:#fff}
-.pt-calc .button--outline:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.pt-app{margin-top:26px;padding:20px 22px;border:1px solid #3a3637;border-radius:20px;max-width:460px}
+.pt-app p{margin:0 0 14px;color:#e4dfe1;font-size:.98rem}
+.pt-app__btn.button{gap:10px;border-color:#fff;background:#fff;color:var(--ink)}
+.pt-app__btn.button:hover{background:#f9e8ee;border-color:#f9e8ee;color:var(--ink)}
+.pt-app__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pt-calc .calc-form{color:var(--ink);border:0;border-radius:24px;box-shadow:none;padding:30px}
 .pt-calc .calc-result h3{color:var(--ink)}
 .pt-calc .calc-result p{color:var(--muted)}
