@@ -30,7 +30,7 @@ jobs:
           enablement: true
 
       - name: Quitar archivos internos
-        run: rm -f CLAUDE.md README.md
+        run: rm -rf CLAUDE.md README.md AGENTS.md .claude
 
       - name: Preparar sitio estático
         uses: actions/upload-pages-artifact@v3
