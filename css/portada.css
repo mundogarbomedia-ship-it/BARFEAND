@@ -1,0 +1,161 @@
+@charset "UTF-8";
+/* BARFEAND · portada comercial (CA/ES/FR) · 2026-10-08
+   Només la carreguen les tres portades. Va després de estilos.css, mobile-v2.css i comunes.css. */
+
+/* Franja superior */
+.pt-strip{background:var(--ink);color:#fff;font-size:.82rem;font-weight:650}
+.pt-strip__inner{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 34px;padding-block:9px}
+.pt-strip span,.pt-strip a{display:inline-flex;align-items:center;gap:8px;color:#fff}
+.pt-strip a:hover{color:#ffb3cb}
+.pt-strip svg{flex:none;width:16px;height:16px;fill:none;stroke:#ef6694;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Portada amb vídeo: menys text i més imatge */
+.pt-hero.hero--video{min-height:clamp(560px,calc(100svh - 130px),700px)}
+.pt-hero.hero--video::after{background:linear-gradient(270deg,rgba(14,12,10,.9) 0%,rgba(14,12,10,.66) 36%,rgba(14,12,10,.12) 66%,rgba(14,12,10,0) 100%)}
+.pt-hero .hero__content{width:min(100%,560px)}
+.pt-hero h1{font-size:clamp(2.8rem,5.2vw,4.5rem);line-height:1.02;margin-bottom:18px}
+.pt-hero .lead{max-width:470px;font-size:1.15rem}
+.pt-hero .hero__actions{margin:28px 0 0}
+.pt-hero .button{min-height:56px;padding-inline:28px;font-size:1.02rem}
+.pt-pill{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.15);color:#fff;font-size:.82rem;font-weight:750;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.pt-pill svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Icones comunes */
+.pt-ico{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--pink-soft)}
+.pt-ico svg{width:24px;height:24px;fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Franja de confiança */
+.pt-trust{border-bottom:1px solid var(--line);background:#fff}
+.pt-trust__grid{list-style:none;margin-block:0;padding-inline:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-block:28px}
+.pt-trust__item{display:flex;align-items:center;gap:14px}
+.pt-trust__item strong{display:block;font-size:.95rem;line-height:1.3}
+.pt-trust__item div span{display:block;font-size:.82rem;color:var(--muted);line-height:1.4}
+
+/* Capçaleres de secció */
+.pt-section{padding-block:96px}
+.pt-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.pt-head h2,.pt-section h2{margin-bottom:0;font-size:clamp(2rem,3.6vw,3rem);font-weight:900}
+.pt-head .eyebrow,.pt-section .eyebrow{margin-bottom:10px}
+
+/* Filtres */
+.pt-filters{display:flex;flex-wrap:wrap;gap:8px;scroll-margin-top:120px}
+.pt-chip{min-height:44px;padding:0 18px;border:2px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:.9rem;font-weight:800;transition:.18s}
+.pt-chip:hover{border-color:var(--ink)}
+.pt-chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Graella de productes */
+.pt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.pt-grid .product-card{display:flex;flex-direction:column;border:1px solid #ece4de;border-radius:20px;box-shadow:none;background:#fff;transition:box-shadow .2s,transform .2s}
+.pt-grid .product-card:hover{box-shadow:0 18px 40px rgba(30,22,24,.12);transform:translateY(-3px)}
+.pt-grid .product-card[hidden],.pt-help[hidden]{display:none!important}
+.pt-card__media{position:relative;aspect-ratio:1/1;background:var(--cream)}
+.pt-grid .product-photo{mix-blend-mode:multiply}
+.pt-grid .product-photo{width:100%;height:100%;padding:7%;object-fit:contain}
+.pt-tag{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#fff;font-size:.68rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+.pt-dot{width:10px;height:10px;border-radius:50%;background:var(--c,#161516);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.pt-badge{position:absolute;top:12px;right:12px;padding:5px 10px;border-radius:999px;background:var(--ink);color:#fff;font-size:.7rem;font-weight:850}
+.pt-grid .label-button{left:12px;bottom:12px;padding:6px 11px;border:1px solid rgba(22,21,22,.25);font-size:.74rem}
+.pt-card__body{display:flex;flex:1;flex-direction:column;gap:12px;padding:18px}
+.pt-grid .product-card h3{margin:0;font-weight:800;font-size:1.2rem;line-height:1.2;letter-spacing:-.02em}
+.pt-price{display:flex;align-items:baseline;gap:6px;margin:0;color:var(--muted);font-size:.84rem}
+.pt-grid .price{color:var(--ink);font-size:1.5rem;font-weight:900;letter-spacing:-.02em}
+.pt-formats{display:flex;gap:6px}
+.pt-grid .format{min-height:38px;padding:0 14px;border:2px solid var(--line);border-radius:999px;background:#fff;font-size:.82rem;font-weight:850}
+.pt-grid .format.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.pt-buy.button{min-height:48px;margin-top:auto}
+.pt-help{display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:260px;padding:26px;border-radius:20px;background:var(--pink);color:#fff}
+.pt-help h3{margin:0 0 8px;font-size:1.45rem;color:#fff}
+.pt-help p{margin:0;color:rgba(255,255,255,.92)}
+.pt-help__actions{display:flex;flex-direction:column;gap:8px}
+.pt-help .button{min-height:48px;text-align:center;border-color:#fff;background:transparent;color:#fff}
+.pt-help .button:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.pt-note{display:flex;gap:10px;align-items:flex-start;max-width:840px;margin:26px 0 0;font-size:.9rem}
+.pt-note svg{flex:none;width:18px;height:18px;margin-top:2px;fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round}
+
+/* Calculadora */
+.pt-calc{background:var(--ink);color:#fff}
+.pt-calc__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center}
+.pt-calc .eyebrow{color:#ef6694}
+.pt-calc h2{color:#fff;margin-bottom:16px!important}
+.pt-calc__intro p{max-width:440px;color:#c9c3c5;font-size:1.05rem}
+.pt-calc .button--outline{margin-top:10px;border-color:rgba(255,255,255,.7);color:#fff}
+.pt-calc .button--outline:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.pt-calc .calc-form{color:var(--ink);border:0;border-radius:24px;box-shadow:none;padding:30px}
+.pt-calc .calc-result h3{color:var(--ink)}
+.pt-calc .calc-result p{color:var(--muted)}
+
+/* Com funciona */
+.pt-steps{list-style:none;padding:0;margin-bottom:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
+.pt-step{display:flex;flex-direction:column;gap:10px;padding:28px;border-radius:20px;background:var(--cream)}
+.pt-step__num{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;font-size:1.1rem}
+.pt-step h3{margin:6px 0 0;font-size:1.25rem}
+.pt-step p{margin:0;font-size:.95rem}
+
+/* Què és BARF */
+.pt-barf{background:var(--cream)}
+.pt-barf__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:center}
+.pt-barf__img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:24px}
+.pt-barf h2{margin-bottom:16px!important}
+.pt-formula{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:24px 0 28px;padding:0;list-style:none}
+.pt-formula li{padding:14px 6px;border-radius:16px;background:#fff;text-align:center;font-size:.82rem;color:var(--muted)}
+.pt-formula strong{display:block;color:var(--pink);font-size:1.6rem;font-weight:900;line-height:1.2}
+
+/* Preguntes */
+.pt-faq{background:#fff}
+.pt-faq .split{grid-template-columns:.8fr 1.2fr}
+
+/* Botó Comprar de la capçalera: només quan el menú es plega (a baix hi ha Barfy i WhatsApp) */
+.pt-header-buy{display:none}
+
+@media (max-width:1100px){
+  .pt-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pt-trust__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (max-width:1000px){
+  .pt-calc__grid,.pt-barf__grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .pt-faq .split{grid-template-columns:1fr}
+  .header__inner .pt-header-buy{display:inline-flex;margin-left:auto;min-height:44px;padding:8px 18px}
+  .header__inner:has(.pt-header-buy){gap:10px}
+}
+
+@media (max-width:700px){
+  .pt-strip{font-size:.78rem}
+  .pt-strip__extra{display:none!important}
+  .pt-hero.hero--video{min-height:max(600px,calc(100svh - 110px))!important}
+  .pt-hero .hero__grid{padding-top:150px!important;padding-bottom:92px!important}
+  .pt-hero h1{font-size:clamp(2.3rem,10.5vw,2.8rem)!important}
+  .pt-hero .lead{font-size:1rem!important}
+  .pt-hero .hero__actions{margin:22px 0 0!important}
+  .pt-section{padding-block:60px!important}
+  .pt-trust__grid{gap:14px;padding-block:20px}
+  .pt-trust__item{gap:10px}
+  .pt-trust__item .pt-ico{width:40px;height:40px}
+  .pt-trust__item .pt-ico svg{width:20px;height:20px}
+  .pt-trust__item strong{font-size:.84rem}
+  .pt-trust__item div span{display:none}
+  .pt-head{margin-bottom:22px}
+  .pt-chip{min-height:40px;padding:0 14px;font-size:.84rem}
+  .pt-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .pt-grid .product-card{border-radius:16px!important}
+  .pt-grid .pt-card__media{aspect-ratio:1/1!important}
+  .pt-grid .product-photo{padding:6%!important}
+  .pt-grid .label-button{display:none!important}
+  .pt-tag{top:8px;left:8px;padding:4px 8px;font-size:.6rem}
+  .pt-badge{top:auto;bottom:8px;right:8px;font-size:.62rem}
+  .pt-card__body{gap:10px;padding:12px}
+  .pt-grid .product-card h3{font-size:1rem!important;margin:0!important}
+  .pt-grid .price{display:inline!important;margin:0!important;font-size:1.2rem!important}
+  .pt-grid .format{min-height:36px;padding:0 10px;font-size:.76rem}
+  .pt-buy.button{min-height:44px;padding-inline:10px;font-size:.92rem}
+  .pt-help{min-height:0;gap:14px;padding:16px}
+  .pt-help p{font-size:.88rem}
+  .pt-help .button{min-height:44px;padding-inline:8px;font-size:.88rem}
+  .pt-help h3{font-size:1.2rem!important}
+  .pt-calc .calc-form{padding:22px 16px!important}
+  .pt-steps{grid-template-columns:1fr;gap:12px;margin-top:24px}
+  .pt-step{padding:20px}
+  .pt-formula strong{font-size:1.3rem}
+}
+
+@media (prefers-reduced-motion:reduce){.pt-grid .product-card:hover{transform:none}}

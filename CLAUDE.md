@@ -33,6 +33,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 
 - `app/` → app de la calculadora (PWA, solo en catalán). Si cambias `app/index.html`, sube la versión de `CACHE_NAME` en `app/sw.js`.
 - `css/estilos.css`, `css/mobile-v2.css`, `css/qui-som.css`, `css/guias.css` (guías y páginas legales) y `css/comunes.css` (aviso de cookies, botón de WhatsApp y enlaces legales del pie)
+- **Portadas (diseño comercial, 8 de octubre de 2026):** las tres portadas cargan además `css/portada.css` (clases `pt-*`). Orden: franja negra (envío, recogida, WhatsApp) → vídeo con un solo mensaje y «Comprar ara · des de 8,40 €» → franja de confianza → productos en cuadrícula (filtros Totes/Mono/Multi en `principal.js`; el ancla `#gammes` apunta a los filtros) → calculadora en fondo oscuro → «Com funciona» → «Què és BARF» → (ES: guías) → preguntas. Las tarjetas mantienen las clases que usan los JS (`product-card`, `product-photo`, `price`, `format`, `label-button`, `perkg` e `ingredients` ocultos). Sin barra de navegación inferior en móvil: Barfy ocupa la esquina, así que el botón «Comprar» va en la cabecera (`pt-header-buy`). Pendiente: sección de reseñas cuando haya opiniones reales de Google y fotos reales de los paquetes.
 - `js/principal.js` (menú, navegación; marca solo el enlace del menú de la página actual), `js/calculadora.js` (calculadora en los 3 idiomas) y `js/comunes.js` (GA4, aviso de cookies, WhatsApp y eventos)
 - `sitemap.xml`, `robots.txt`
 

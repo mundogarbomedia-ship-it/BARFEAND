@@ -198,6 +198,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* Filtres de la botiga de la portada (Totes / Monoproteïna / Multiproteïna). */
+  const filtres = [...document.querySelectorAll(".pt-chip[data-filtre]")];
+  const ajudaBotiga = document.querySelector(".pt-help");
+  filtres.forEach((boto) => {
+    boto.addEventListener("click", () => {
+      const filtre = boto.dataset.filtre;
+      filtres.forEach((altre) => altre.setAttribute("aria-pressed", String(altre === boto)));
+      document.querySelectorAll(".pt-grid .product-card").forEach((targeta) => {
+        targeta.hidden = filtre !== "totes" && targeta.dataset.grup !== filtre;
+      });
+      if (ajudaBotiga) ajudaBotiga.hidden = filtre !== "totes";
+    });
+  });
+
   const dialeg = document.getElementById("label-dialog");
   const titolDialeg = document.getElementById("dialog-title");
   const vistaEtiqueta = document.getElementById("dialog-label-preview");
