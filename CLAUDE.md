@@ -5,8 +5,13 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 ## Regla de oro (en cada sesión)
 
 1. **Al empezar:** `git status` y `git pull`. Si hay cambios sin subir o conflictos, para y avisa.
-2. **Al terminar:** lista los archivos cambiados, propón un mensaje de commit en castellano y haz (o recuerda) **commit + push**.
+2. **Al terminar:** lista los archivos cambiados, propón un mensaje de commit en castellano y haz **commit + push** a `main` tras cada modificación.
 3. Se trabaja desde dos PC (uno se llama **PC piso**). GitHub es siempre la copia buena.
+4. **Repositorio compartido** (varias personas y cuentas de Claude suben a `main`):
+   - Justo antes de cada push, `git pull --rebase` para traer lo que hayan subido otros mientras trabajabas.
+   - Si hay conflicto, para y avisa; no resuelvas a ciegas cambios de otra persona.
+   - Nunca `git push --force` ni reescribir historial de `main`.
+   - Haz commits pequeños y frecuentes (uno por cambio), así se pisan menos.
 
 ## Qué es el proyecto
 
