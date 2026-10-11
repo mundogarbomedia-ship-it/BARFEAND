@@ -15,6 +15,7 @@
 .pt-hero .hero__content{width:min(100%,560px)}
 .pt-hero h1{font-size:clamp(2.8rem,5.2vw,4.5rem);line-height:1.02;margin-bottom:18px}
 .pt-hero .lead{max-width:470px;font-size:1.15rem}
+.pt-hero .pt-lema{margin:0 0 14px;color:#f36b98;font-size:clamp(1.15rem,1.9vw,1.4rem);font-weight:800;font-style:italic;letter-spacing:-.01em;line-height:1.25}
 .pt-hero .hero__actions{margin:28px 0 0}
 .pt-hero .button{min-height:56px;padding-inline:28px;font-size:1.02rem}
 .pt-pill{display:inline-flex;align-items:center;gap:8px;margin:0 0 18px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.15);color:#fff;font-size:.82rem;font-weight:750;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
@@ -129,6 +130,7 @@
   .pt-hero .hero__grid{padding-top:150px!important;padding-bottom:92px!important}
   .pt-hero h1{font-size:clamp(2.3rem,10.5vw,2.8rem)!important}
   .pt-hero .lead{font-size:1rem!important}
+  .pt-hero .pt-lema{font-size:1.08rem!important;margin-bottom:10px!important}
   .pt-hero .hero__actions{margin:22px 0 0!important}
   .pt-section{padding-block:60px!important}
   .pt-trust__grid{gap:14px;padding-block:20px}
