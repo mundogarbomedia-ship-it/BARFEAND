@@ -55,7 +55,8 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
   - **Eventos GA4:** `clic_comprar` (enlaces a `/producte/` o `/categoria/` de elrebostdelnord.com; parámetros `producto` y `ubicacion`), `uso_calculadora` (`especie`, `etapa`, `actividad`, `objetivo`, `peso_kg`), `clic_whatsapp` y `clic_telefono`.
 - **Menú:** idéntico en todas las páginas de cada idioma, con rutas absolutas. CA y FR enlazan a las secciones de su portada (`/#barf`, `/fr/#barf`…); ES enlaza a las guías (`/es/que-es-la-dieta-barf/`, `/es/calculadora-barf/`, `/es/preguntas-frecuentes-barf/`) y a `/es/#gammes` y `/es/#productes`. No pongas `aria-current` a mano en el menú: lo pone `principal.js`.
 - **Pie:** correo, «Teléfono y WhatsApp» +376 678 536, «Tienda» +376 867 648 (fijo) y una fila `footer__legal` con los cuatro enlaces legales y «Configurar cookies».
-- Una página nueva necesita: `comunes.js` en el `<head>`, `comunes.css`, el menú de su idioma, el pie con `footer__legal` y su entrada en `sitemap.xml`.
+- **Favicon (12 de octubre de 2026):** el avatar de la marca (perro y gato en blanco sobre círculo rosa #D2265F), sacado del logo original con la línea engrosada en los tamaños pequeños. Archivos: `favicon.ico` (16/32/48), `imagenes/logo/favicon-32.png`, `favicon-192.png` y `apple-touch-icon.png` (cuadrado rosa), y los iconos de `app/`. Cada página lleva las cuatro etiquetas (`ico`, 32, 192 y apple-touch) con `?v=20261012`; si cambia el icono, sube ese `?v=` en todas.
+- Una página nueva necesita: `comunes.js` en el `<head>`, `comunes.css`, las etiquetas del favicon, el menú de su idioma, el pie con `footer__legal` y su entrada en `sitemap.xml`.
 
 ## Convenciones
 
