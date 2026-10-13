@@ -17,13 +17,13 @@
 .whatsapp-float svg{width:30px;height:30px;fill:currentColor}
 
 /* Avís de galetes */
-.cookie-banner{position:fixed;left:16px;right:16px;bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));z-index:2147483600;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px 26px;max-width:980px;margin-inline:auto;padding:22px 26px;border:1px solid rgba(210,38,95,.18);border-radius:22px;background:#fff;color:var(--ink,#161516);box-shadow:0 22px 60px rgba(20,14,16,.22);font-family:Inter,Montserrat,Arial,Helvetica,sans-serif;line-height:1.5}
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));z-index:2147483600;display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px 26px;max-width:980px;margin-inline:auto;padding:22px 26px;border:1px solid rgba(210,38,95,.18);border-radius:22px;background:#fff;color:var(--ink,#161516);box-shadow:0 22px 60px rgba(20,14,16,.22);font-family:var(--font-text,"Inter",Arial,sans-serif);line-height:1.5}
 .cookie-banner[hidden]{display:none}
-.cookie-banner__title{margin:0 0 4px;font-size:1rem;font-weight:850}
+.cookie-banner__title{margin:0 0 4px;font-size:1rem;font-weight:700}
 .cookie-banner__text{margin:0;color:var(--muted,#6d6769);font-size:.9rem}
 .cookie-banner__text a{color:var(--pink-dark,#ad174a);font-weight:750;text-decoration:underline;text-underline-offset:3px}
 .cookie-banner__actions{display:flex;flex-wrap:wrap;gap:10px}
-.cookie-banner__button{min-width:120px;min-height:46px;padding:10px 20px;border:2px solid var(--ink,#161516);border-radius:999px;background:transparent;color:var(--ink,#161516);font:inherit;font-size:.92rem;font-weight:850;cursor:pointer;transition:.18s}
+.cookie-banner__button{min-width:120px;min-height:46px;padding:10px 20px;border:2px solid var(--ink,#161516);border-radius:999px;background:transparent;color:var(--ink,#161516);font:inherit;font-family:var(--font-title,"Poppins",Arial,sans-serif);font-size:.92rem;font-weight:600;cursor:pointer;transition:.18s}
 .cookie-banner__button:hover{background:var(--ink,#161516);color:#fff}
 .cookie-banner__button--accept{border-color:var(--pink,#d2265f);background:var(--pink,#d2265f);color:#fff}
 .cookie-banner__button--accept:hover{border-color:var(--pink-dark,#ad174a);background:var(--pink-dark,#ad174a)}

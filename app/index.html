@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <script src="../js/comunes.js?v=20261006"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@1,500&family=Poppins:wght@500;600;700&display=swap">
   <title>Calculadora BARFEAND | Quantitat orientativa de BARF</title>
   <meta name="description" content="Calcula la quantitat orientativa de BARF al dia per al teu gos o gat i instal·la la calculadora BARFEAND al mòbil.">
   <link rel="canonical" href="https://barfeand.com/app/">
@@ -36,6 +39,9 @@
       --shadow: 0 22px 55px rgba(30, 22, 24, .10);
       --radius: 26px;
       --max: 520px;
+      --font-title: "Poppins", Arial, sans-serif;
+      --font-text: "Inter", Arial, sans-serif;
+      --font-accent: "Lora", Georgia, serif;
     }
 
     * { box-sizing: border-box; }
@@ -47,7 +53,7 @@
       justify-content: center;
       background: var(--cream);
       color: var(--ink);
-      font-family: Inter, Montserrat, Arial, Helvetica, sans-serif;
+      font-family: var(--font-text);
     }
 
     .app { width: 100%; max-width: var(--max); }
@@ -63,11 +69,11 @@
       margin: 0 0 6px;
       color: var(--pink);
       font-size: .75rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
     }
-    header h1 { margin: 0 0 8px; font-size: 1.55rem; line-height: 1.12; }
+    header h1 { margin: 0 0 8px; font-family: var(--font-title); font-weight: 700; font-size: 1.55rem; line-height: 1.12; }
     header p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.5; }
 
     .install-bar {
@@ -94,7 +100,7 @@
       color: var(--white);
       font: inherit;
       font-size: .8rem;
-      font-weight: 800;
+      font-weight: 700;
       cursor: pointer;
     }
 
@@ -149,14 +155,15 @@
       background: var(--pink);
       color: var(--white);
       font: inherit;
-      font-weight: 800;
+      font-family: var(--font-title);
+      font-weight: 600;
       text-align: center;
       cursor: pointer;
       transition: background .15s ease;
     }
     .button:hover, .button:active { background: var(--pink-dark); }
     .calc-result { margin-top: 4px; padding-top: 20px; border-top: 1px dashed var(--line); }
-    .calc-result h3 { margin: 0 0 6px; font-size: 1.9rem; }
+    .calc-result h3 { margin: 0 0 6px; font-family: var(--font-title); font-size: 1.9rem; }
     .calc-result p { line-height: 1.5; }
     .calc-result ul {
       margin: 12px 0;
@@ -189,7 +196,7 @@
       * { transition: none !important; }
     }
   </style>
-  <link rel="stylesheet" href="../css/comunes.css?v=20261006">
+  <link rel="stylesheet" href="../css/comunes.css?v=20261013">
 </head>
 <body>
   <main class="app">

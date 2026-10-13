@@ -21,7 +21,7 @@
 .blog-card:hover,.blog-card:focus-visible{transform:translateY(-3px);box-shadow:0 16px 34px rgba(0,0,0,.1)}
 .blog-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
 .blog-card__body{display:flex;flex-direction:column;gap:10px;padding:22px 24px 26px}
-.blog-card__tag{font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-dark)}
+.blog-card__tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-dark)}
 .blog-card h2,.blog-card h3{margin:0;font-size:clamp(1.25rem,2.2vw,1.5rem);line-height:1.2}
 .blog-card p{margin:0;color:var(--muted)}
 .blog-card time{font-size:.85rem;font-weight:750;color:var(--muted)}

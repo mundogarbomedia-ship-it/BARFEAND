@@ -47,7 +47,7 @@
     border-radius: 13px;
     color: #5f595b;
     font-size: .875rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1;
     text-align: center;
     -webkit-tap-highlight-color: transparent;
@@ -99,16 +99,16 @@
 
   .brand {
     display: flex !important;
-    align-items: center !important;
-    gap: 9px !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
     min-width: 0 !important;
   }
 
   .brand img {
     display: block !important;
-    width: 48px !important;
-    height: 48px !important;
-    flex: 0 0 48px !important;
+    width: auto !important;
+    height: 32px !important;
+    flex: 0 0 auto !important;
     object-fit: contain !important;
   }
 
@@ -179,13 +179,13 @@
     margin-bottom: 20px !important;
     font-size: clamp(2.35rem, 11.5vw, 3.05rem) !important;
     line-height: 1.01 !important;
-    letter-spacing: -.045em !important;
+    letter-spacing: -.03em !important;
   }
 
   h2 {
     font-size: clamp(1.95rem, 9vw, 2.65rem) !important;
     line-height: 1.04 !important;
-    letter-spacing: -.04em !important;
+    letter-spacing: -.025em !important;
   }
 
   h3 { font-size: 1.35rem !important; }
