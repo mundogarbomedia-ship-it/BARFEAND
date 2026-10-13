@@ -25,7 +25,7 @@ Reglas de contenido (obligatorias):
 
 - Tono cercano y práctico, desde «nuestra carnicería en Andorra la Vella». Entre 500 y 900 palabras, con 4–6 apartados `h2`.
 - Titular claro, sin clickbait, de menos de 70 caracteres si es posible. Descripción de 140–160 caracteres.
-- Incluye siempre, en un `guide-callout`, el texto aprobado de alimento complementario (en `CLAUDE.md`; en catalán, copia el de `index.html`).
+- Incluye siempre, en un `guide-callout`, el texto aprobado de «Cómo describir BARFEAND» (en `CLAUDE.md`, en el idioma del artículo). Nunca digas que BARFEAND es completo ni complementario: es comida natural cruda para perros y gatos, y se recomiendan suplementos y consultar al veterinario.
 - Nombres de recetas: pollo/pollastre, pavo/gall dindi, ternera de Andorra/vedella d’Andorra, cordero/xai, cerdo Duroc/porc Duroc, conejo/conill, multiproteína/multiproteïna. Formatos de 500 g y 1 kg.
 - Nada de promesas de salud ni afirmaciones médicas. Para dosis, complementos o problemas de salud, remite siempre al veterinario. Nunca des dosis de vitamina D ni de kelp. No publiques composición analítica.
 - No inventes datos (precios, premios, estudios, cifras). Si el artículo necesita un dato que no está en `CLAUDE.md`, pregúntalo.

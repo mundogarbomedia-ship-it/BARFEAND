@@ -37,7 +37,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
   | Condiciones de venta | `condicions-de-venda/` | `es/condiciones-de-venta/` | `fr/conditions-de-vente/` |
 
 - **Blog (8 de octubre de 2026):** `blog/` (catalán) y `es/blog/` (castellano), enlazados con `hreflang` (`x-default` = catalán). Cada artículo va en su carpeta: `blog/<slug-ca>/` y `es/blog/<slug-es>/`. Primer artículo: `blog/gos-actiu-tardor-andorra/` ↔ `es/blog/perro-activo-otono-andorra/`. Sin versión francesa todavía (desde el blog el botón FR lleva a `/fr/`). Estilos en `css/blog.css` (después de `guias.css`). «Blog» está en el menú CA y ES, entre «Preguntes/Preguntas» y «Qui som/Quiénes somos».
-  - **Pensado para Google Discover:** todas las páginas llevan `<meta name="robots" content="max-image-preview:large">` (debajo del `canonical`). Cada artículo necesita: imagen grande propia (mínimo 1200 px de ancho) en `imagenes/blog/` con versiones `-16x9.jpg`, `-4x3.jpg` y `-1x1.jpg` (para el JSON-LD `BlogPosting` y `og:image`) más `-1600.webp` y `-800.webp` para la página; fecha de publicación visible y en `datePublished`; titular claro sin clickbait; el texto aprobado de alimento complementario; enlaces a la calculadora y a las recetas.
+  - **Pensado para Google Discover:** todas las páginas llevan `<meta name="robots" content="max-image-preview:large">` (debajo del `canonical`). Cada artículo necesita: imagen grande propia (mínimo 1200 px de ancho) en `imagenes/blog/` con versiones `-16x9.jpg`, `-4x3.jpg` y `-1x1.jpg` (para el JSON-LD `BlogPosting` y `og:image`) más `-1600.webp` y `-800.webp` para la página; fecha de publicación visible y en `datePublished`; titular claro sin clickbait; el texto aprobado de «Cómo describir BARFEAND» (comida natural cruda + suplementos y veterinario); enlaces a la calculadora y a las recetas.
   - **Para publicar un artículo usa la skill `.claude/skills/publicar-blog/`** (pasos, reglas de contenido y script de imágenes). La propietaria del comercio publica directamente en `main` con su propia cuenta de Claude, después de aprobar el borrador.
   - Al publicar un artículo: añadir su tarjeta (la más nueva primero) y su entrada en `blogPost` del JSON-LD en los dos índices del blog, añadirlo a `sitemap.xml` y pedir la indexación en Search Console.
 - `app/` → app de la calculadora (PWA, solo en catalán). Si cambias `app/index.html`, sube la versión de `CACHE_NAME` en `app/sw.js`.
@@ -56,7 +56,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - **Menú:** idéntico en todas las páginas de cada idioma, con rutas absolutas. CA y FR enlazan a las secciones de su portada (`/#barf`, `/fr/#barf`…); ES enlaza a las guías (`/es/que-es-la-dieta-barf/`, `/es/calculadora-barf/`, `/es/preguntas-frecuentes-barf/`) y a `/es/#gammes` y `/es/#productes`. No pongas `aria-current` a mano en el menú: lo pone `principal.js`.
 - **Pie:** correo, «Teléfono y WhatsApp» +376 678 536, «Tienda» +376 867 648 (fijo) y una fila `footer__legal` con los cuatro enlaces legales y «Configurar cookies».
 - **Favicon (12 de octubre de 2026):** el avatar de la marca (perro y gato en blanco sobre círculo rosa #D2265F), sacado del logo original con la línea engrosada en los tamaños pequeños. Archivos: `favicon.ico` (16/32/48), `imagenes/logo/favicon-32.png`, `favicon-192.png` y `apple-touch-icon.png` (cuadrado rosa), y los iconos de `app/`. Cada página lleva las cuatro etiquetas (`ico`, 32, 192 y apple-touch) con `?v=20261012`; si cambia el icono, sube ese `?v=` en todas.
-- **Marca 2.2 (13 de octubre de 2026):** fuentes Poppins (títulos, precios y botones), Inter (texto) y Lora cursiva (solo frases cortas de acento), con las variables `--font-title`, `--font-text` y `--font-accent` de `css/estilos.css`. Se sirven desde la propia web (`fuentes/` + `css/fuentes.css`, licencia OFL), **no desde Google Fonts**, para no enviar la IP de los visitantes a Google. Cabecera con el logo horizontal `imagenes/logo/logo-barfeand-horizontal.svg` (40 px; 32 px en móvil) y «by El Rebost del Nord» debajo; la versión `-blanco.svg` es para fondos oscuros.
+- **Marca 2.2 (13 de octubre de 2026):** fuentes Poppins (títulos, precios y botones), Inter (texto) y Lora cursiva (solo frases cortas de acento), con las variables `--font-title`, `--font-text` y `--font-accent` de `css/estilos.css`. Se sirven desde la propia web (`fuentes/` + `css/fuentes.css`, licencia OFL), **no desde Google Fonts**, para no enviar la IP de los visitantes a Google. Cabecera con el logo horizontal `imagenes/logo/logo-barfeand-horizontal.svg` (52 px; 46 px entre 1001 y 1100 px; 38 px en móvil) y «by El Rebost del Nord» debajo; la versión `-blanco.svg` es para fondos oscuros.
 - Una página nueva necesita: `comunes.js` en el `<head>` seguido de los dos `preload` de fuentes y `fuentes.css`, `comunes.css`, las etiquetas del favicon, el menú de su idioma, el pie con `footer__legal` y su entrada en `sitemap.xml`.
 
 ## Convenciones
@@ -69,7 +69,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 
 - **Recetas:** pollo, pavo, ternera de Andorra, cordero, cerdo Duroc, conejo y multiproteína (pollo, ternera y cerdo). Proporción 60 % carne, 20 % hueso, 15 % vísceras y 5 % verdura y fruta.
 - **Formatos:** todas las recetas en 1 kg y 500 g (también el conejo). Cada formato tiene su precio en la tienda.
-- **IMPORTANTE:** las recetas **NO son una dieta completa**. Son un **alimento complementario** para perros y gatos. Se recomiendan complementos (ver la lista de abajo).
+- **IMPORTANTE:** nunca decir que las recetas son una dieta «completa» ni un alimento «complementario». Son **comida natural cruda para perros y gatos**; se recomiendan suplementos (ver la lista de abajo) y consultar al veterinario. Ver «Cómo describir BARFEAND».
 - **Entrega:** recogida en la carnicería y envío a domicilio en las zonas de Andorra configuradas en WooCommerce.
 - **Composición analítica:** no es obligatoria en Andorra y no se publica. La etiqueta lleva información comercial, conservación (−18 °C), descongelación y caducidad.
 - **Datos legales:** los mismos que El Rebost del Nord. Titular: **El Rebost del Nord**, NRT **F308823Z**, Av. Príncep Benlloch, 85, local 2, AD500 Andorra la Vella. Ley de protección de datos: **Llei 29/2021** (autoridad: APDA).
@@ -77,9 +77,15 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - **Punto de venta externo:** SÜNA, Av. del Pessebre 90, Escaldes-Engordany (colaborador, no es del usuario).
 - **Contacto:** carnisseria@elrebostdelnord.com, WhatsApp y móvil +376 678 536 y teléfono fijo de la tienda +376 867 648. También vendemos a tiendas (mayoristas).
 
-## Alimento complementario (hecho el 6 de octubre de 2026)
+## Cómo describir BARFEAND (criterio del 13 de octubre de 2026)
 
-Las guías, las portadas, la calculadora y la app ya presentan BARFEAND como alimento complementario. Texto base **aprobado por el usuario**: *"BARFEAND es un alimento complementario para perros y gatos. Para una alimentación equilibrada, complétalo con los suplementos recomendados (como aceites ricos en omega 3) y consulta con tu veterinario."* Las versiones en catalán y francés son traducciones de Claude. Úsalo igual en las páginas nuevas.
+**Nunca decir completo ni complementario; describirlo como comida natural cruda para perros y gatos y recomendar suplementos y veterinario.** Sustituye al criterio de «alimento complementario» del 6 de octubre (aprobado por el responsable). Texto base en toda la web (avisos, `guide-callout` del blog, calculadora, app y páginas legales):
+
+- **CA:** «BARFEAND és menjar natural cru per a gossos i gats. Per a una alimentació equilibrada, et recomanem afegir-hi els suplements adequats (com ara olis rics en omega 3) i consultar el teu veterinari.»
+- **ES:** «BARFEAND es comida natural cruda para perros y gatos. Para una alimentación equilibrada, te recomendamos añadir los suplementos adecuados (como aceites ricos en omega 3) y consultar a tu veterinario.»
+- **FR:** «BARFEAND est une alimentation naturelle crue pour chiens et chats. Pour une alimentation équilibrée, nous vous recommandons d’y ajouter les suppléments adaptés (comme les huiles riches en oméga 3) et de consulter votre vétérinaire.»
+
+En la nota bajo los productos de las portadas (`.pt-note`) va además el lema en `<em>` (Lora cursiva) entre las dos frases. Un título sobre el tema se escribe «Un alimento natural crudo» (CA «Un menjar natural cru», FR «Une alimentation naturelle crue»).
 
 ## Complementos recomendados (propuesta para la web)
 
@@ -92,7 +98,7 @@ Basados en las prácticas habituales de alimentación BARF. Siempre con la indic
 
 ## Plan de trabajo (resumen)
 
-1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y la corrección de "alimento complementario". *Hecho el 6 de octubre de 2026* (también el botón flotante de WhatsApp). Pendiente: que un asesor revise los textos legales y confirmar cuánto tiempo guarda el servidor de Barfy los mensajes.
+1. **Base para vender:** páginas legales, aviso de cookies, Google Analytics, menú unificado y el aviso de suplementos y veterinario (hoy con el criterio de «Cómo describir BARFEAND»). *Hecho el 6 de octubre de 2026* (también el botón flotante de WhatsApp). Pendiente: que un asesor revise los textos legales y confirmar cuánto tiempo guarda el servidor de Barfy los mensajes.
 2. **Fichas de producto:** una página por receta, con fotos, ingredientes, formatos, conservación y botón a la tienda. Sin composición analítica.
 3. **Compra práctica:** calculadora que lleve al carrito, packs y complementos recomendados.
 4. **Idiomas completos:** guías y fichas en catalán y francés, y app de la calculadora en castellano y francés.

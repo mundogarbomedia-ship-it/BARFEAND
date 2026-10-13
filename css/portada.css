@@ -22,8 +22,8 @@
 .pt-pill svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* Icones comunes */
-.pt-ico{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--pink-soft)}
-.pt-ico svg{width:24px;height:24px;fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pt-ico{flex:none;display:grid;place-items:center;width:40px;height:40px}
+.pt-ico img{display:block;width:40px;height:40px}
 
 /* Franja de confiança */
 .pt-trust{border-bottom:1px solid var(--line);background:#fff}
@@ -72,6 +72,7 @@
 .pt-help .button:hover{background:#fff;border-color:#fff;color:var(--ink)}
 .pt-note{display:flex;gap:10px;align-items:flex-start;max-width:840px;margin:26px 0 0;font-size:.9rem}
 .pt-note svg{flex:none;width:18px;height:18px;margin-top:2px;fill:none;stroke:var(--pink);stroke-width:2;stroke-linecap:round}
+.pt-note em{font-family:var(--font-accent);font-style:italic;font-weight:500}
 
 /* Calculadora */
 .pt-calc{background:var(--ink);color:#fff}
@@ -135,8 +136,6 @@
   .pt-section{padding-block:60px!important}
   .pt-trust__grid{gap:14px;padding-block:20px}
   .pt-trust__item{gap:10px}
-  .pt-trust__item .pt-ico{width:40px;height:40px}
-  .pt-trust__item .pt-ico svg{width:20px;height:20px}
   .pt-trust__item strong{font-size:.84rem}
   .pt-trust__item div span{display:none}
   .pt-head{margin-bottom:22px}
@@ -164,3 +163,16 @@
 }
 
 @media (prefers-reduced-motion:reduce){.pt-grid .product-card:hover{transform:none}}
+
+/* Marca 2.2: fondo kraft en «De la carnisseria al seu bol» */
+.pt-kraft{background-color:#C9A57A;background-image:url("../imagenes/marca/patro-kraft.svg");background-size:240px;color:#161516}
+.pt-kraft .eyebrow,.pt-kraft h2{color:#161516}
+.pt-kraft .pt-step{background:#fff;box-shadow:0 14px 34px rgba(22,21,22,.16)}
+
+/* Marca 2.2: color y pegatina de la receta en las fichas */
+.pt-grid .product-card::before{content:"";display:block;flex:none;height:6px;background:var(--c,#161516)}
+.pt-sticker{position:absolute;left:12px;bottom:12px;z-index:1;width:64px;height:64px;border-radius:50%;box-shadow:0 6px 16px rgba(22,21,22,.22)}
+.pt-grid .label-button{left:86px;bottom:28px}
+@media (max-width:700px){
+  .pt-sticker{left:8px;bottom:8px;width:52px;height:52px}
+}
