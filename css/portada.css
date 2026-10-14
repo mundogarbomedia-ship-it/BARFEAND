@@ -176,3 +176,17 @@
 @media (max-width:700px){
   .pt-sticker{left:8px;bottom:8px;width:52px;height:52px}
 }
+
+/* Guía de transición dentro de las preguntas frecuentes (14 de octubre de 2026) */
+.faq-guia__body{padding:0 25px 28px 0}
+.faq-guia__body h3{margin:26px 0 10px;font-size:1.15rem}
+.faq-guia__body ul{margin:0 0 16px;padding-left:20px;color:var(--muted)}
+.faq-guia__body li{margin-bottom:6px}
+.faq-guia__body strong{color:var(--ink)}
+.faq-guia__body a{color:var(--pink);font-weight:700;text-decoration:underline}
+.faq-guia__tabla{overflow-x:auto;margin:6px 0 14px}
+.faq-guia__tabla table{width:100%;max-width:520px;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}
+.faq-guia__tabla th,.faq-guia__tabla td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left}
+.faq-guia__tabla th{background:var(--pink-soft);font-family:var(--font-title)}
+.faq-guia__firma{margin-top:22px;padding:18px 20px;background:#fff;border-left:4px solid var(--pink);border-radius:12px}
+@media (max-width:650px){.faq-guia__body{padding-right:0}}
