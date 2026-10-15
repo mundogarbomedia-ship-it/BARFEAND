@@ -123,3 +123,8 @@
 /* Pie: montañas «Elaborat a Andorra» */
 .footer__andorra{align-self:flex-start;width:200px;height:auto;margin-top:18px;opacity:.9}
 @media(max-width:768px){.footer__andorra{width:160px}}
+.consell-mascota{display:flex;align-items:center;gap:14px;margin:18px 0;padding:14px 18px;background:var(--pink-soft);border-left:4px solid var(--pink);border-radius:14px}
+.consell-mascota img{width:64px;height:64px;flex-shrink:0;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--pink)}
+.consell-mascota p{margin:0;color:var(--ink)}
+.consell-mascota .consell-mascota__titol{margin:0 0 2px;font-family:var(--font-title);font-weight:700;font-size:.9rem;color:var(--pink)}
+@media (max-width:650px){.consell-mascota{padding:12px 14px}.consell-mascota img{width:52px;height:52px}}
