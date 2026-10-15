@@ -42,7 +42,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="css/estilos.css?v=20261013c">
+  <link rel="stylesheet" href="css/estilos.css?v=20261015">
   <link rel="stylesheet" href="css/mobile-v2.css?v=20261013b">
 <link rel="alternate" hreflang="ca" href="https://barfeand.com/">
 <link rel="alternate" hreflang="es" href="https://barfeand.com/es/">
@@ -124,7 +124,20 @@
         <div class="pt-app"><p>També la tens com a app: instal·la-la al mòbil i fes-la servir sense connexió.</p><a class="button pt-app__btn" href="app/"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Instal·la l’app al mòbil</a></div>
       </div>
       <form id="formulari-calculadora" class="calc-form">
-        <label>Mascota<select id="especie" required><option value="gos">Gos</option><option value="gat">Gat</option></select></label>
+        <fieldset class="calc-especie">
+          <legend>Mascota</legend>
+          <input type="hidden" id="especie" value="gos">
+          <div class="calc-especie__opcions">
+            <button type="button" class="calc-especie__opcio" data-especie="gos" aria-pressed="true">
+              <img src="/imagenes/mascotes/daxter.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Gos</strong><small>com en Daxter</small>
+            </button>
+            <button type="button" class="calc-especie__opcio" data-especie="gat" aria-pressed="false">
+              <img src="/imagenes/mascotes/mitjo.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Gat</strong><small>com en Mitjó</small>
+            </button>
+          </div>
+        </fieldset>
         <label>Pes actual<span class="unit"><input id="pes" type="number" min="0.5" max="120" step="0.1" placeholder="20" required><b>kg</b></span></label>
         <label>Etapa<select id="etapa" required><option value="adult">Adult</option><option value="cadell">Cadell</option><option value="senior">Sènior</option></select></label>
         <label>Activitat<select id="activitat" required><option value="normal">Normal</option><option value="baixa">Baixa</option><option value="alta">Alta</option></select></label>
@@ -247,7 +260,7 @@
     <figcaption>Mostra d’etiqueta adaptada al format seleccionat. El lot, la data de caducitat i altres dades variables poden canviar segons la producció.</figcaption>
   </figure>
 </dialog>
-<script src="js/principal.js?v=20261008-portada" defer></script><script src="js/calculadora.js?v=20261013" defer></script>
+<script src="js/principal.js?v=20261008-portada" defer></script><script src="js/calculadora.js?v=20261015" defer></script>
 <script
   src="assets/barfy/barfy-widget.js?v=20260925-1"
   data-api="https://api.barfeand.com/asistente-v2.php"

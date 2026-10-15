@@ -42,7 +42,7 @@
   }
 }
 </script>
-  <link rel="stylesheet" href="../css/estilos.css?v=20261013c">
+  <link rel="stylesheet" href="../css/estilos.css?v=20261015">
   <link rel="stylesheet" href="../css/mobile-v2.css?v=20261013b">
 <link rel="alternate" hreflang="ca" href="https://barfeand.com/">
 <link rel="alternate" hreflang="es" href="https://barfeand.com/es/">
@@ -123,8 +123,20 @@
         <div class="pt-app"><p>Elle existe aussi en application (en catalan) : installez-la sur votre téléphone et utilisez-la hors connexion.</p><a class="button pt-app__btn" href="../app/"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Installer l’application</a></div>
       </div>
       <form id="formulari-calculadora" class="calc-form">
-        <label>Animal<select id="especie" required><option value="gos">Chien</option>
-<option value="gat">Chat</option></select></label>
+        <fieldset class="calc-especie">
+          <legend>Animal</legend>
+          <input type="hidden" id="especie" value="gos">
+          <div class="calc-especie__opcions">
+            <button type="button" class="calc-especie__opcio" data-especie="gos" aria-pressed="true">
+              <img src="/imagenes/mascotes/daxter.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Chien</strong><small>comme Daxter</small>
+            </button>
+            <button type="button" class="calc-especie__opcio" data-especie="gat" aria-pressed="false">
+              <img src="/imagenes/mascotes/mitjo.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Chat</strong><small>comme Mitjó</small>
+            </button>
+          </div>
+        </fieldset>
         <label>Poids actuel<span class="unit"><input id="pes" type="number" min="0.5" max="120" step="0.1" placeholder="20" required><b>kg</b></span></label>
         <label>Âge<select id="etapa" required><option value="adult">Adulte</option>
 <option value="cadell">Chiot / chaton</option>
@@ -267,7 +279,7 @@
     <figcaption>Exemple d’étiquette adapté au format sélectionné. Le lot, la date limite de consommation et les autres données variables peuvent changer selon la production.</figcaption>
   </figure>
 </dialog>
-<script src="../js/principal.js?v=20261008-portada" defer></script><script src="../js/calculadora.js?v=20261013" defer></script>
+<script src="../js/principal.js?v=20261008-portada" defer></script><script src="../js/calculadora.js?v=20261015" defer></script>
 <script src="../assets/barfy/barfy-widget.js?v=20260925-1" data-api="https://api.barfeand.com/asistente-v2.php" defer></script>
 </body>
 </html>

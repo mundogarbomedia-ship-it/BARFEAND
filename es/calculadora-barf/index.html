@@ -76,7 +76,7 @@
   "isAccessibleForFree": true
 }
   </script>
-  <link rel="stylesheet" href="../../css/estilos.css?v=20261013c">
+  <link rel="stylesheet" href="../../css/estilos.css?v=20261015">
   <link rel="stylesheet" href="../../css/mobile-v2.css?v=20261013b">
   <link rel="stylesheet" href="../../css/qui-som.css?v=20261013">
   <link rel="stylesheet" href="../../css/guias.css?v=20261013">
@@ -119,8 +119,20 @@
         <p>¿Quieres ver los gramos de un vistazo? Consulta la <a class="about-text-link" href="../cantidad-barf-perro-gato/">tabla de cantidades por peso</a>.</p>
       </div>
       <form id="formulari-calculadora" class="calc-form">
-        <label>Mascota<select id="especie" required><option value="gos">Perro</option>
-<option value="gat">Gato</option></select></label>
+        <fieldset class="calc-especie">
+          <legend>Mascota</legend>
+          <input type="hidden" id="especie" value="gos">
+          <div class="calc-especie__opcions">
+            <button type="button" class="calc-especie__opcio" data-especie="gos" aria-pressed="true">
+              <img src="/imagenes/mascotes/daxter.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Perro</strong><small>como Daxter</small>
+            </button>
+            <button type="button" class="calc-especie__opcio" data-especie="gat" aria-pressed="false">
+              <img src="/imagenes/mascotes/mitjo.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Gato</strong><small>como Mitjó</small>
+            </button>
+          </div>
+        </fieldset>
         <label>Peso actual<span class="unit"><input id="pes" type="number" min="0.5" max="120" step="0.1" placeholder="20" required><b>kg</b></span></label>
         <label>Etapa<select id="etapa" required><option value="adult">Adulto</option>
 <option value="cadell">Cachorro</option>
@@ -163,6 +175,6 @@
 </div>
 <nav class="container footer__legal" aria-label="Información legal"><a href="/es/aviso-legal/">Aviso legal</a><a href="/es/politica-de-privacidad/">Política de privacidad</a><a href="/es/politica-de-cookies/">Política de cookies</a><a href="/es/condiciones-de-venta/">Condiciones de venta</a><button type="button" data-obrir-galetes>Configurar cookies</button></nav>
 </footer>
-<script src="../../js/principal.js?v=20261008-portada" defer></script><script src="../../js/calculadora.js?v=20261013" defer></script>
+<script src="../../js/principal.js?v=20261008-portada" defer></script><script src="../../js/calculadora.js?v=20261015" defer></script>
 </body>
 </html>

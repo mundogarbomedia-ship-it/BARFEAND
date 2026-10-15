@@ -42,7 +42,7 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="../css/estilos.css?v=20261013c">
+  <link rel="stylesheet" href="../css/estilos.css?v=20261015">
   <link rel="stylesheet" href="../css/mobile-v2.css?v=20261013b">
   <link rel="stylesheet" href="../css/qui-som.css?v=20261013">
   <link rel="stylesheet" href="../css/guias.css?v=20261013">
@@ -125,8 +125,20 @@
         <div class="pt-app"><p>También la tienes como app (en catalán): instálala en el móvil y úsala sin conexión.</p><a class="button pt-app__btn" href="../app/"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Instalar la app en el móvil</a></div>
       </div>
       <form id="formulari-calculadora" class="calc-form">
-        <label>Mascota<select id="especie" required><option value="gos">Perro</option>
-<option value="gat">Gato</option></select></label>
+        <fieldset class="calc-especie">
+          <legend>Mascota</legend>
+          <input type="hidden" id="especie" value="gos">
+          <div class="calc-especie__opcions">
+            <button type="button" class="calc-especie__opcio" data-especie="gos" aria-pressed="true">
+              <img src="/imagenes/mascotes/daxter.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Perro</strong><small>como Daxter</small>
+            </button>
+            <button type="button" class="calc-especie__opcio" data-especie="gat" aria-pressed="false">
+              <img src="/imagenes/mascotes/mitjo.webp" width="96" height="96" alt="" loading="lazy" decoding="async">
+              <strong>Gato</strong><small>como Mitjó</small>
+            </button>
+          </div>
+        </fieldset>
         <label>Peso actual<span class="unit"><input id="pes" type="number" min="0.5" max="120" step="0.1" placeholder="20" required><b>kg</b></span></label>
         <label>Etapa<select id="etapa" required><option value="adult">Adulto</option>
 <option value="cadell">Cachorro</option>
@@ -279,7 +291,7 @@
     <figcaption>Ejemplo de etiqueta adaptado al formato seleccionado. El lote, la fecha de caducidad y otros datos variables pueden cambiar según la producción.</figcaption>
   </figure>
 </dialog>
-<script src="../js/principal.js?v=20261008-portada" defer></script><script src="../js/calculadora.js?v=20261013" defer></script>
+<script src="../js/principal.js?v=20261008-portada" defer></script><script src="../js/calculadora.js?v=20261015" defer></script>
 <script src="../assets/barfy/barfy-widget.js?v=20260925-1" data-api="https://api.barfeand.com/asistente-v2.php" defer></script>
 </body>
 </html>

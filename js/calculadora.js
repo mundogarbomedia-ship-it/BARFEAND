@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultat = document.getElementById("resultat-calculadora");
 
   if (!formulari || !resultat) return;
+
+  const campEspecie = document.getElementById("especie");
+  const opcionsEspecie = formulari.querySelectorAll(".calc-especie__opcio");
+  opcionsEspecie.forEach((opcio) => {
+    opcio.addEventListener("click", () => {
+      campEspecie.value = opcio.dataset.especie;
+      opcionsEspecie.forEach((altra) => altra.setAttribute("aria-pressed", altra === opcio ? "true" : "false"));
+    });
+  });
   const enFrancais = document.documentElement.lang.toLowerCase().startsWith("fr");
   const enEspanol = document.documentElement.lang.toLowerCase().startsWith("es");
 
