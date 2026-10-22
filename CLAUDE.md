@@ -87,22 +87,24 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 
 ## Cómo describir BARFEAND (criterio del 13 de octubre de 2026)
 
-**Nunca decir completo ni complementario; describirlo como comida natural cruda para perros y gatos y recomendar suplementos y veterinario.** Sustituye al criterio de «alimento complementario» del 6 de octubre (aprobado por el responsable). Texto base en toda la web (avisos, `guide-callout` del blog, calculadora, app y páginas legales):
+**Nunca decir completo ni complementario; describirlo como comida natural cruda para perros y gatos y recomendar suplementos y veterinario.** Sustituye al criterio de «alimento complementario» del 6 de octubre (aprobado por el responsable). Desde el 22 de octubre de 2026 la segunda frase recomienda sardinas, kelp, huevo y kéfir en vez de «aceites ricos en omega 3». Texto base en toda la web (avisos, `guide-callout` del blog, calculadora, app y páginas legales):
 
-- **CA:** «BARFEAND és menjar natural cru per a gossos i gats. Per a una alimentació equilibrada, et recomanem afegir-hi els suplements adequats (com ara olis rics en omega 3) i consultar el teu veterinari.»
-- **ES:** «BARFEAND es comida natural cruda para perros y gatos. Para una alimentación equilibrada, te recomendamos añadir los suplementos adecuados (como aceites ricos en omega 3) y consultar a tu veterinario.»
-- **FR:** «BARFEAND est une alimentation naturelle crue pour chiens et chats. Pour une alimentation équilibrée, nous vous recommandons d’y ajouter les suppléments adaptés (comme les huiles riches en oméga 3) et de consulter votre vétérinaire.»
+- **CA:** «BARFEAND és menjar natural cru per a gossos i gats. Per a una alimentació equilibrada, et recomanem complementar-lo amb sardines (omega 3), una mica d’alga kelp, ou i quefir, i consultar el teu veterinari.»
+- **ES:** «BARFEAND es comida natural cruda para perros y gatos. Para una alimentación equilibrada, te recomendamos complementarla con sardinas (omega 3), un poco de alga kelp, huevo y kéfir, y consultar a tu veterinario.»
+- **FR:** «BARFEAND est une alimentation naturelle crue pour chiens et chats. Pour une alimentation équilibrée, nous vous recommandons de la compléter avec des sardines (oméga 3), un peu d’algue kelp, de l’œuf et du kéfir, et de consulter votre vétérinaire.»
 
 En la nota bajo los productos de las portadas (`.pt-note`) va además el lema en `<em>` (Lora cursiva) entre las dos frases. Un título sobre el tema se escribe «Un alimento natural crudo» (CA «Un menjar natural cru», FR «Une alimentation naturelle crue»).
 
-## Complementos recomendados (propuesta para la web)
+## Complementos recomendados (criterio del 22 de octubre de 2026)
 
-Basados en las prácticas habituales de alimentación BARF. Siempre con la indicación de consultar con el veterinario y seguir la dosis del fabricante.
+Lista para la web, siempre con «consulta a tu veterinario»:
 
-- **Esenciales:** aceite de pescado (omega 3: EPA y DHA), vitamina E (cuando se da omega 3) y, en gatos, taurina.
-- **Recomendados:** fuente de yodo (alga kelp, con dosis muy controlada), mejillón de labio verde (articulaciones; aporta zinc y manganeso), levadura de cerveza o nutricional (vitaminas B) y huevo crudo (1 por semana por cada 10 kg).
-- **Opcionales:** kéfir o yogur natural (probióticos), espirulina, caldo de huesos y psyllium (fibra).
-- **No mencionar** en la web dosis concretas de vitamina D ni de kelp: el exceso es perjudicial. Remitir siempre al veterinario.
+- **Sardinas** (omega 3).
+- **Alga kelp**, en pequeña cantidad.
+- **Huevo.**
+- **Kéfir.**
+- **No** recomendar aceites de omega 3. **No** poner dosis de kelp ni de vitamina D: el exceso es perjudicial. Remitir siempre al veterinario. Para gatos, ver «Taurina en gatos».
+- **No recomendar nunca calentar el BARF en el microondas ni en la sartén (hueso cocido).** Para templarlo: 15–20 minutos fuera de la nevera o baño maría con agua tibia en recipiente cerrado.
 
 ## Plan de trabajo (resumen)
 

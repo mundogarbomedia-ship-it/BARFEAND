@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formats estimés pour 30 jours</strong>
         <p>Recettes en formats de 1 kg et de 500 g : ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
-      <p>BARFEAND est une alimentation naturelle crue pour chiens et chats. Pour une alimentation équilibrée, nous vous recommandons d’y ajouter les suppléments adaptés (comme les huiles riches en oméga 3) et de consulter votre vétérinaire.</p>
+      <p>BARFEAND est une alimentation naturelle crue pour chiens et chats. Pour une alimentation équilibrée, nous vous recommandons de la compléter avec des sardines (oméga 3), un peu d’algue kelp, de l’œuf et du kéfir, et de consulter votre vétérinaire.</p>
       <p class="small-copy">Pourcentage appliqué au calcul : ${formatDecimal.format(percentatge)} % du poids corporel.</p>
     ` : enEspanol ? `
       <p class="eyebrow">Cantidad orientativa de BARF al día</p>
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formatos aproximados para 30 días</strong>
         <p>Recetas en formatos de 1 kg y 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
-      <p>BARFEAND es comida natural cruda para perros y gatos. Para una alimentación equilibrada, te recomendamos añadir los suplementos adecuados (como aceites ricos en omega 3) y consultar a tu veterinario.</p>
+      <p>BARFEAND es comida natural cruda para perros y gatos. Para una alimentación equilibrada, te recomendamos complementarla con sardinas (omega 3), un poco de alga kelp, huevo y kéfir, y consultar a tu veterinario.</p>
       <p class="small-copy">Porcentaje aplicado al cálculo: ${formatDecimal.format(percentatge)} % del peso corporal.</p>
     ` : `
       <p class="eyebrow">Quantitat orientativa de BARF al dia</p>
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <strong>Formats aproximats per a 30 dies</strong>
         <p>Receptes amb formats d’1 kg i 500 g: ${textPaquets1kg(quilosMensuals)}.</p>
       </div>
-      <p>BARFEAND és menjar natural cru per a gossos i gats. Per a una alimentació equilibrada, et recomanem afegir-hi els suplements adequats (com ara olis rics en omega 3) i consultar el teu veterinari.</p>
+      <p>BARFEAND és menjar natural cru per a gossos i gats. Per a una alimentació equilibrada, et recomanem complementar-lo amb sardines (omega 3), una mica d’alga kelp, ou i quefir, i consultar el teu veterinari.</p>
       <p class="small-copy">Percentatge aplicat al càlcul: ${formatDecimal.format(percentatge)} % del pes corporal.</p>
     `;
 
