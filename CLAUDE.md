@@ -62,7 +62,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 ## Convenciones
 
 - Si cambias un CSS o un JS, actualiza su `?v=` en todos los HTML que lo cargan.
-- Las páginas nuevas se añaden a `sitemap.xml`. Después de publicar, se pide la indexación en Google Search Console (propiedad de dominio barfeand.com).
+- Cada artículo nuevo (CA y ES) y cada página nueva se añade a `sitemap.xml` con su `lastmod` en el mismo commit en que se publica. `lastmod` = fecha del último commit que tocó su `index.html`; prioridades: portada CA 1.0, ES y FR 0.9; guías e índices del blog 0.8; artículos y «Quiénes somos» 0.7; app 0.6; legales 0.3; sin `changefreq`. Después de publicar, se pide la indexación en Google Search Console (propiedad de dominio barfeand.com).
 - Revisa los cambios en ordenador y en móvil antes de darlos por terminados.
 
 ## Datos del negocio (confirmados por el usuario el 6 de octubre de 2026)

@@ -46,7 +46,7 @@ Slugs cortos, en minúsculas, sin acentos y con guiones: uno en catalán y otro 
    La fecha es la de hoy con hora `09:00:00+02:00` (en invierno `+01:00`).
 3. **Índices:** en `blog/index.html` y `es/blog/index.html` añade su tarjeta **la primera** (imagen `-800.webp`) y su entrada **la primera** en `blogPost` del JSON-LD.
 4. **Enlaces cruzados:** en la sección «Sigue leyendo» del artículo nuevo puedes enlazar a artículos anteriores.
-5. **Sitemap:** añade las dos URLs a `sitemap.xml` con la fecha de hoy y cambia `lastmod` de `/blog/` y `/es/blog/`.
+5. **Sitemap:** cada artículo nuevo (CA y ES) se añade a `sitemap.xml` con su `lastmod` en el mismo commit en que se publica. Añade las dos URLs con la fecha de hoy y prioridad 0.7 (sin `changefreq`), y cambia `lastmod` de `/blog/` y `/es/blog/`.
 
 ## 6. Comprueba
 
