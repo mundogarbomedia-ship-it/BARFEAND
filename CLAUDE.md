@@ -72,6 +72,14 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - **IMPORTANTE:** nunca decir que las recetas son una dieta «completa» ni un alimento «complementario». Son **comida natural cruda para perros y gatos**; se recomiendan suplementos (ver la lista de abajo) y consultar al veterinario. Ver «Cómo describir BARFEAND».
 - **Entrega:** recogida en la carnicería y envío a domicilio en las zonas de Andorra configuradas en WooCommerce.
 - **Composición analítica:** no es obligatoria en Andorra y no se publica. La etiqueta lleva información comercial, conservación (−18 °C), descongelación y caducidad.
+- **Transición (22 de octubre de 2026):** siempre progresiva en 10 días, **también en perros**. Nunca decir que lo habitual (o la mayoría) es pasar de golpe. Texto base:
+  - **CA:** «Et recomanem fer el canvi de manera progressiva en 10 dies, també en gossos: si es canvia de cop hi pot haver diarrees o rebuig del menjar. En gats, que solen ser més reticents, pot caldre anar encara més a poc a poc.»
+  - **ES:** «Recomendamos hacer el cambio de forma progresiva en 10 días, también en perros: si se cambia de golpe pueden aparecer diarreas o rechazo de la comida. En gatos, que suelen ser más reticentes, puede hacer falta ir aún más despacio.»
+  - **FR:** «Nous recommandons de faire la transition progressivement sur 10 jours, chez le chien aussi : un changement brutal peut provoquer des diarrhées ou un refus de la nourriture. Chez le chat, souvent plus réticent, il peut falloir aller encore plus lentement.»
+- **Taurina en gatos (22 de octubre de 2026):**
+  - **CA:** «Les nostres receptes porten cor, ric en taurina. En gats, consulta el teu veterinari si convé afegir-hi un suplement.»
+  - **ES:** «Nuestras recetas llevan corazón, rico en taurina. En gatos, consulta con tu veterinario si conviene añadir un suplemento.»
+  - **FR:** «Nos recettes contiennent du cœur, riche en taurine. Chez le chat, demandez à votre vétérinaire s’il convient d’ajouter un complément.»
 - **Datos legales:** los mismos que El Rebost del Nord. Titular: **El Rebost del Nord**, NRT **F308823Z**, Av. Príncep Benlloch, 85, local 2, AD500 Andorra la Vella. Ley de protección de datos: **Llei 29/2021** (autoridad: APDA).
 - **Tienda online:** términos en `elrebostdelnord.com/termes-i-condicions/` (ES: `/es/terminos-y-condiciones/`) y envíos en `/enviaments/` (ES: `/es/envios/`). No hay versión francesa: desde FR se enlaza la catalana.
 - **Punto de venta externo:** SÜNA, Av. del Pessebre 90, Escaldes-Engordany (colaborador, no es del usuario).

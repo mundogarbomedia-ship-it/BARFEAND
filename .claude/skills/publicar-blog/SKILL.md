@@ -28,6 +28,7 @@ Reglas de contenido (obligatorias):
 - Incluye siempre, en un `guide-callout`, el texto aprobado de «Cómo describir BARFEAND» (en `CLAUDE.md`, en el idioma del artículo). Nunca digas que BARFEAND es completo ni complementario: es comida natural cruda para perros y gatos, y se recomiendan suplementos y consultar al veterinario.
 - Nombres de recetas: pollo/pollastre, pavo/gall dindi, ternera de Andorra/vedella d’Andorra, cordero/xai, cerdo Duroc/porc Duroc, conejo/conill, multiproteína/multiproteïna. Formatos de 500 g y 1 kg.
 - Nada de promesas de salud ni afirmaciones médicas. Para dosis, complementos o problemas de salud, remite siempre al veterinario. Nunca des dosis de vitamina D ni de kelp. No publiques composición analítica.
+- Si el artículo habla del cambio de pienso a BARF o de la taurina, usa los textos de «Transición» y «Taurina en gatos» de `CLAUDE.md`: el cambio siempre es progresivo en 10 días, también en perros (nunca «lo habitual es pasar de golpe»).
 - No inventes datos (precios, premios, estudios, cifras). Si el artículo necesita un dato que no está en `CLAUDE.md`, pregúntalo.
 - Enlaza a la calculadora (CA: `/#calculadora`; ES: `/es/calculadora-barf/`), a las recetas (`/#productes`, `/es/#productes`) y, al final, al WhatsApp `https://wa.me/376678536`.
 - Catalán correcto con apóstrofo tipográfico (’).
