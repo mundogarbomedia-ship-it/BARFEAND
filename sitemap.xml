@@ -12,8 +12,13 @@
   </url>
   <url>
     <loc>https://barfeand.com/blog/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://barfeand.com/blog/aixi-fem-barfeand-gall-dindi/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://barfeand.com/blog/barf-per-a-gats/</loc>
@@ -112,8 +117,13 @@
   </url>
   <url>
     <loc>https://barfeand.com/es/blog/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://barfeand.com/es/blog/asi-hacemos-barfeand-pavo/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://barfeand.com/es/blog/barf-para-gatos/</loc>
