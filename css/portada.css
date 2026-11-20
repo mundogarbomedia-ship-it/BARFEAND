@@ -68,6 +68,7 @@
 .pt-help h3{margin:0 0 8px;font-size:1.45rem;color:#fff}
 .pt-help p{margin:0;color:rgba(255,255,255,.92)}
 .pt-help__actions{display:flex;flex-direction:column;gap:8px}
+.pt-help__img{flex:1 1 auto;width:100%;max-width:240px;min-height:0;max-height:222px;margin:0 auto;object-fit:contain}
 .pt-help .button{min-height:48px;text-align:center;border-color:#fff;background:transparent;color:#fff}
 .pt-help .button:hover{background:#fff;border-color:#fff;color:var(--ink)}
 .pt-note{display:flex;gap:10px;align-items:flex-start;max-width:840px;margin:26px 0 0;font-size:.9rem}
