@@ -1,3 +1,34 @@
 {
-  "historias": []
+  "historias": [
+    {
+      "id": "zeus-kala-2026-11",
+      "fecha": "2026-11-20",
+      "animales": [
+        { "nombre": "Zeus", "especie": "gos" },
+        { "nombre": "Kala", "especie": "gos", "raza": "shiba inu" }
+      ],
+      "receta": "",
+      "textos": {
+        "ca": { "text": "El Zeus i la Kala esperant els seus snacks de pollastre BARFEAND." },
+        "es": { "text": "Zeus y Kala esperando sus snacks de pollo BARFEAND." },
+        "fr": { "text": "Zeus et Kala attendent leurs snacks au poulet BARFEAND." }
+      },
+      "persona": "",
+      "fotos": [
+        { "archivo": "imagenes/historias/zeus-kala-2026-11-1.webp", "ancho": 480, "alto": 500 },
+        { "archivo": "imagenes/historias/zeus-kala-2026-11-2.webp", "ancho": 480, "alto": 600 },
+        { "archivo": "imagenes/historias/zeus-kala-2026-11-3.webp", "ancho": 480, "alto": 560 }
+      ],
+      "video": { "archivo": "videos/historias/zeus-kala-2026-11.mp4", "portada": "imagenes/historias/zeus-kala-2026-11-video.webp", "ancho": 480, "alto": 854 },
+      "enlace": {
+        "ca": { "url": "/blog/snacks-pollastre-deshidratat/", "texto": "Llegeix l’article sobre els snacks de pollastre" },
+        "es": { "url": "/es/blog/snacks-pollo-deshidratado/", "texto": "Lee el artículo sobre los snacks de pollo" },
+        "fr": { "url": "/fr/snacks-barf/", "texto": "Découvrir nos snacks BARFEAND" }
+      },
+      "instagram": "",
+      "destacada": true,
+      "permiso": { "web": true, "instagram": true, "fecha": "2026-11-20" },
+      "obsequi": true
+    }
+  ]
 }

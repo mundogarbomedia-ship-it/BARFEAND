@@ -39,6 +39,14 @@
 .hs-quote{margin:0 0 18px;padding:0;color:var(--ink);font-family:var(--font-accent);font-style:italic;font-weight:500;font-size:clamp(1.15rem,1.8vw,1.35rem);line-height:1.45}
 .hs-quote p{margin:0}
 .hs-meta{margin:0;color:var(--muted);font-size:.85rem;line-height:1.6}
+.hs-featured__media--video{display:flex;align-items:center;justify-content:center;padding:32px;background:var(--ink)}
+.hs-video{display:block;width:100%;max-width:380px;height:auto;border-radius:16px;background:#000}
+.hs-card>.hs-video{max-width:none;border-radius:0}
+.hs-animals+.hs-text{margin-top:14px}
+.hs-text{margin:0 0 20px;color:var(--ink);font-size:1.12rem;line-height:1.6}
+.hs-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 20px}
+.hs-gallery img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+.hs-link{display:inline-block;margin-top:14px;color:var(--pink-dark);font-family:var(--font-title);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .hs-ig{display:inline-block;margin-top:10px;color:var(--pink-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 
 .hs-more{margin-top:56px}
@@ -89,6 +97,8 @@
   .hs-hero__actions .button{width:100%}
   .hs-stories,.hs-share{padding:56px 0}
   .hs-featured__body{padding:24px 20px 26px}
+  .hs-featured__media--video{padding:20px}
+  .hs-video{max-width:320px}
   .hs-ba{grid-template-columns:1fr}
   .hs-grid{grid-template-columns:1fr}
   .hs-empty{padding:32px 20px}

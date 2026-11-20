@@ -19,11 +19,13 @@ Obligatorio:
 - **Nombre de cada animal** que sale en las fotos o en el vídeo, y si es perro o gato.
 - **Permiso para la web** (sí/no) y **permiso para Instagram** (sí/no), con la fecha en que lo dieron. Sin permiso para la web **no se publica**.
 - Si la persona **autoriza que salga su nombre** (y cuál). Si no, no sale ningún nombre de persona.
-- **Cómo era antes** y **qué han notado ahora**, con sus palabras, y una **frase** suya para destacar.
-- **Fotos** suyas (mejor horizontales y hechas con el móvil en casa).
+- **El texto**, de uno de estos dos tipos:
+  - **Abans/ara:** **cómo era antes** y **qué han notado ahora**, con sus palabras, y una **frase** suya para destacar.
+  - **Un momento:** un **texto corto** (una o dos frases) que explique la foto o el vídeo («El Zeus i la Kala esperant els seus snacks de pollastre BARFEAND.»).
+- **Fotos** suyas (mejor horizontales y hechas con el móvil en casa) o un **vídeo corto** suyo (como máximo 10 MB). Como mínimo, una de las dos cosas.
 - Si ha recibido el **obsequi** (10 % y Pack Regal): sí/no.
 
-Opcional: receta que come (`pollastre`, `gall-indi`, `vedella`, `xai`, `porc`, `conill`, `multiproteina` o vacío), raza, edad, mes y año desde que come BARFEAND, enlace al reel de Instagram (solo si hay permiso para Instagram) y si es la historia **destacada**.
+Opcional: receta que come (`pollastre`, `gall-indi`, `vedella`, `xai`, `porc`, `conill`, `multiproteina` o vacío), raza, edad, mes y año desde que come BARFEAND, enlace al reel de Instagram (solo si hay permiso para Instagram), un enlace a una página de la web relacionada (un artículo del blog, los snacks…) y si es la historia **destacada**.
 
 ## 3. Reglas de contenido (obligatorias)
 
@@ -31,17 +33,18 @@ Opcional: receta que come (`pollastre`, `gall-indi`, `vedella`, `xai`, `porc`, `
 - **Nada de promesas de salud ni afirmaciones médicas** («li ha curat…», «ya no tiene alergia»). Solo lo que han notado («menja amb més ganes», «té el pèl més brillant»). Si la familia habla de una enfermedad o de un tratamiento, quítalo o pregúntale si se puede decir de otra forma.
 - Nunca digas que BARFEAND es «complet» ni «complementari». Si la frase de la familia lo dice, pídele permiso para quitar esa palabra.
 - **Traducción:** escribe los textos en catalán, castellano y francés, con el mismo tono y sin añadir nada. Catalán con apóstrofo tipográfico (’). En francés, espacio fino o no separable antes de `?`, `!`, `:` y `;`. Nombres de recetas como en `CLAUDE.md`. «Pack Regal» no se traduce.
-- Los **vídeos no se suben a la web**: solo se enlaza el reel de Instagram.
+- **Vídeos:** los cortos (**como máximo 10 MB**, en mp4) se suben a la web y se muestran con controles y sin reproducción automática. Si pesa más, recórtalo o enlaza el reel de Instagram. Nunca se inserta el reproductor de Instagram (pone cookies de terceros).
 - Las fotos solo de la familia. Nunca de internet.
 
 ## 4. Enséñale el borrador y espera su «ok»
 
-Muéstrale los textos en el idioma en que te escribe (nombres, antes, ahora, frase, receta y si sale su nombre). Aplica sus cambios. **No publiques sin su aprobación explícita.** Si la familia tiene que ver la historia antes (paso 3 de la web: «Te l’ensenyem abans»), recuérdaselo.
+Muéstrale los textos en el idioma en que te escribe (nombres, antes, ahora y frase o el texto corto, receta y si sale su nombre). Aplica sus cambios. **No publiques sin su aprobación explícita.** Si la familia tiene que ver la historia antes (paso 3 de la web: «Te l’ensenyem abans»), recuérdaselo.
 
 ## 5. Monta la historia
 
 1. **Id:** nombres de los animales + año y mes, en minúsculas y con guiones (p. ej. `luna-rocky-2026-11`).
-2. **Fotos:** por cada foto, `python3 .claude/skills/publicar-historia/preparar_foto.py FOTO ID N` (N = 1, 2…). Crea `imagenes/historias/ID-N.webp` (máx. 1200 px, sin datos de ubicación) y escribe la línea para `fotos`. La primera es la que sale en la web.
+2. **Fotos:** por cada foto, `python3 .claude/skills/publicar-historia/preparar_foto.py FOTO ID N` (N = 1, 2…). Crea `imagenes/historias/ID-N.webp` (máx. 1200 px, sin datos de ubicación) y escribe la línea para `fotos`. La primera es la principal (y la de la portada); las demás salen en una galería pequeña. Si no hay Python, la foto se puede preparar a mano en WebP (máx. 1200 px de ancho y sin datos de ubicación).
+   **Vídeo:** guárdalo en `videos/historias/ID.mp4` (máx. 10 MB) con una portada `imagenes/historias/ID-video.webp` (un fotograma del vídeo, mismo tamaño que el vídeo). Si hay vídeo, es lo que sale en grande y todas las fotos van a la galería.
 3. **Datos:** añade la entrada en `datos/historias.json` (dentro de `"historias": [...]`) con este formato:
 
 ```json
@@ -68,15 +71,18 @@ Muéstrale los textos en el idioma en que te escribe (nombres, antes, ahora, fra
 }
 ```
 
+   - **Un momento (sin abans/ara):** en `textos` pon solo `{ "text": "…" }` en cada idioma. `abans`, `ara`, `frase` y `text` son opcionales, pero cada idioma necesita como mínimo uno, y `abans` y `ara` van juntos. La ficha solo enseña lo que haya.
+   - **Vídeo:** `"video": { "archivo": "videos/historias/ID.mp4", "portada": "imagenes/historias/ID-video.webp", "ancho": 480, "alto": 854 }` (ancho y alto de la portada). Con vídeo, `fotos` puede ir vacío.
+   - **Enlace:** `"enlace": { "ca": { "url": "/blog/…/", "texto": "…" }, "es": {…}, "fr": {…} }`, opcional y por idioma (el blog no tiene francés: en FR enlaza una página francesa, como `/fr/snacks-barf/`).
    - `fecha`: hoy. `receta`, `des_de`, `raza`, `edad`, `persona` e `instagram` pueden ir vacíos (`""`) u omitirse. `raza` y `edad` pueden ser un texto o `{ "ca", "es", "fr" }`.
    - La frase va sin comillas: el script pone « ».
    - Solo una historia con `"destacada": true` (si marcas una nueva, quítaselo a la anterior). Sin ninguna destacada, todas salen en la rejilla.
    - Las fotos pueden llevar `"alt": { "ca": "…", "es": "…", "fr": "…" }`; si no, el texto alternativo es el nombre de los animales.
-4. **Genera:** `node .claude/skills/publicar-historia/generar_historias.js`. Si algo no cumple las reglas (sin permiso, sin nombre, sin fotos, sin traducción…), el script **no escribe nada** y dice qué falta: corrígelo en los datos, nunca en el HTML. Si todo va bien, actualiza las tres páginas, el bloque de las tres portadas y el `lastmod` de esas URL en `sitemap.xml`.
+4. **Genera:** `node .claude/skills/publicar-historia/generar_historias.js`. Si algo no cumple las reglas (sin permiso, sin nombre, sin fotos ni vídeo, vídeo de más de 10 MB, sin traducción…), el script **no escribe nada** y dice qué falta: corrígelo en los datos, nunca en el HTML. Si todo va bien, actualiza las tres páginas, el bloque de las tres portadas y el `lastmod` de esas URL en `sitemap.xml`.
 
 ## 6. Comprueba
 
-- `git status`: solo deben cambiar `datos/historias.json`, las fotos nuevas, las páginas de historias, las portadas y `sitemap.xml`.
+- `git status`: solo deben cambiar `datos/historias.json`, las fotos y el vídeo nuevos, las páginas de historias, las portadas y `sitemap.xml`.
 - Si puedes, captura la página en ordenador (1366 px) y en móvil (390 px).
 - Que el texto no tenga promesas de salud ni datos que la familia no haya dado.
 
@@ -92,4 +98,4 @@ Dale el enlace de la página en su idioma. Recuérdale que envíe a la familia s
 
 ## Retirar una historia
 
-Si una familia retira el permiso: borra su entrada de `datos/historias.json` y sus fotos de `imagenes/historias/`, ejecuta el script y publica con el commit `Historias: retirada la de <nombres>`.
+Si una familia retira el permiso: borra su entrada de `datos/historias.json`, sus fotos de `imagenes/historias/` y su vídeo de `videos/historias/`, ejecuta el script y publica con el commit `Historias: retirada la de <nombres>`.
