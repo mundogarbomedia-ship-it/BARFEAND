@@ -128,3 +128,7 @@
 .consell-mascota p{margin:0;color:var(--ink)}
 .consell-mascota .consell-mascota__titol{margin:0 0 2px;font-family:var(--font-title);font-weight:700;font-size:.9rem;color:var(--pink)}
 @media (max-width:650px){.consell-mascota{padding:12px 14px}.consell-mascota img{width:52px;height:52px}}
+
+/* Menú con «Snacks» (20/11/2026): los enlaces no se parten en dos líneas */
+@media(min-width:1001px){.nav>a:not(.button){white-space:nowrap}}
+@media(min-width:1351px) and (max-width:1500px){.nav{gap:16px}}

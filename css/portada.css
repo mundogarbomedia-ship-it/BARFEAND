@@ -230,3 +230,29 @@
 .pt-historia__meta{color:var(--muted);font-size:.88rem;font-weight:600}
 .pt-historias__link{color:var(--pink-dark);font-family:var(--font-title);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:900px){.pt-historias__grid{grid-template-columns:1fr}}
+
+/* Snacks BARF en la portada (bloque generado desde datos/snacks.json) */
+.pt-snacks{background:var(--cream)}
+.pt-snacks__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px;margin-bottom:28px}
+.pt-snacks h2{margin-bottom:10px}
+.pt-snacks__intro{max-width:620px;margin:0;font-size:1.02rem;line-height:1.6}
+.pt-snacks__link{flex:none}
+.pt-snacks__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:20px}
+.pt-snack{display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #ece4de;border-top:6px solid var(--c,#161516);border-radius:20px;color:var(--ink);transition:box-shadow .2s,transform .2s}
+.pt-snack:hover{box-shadow:0 18px 40px rgba(30,22,24,.12);transform:translateY(-3px)}
+.pt-snack__media{display:block;aspect-ratio:4/3;background:var(--cream)}
+.pt-snack__media img{width:100%;height:100%;object-fit:cover}
+.pt-snack__body{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+.pt-snack__name{font-family:var(--font-title);font-weight:700;font-size:1.02rem;line-height:1.25}
+.pt-snack__meta{color:var(--muted);font-size:.9rem}
+.pt-snack__meta strong{color:var(--ink);font-family:var(--font-title)}
+.pt-snacks__note{max-width:860px;margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+@media (max-width:700px){
+  .pt-snacks__grid{grid-template-columns:1fr;gap:12px}
+  .pt-snack{flex-direction:row;align-items:center;border-top-width:1px;border-left:6px solid var(--c,#161516);border-radius:16px}
+  .pt-snack__media{flex:none;width:96px;aspect-ratio:1/1}
+  .pt-snack__body{padding:10px 14px}
+  .pt-snack__name{font-size:.98rem}
+  .pt-snacks__link{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.pt-snack:hover{transform:none}}

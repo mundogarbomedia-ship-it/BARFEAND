@@ -16,6 +16,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://barfeand.com/snacks-barf/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://barfeand.com/blog/</loc>
     <lastmod>2026-11-20</lastmod>
     <priority>0.8</priority>
@@ -94,6 +99,11 @@
     <loc>https://barfeand.com/es/historias-y-experiencias/</loc>
     <lastmod>2026-11-20</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://barfeand.com/es/snacks-barf/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://barfeand.com/es/que-es-la-dieta-barf/</loc>
@@ -199,6 +209,11 @@
     <loc>https://barfeand.com/fr/histoires-et-experiences/</loc>
     <lastmod>2026-11-20</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://barfeand.com/fr/snacks-barf/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://barfeand.com/fr/mentions-legales/</loc>

@@ -161,6 +161,7 @@
     if (element.closest(".whatsapp-float")) return "boton_flotante";
     if (element.closest(".header")) return "cabecera";
     if (element.closest(".product-card")) return "producto";
+    if (element.closest(".sn-card")) return "snack";
     if (element.closest("footer")) return "pie";
     return "contenido";
   }
@@ -183,8 +184,8 @@
       return;
     }
 
-    if (url.hostname.endsWith("elrebostdelnord.com") && /^\/(?:es\/)?(?:producte|producto|categoria)\//.test(url.pathname)) {
-      const targeta = enllac.closest(".product-card");
+    if (url.hostname.endsWith("elrebostdelnord.com") && /^\/(?:es\/)?(?:producte|producto(?:-\d+)?|categoria)\//.test(url.pathname)) {
+      const targeta = enllac.closest(".product-card, .sn-card");
       const producte = targeta?.dataset.labelName || targeta?.querySelector("h3")?.textContent?.trim() || "tienda";
       gtag("event", "clic_comprar", { producto: producte, ubicacion: ubicacio(enllac), link_url: url.href, idioma });
     }

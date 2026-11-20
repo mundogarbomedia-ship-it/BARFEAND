@@ -1,0 +1,91 @@
+{
+  "snacks": [
+    {
+      "id": "coll-pollastre",
+      "animal": "pollastre",
+      "peso": "70 g",
+      "precio": "3,00 €",
+      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-pollastre-coll-deshidratat.webp", "ancho": 900, "alto": 900 },
+      "tienda": {
+        "ca": "https://elrebostdelnord.com/producte/coll-pollastre-deshidratat/",
+        "es": "https://elrebostdelnord.com/es/producto-3/coll-pollastre-deshidratat/"
+      },
+      "textos": {
+        "ca": {
+          "nombre": "Snack Coll de Pollastre",
+          "ingrediente": "coll de pollastre deshidratat.",
+          "descripcion": "Cruixent i fàcil de rosegar. Porta l’os del coll i cartílag, que aporten calci i, de forma natural, glucosamina i condroïtina. Rosegar-lo el manté entretingut i ajuda a la higiene dental."
+        },
+        "es": {
+          "nombre": "Snack Cuello de pollo",
+          "ingrediente": "cuello de pollo deshidratado.",
+          "descripcion": "Crujiente y fácil de roer. Lleva el hueso del cuello y cartílago, que aportan calcio y, de forma natural, glucosamina y condroitina. Roerlo lo mantiene entretenido y ayuda a la higiene dental."
+        },
+        "fr": {
+          "nombre": "Snack Cou de poulet",
+          "ingrediente": "cou de poulet déshydraté.",
+          "descripcion": "Croquant et facile à ronger. Il contient l’os du cou et du cartilage, qui apportent du calcium et, naturellement, de la glucosamine et de la chondroïtine. Le ronger occupe votre chien et contribue à l’hygiène dentaire."
+        }
+      }
+    },
+    {
+      "id": "fetge-conill",
+      "animal": "conill",
+      "peso": "30 g",
+      "precio": "3,50 €",
+      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-conill-fetge-deshidratat.webp", "ancho": 900, "alto": 900 },
+      "tienda": {
+        "ca": "https://elrebostdelnord.com/producte/fetge-conill-deshidratat/",
+        "es": "https://elrebostdelnord.com/es/producto-3/fetge-conill-deshidratat/"
+      },
+      "textos": {
+        "ca": {
+          "nombre": "Snack Fetge de Conill",
+          "ingrediente": "fetge de conill deshidratat.",
+          "descripcion": "Molt apetitós i aromàtic: ideal com a premi per a l’educació i l’ensinistrament. El fetge és una víscera molt nutritiva, rica en vitamina A, ferro i vitamines del grup B. El conill és una carn poc habitual: bona opció per a gossos amb l’estómac sensible.",
+          "aviso": "Com que el fetge és molt ric en vitamina A, dona’l amb moderació i en trossets petits."
+        },
+        "es": {
+          "nombre": "Snack Hígado de conejo",
+          "ingrediente": "hígado de conejo deshidratado.",
+          "descripcion": "Muy apetitoso y aromático: ideal como premio para la educación y el adiestramiento. El hígado es una víscera muy nutritiva, rica en vitamina A, hierro y vitaminas del grupo B. El conejo es una carne poco habitual: buena opción para perros con el estómago sensible.",
+          "aviso": "Como el hígado es muy rico en vitamina A, dáselo con moderación y en trocitos pequeños."
+        },
+        "fr": {
+          "nombre": "Snack Foie de lapin",
+          "ingrediente": "foie de lapin déshydraté.",
+          "descripcion": "Très appétent et aromatique : idéal comme récompense pour l’éducation et le dressage. Le foie est un abat très nutritif, riche en vitamine A, en fer et en vitamines du groupe B. Le lapin est une viande peu courante : une bonne option pour les chiens à l’estomac sensible.",
+          "aviso": "Le foie étant très riche en vitamine A, donnez-le avec modération et en petits morceaux."
+        }
+      }
+    },
+    {
+      "id": "traquea-vedella",
+      "animal": "vedella",
+      "peso": "50 g",
+      "precio": "5,00 €",
+      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/traquea-deshidratada-vedella_3.webp", "ancho": 900, "alto": 900 },
+      "tienda": {
+        "ca": "https://elrebostdelnord.com/producte/traquea-deshidratada-vedella/",
+        "es": "https://elrebostdelnord.com/es/producto-3/traquea-deshidratada-vedella/"
+      },
+      "textos": {
+        "ca": {
+          "nombre": "Snack Tràquea de Vedella",
+          "ingrediente": "tràquea de vedella deshidratada.",
+          "descripcion": "Cruixent i fàcil de rosegar. Rica en cartílag, que conté de forma natural glucosamina i condroïtina. Rosegar-la el manté entretingut, ajuda a la higiene dental i és una bona opció per a gossos amb l’estómac sensible o que han de limitar les fonts de proteïna."
+        },
+        "es": {
+          "nombre": "Snack Tráquea de ternera",
+          "ingrediente": "tráquea de ternera deshidratada.",
+          "descripcion": "Crujiente y fácil de roer. Rica en cartílago, que contiene de forma natural glucosamina y condroitina. Roerla lo mantiene entretenido, ayuda a la higiene dental y es una buena opción para perros con el estómago sensible o que deben limitar las fuentes de proteína."
+        },
+        "fr": {
+          "nombre": "Snack Trachée de veau",
+          "ingrediente": "trachée de veau déshydratée.",
+          "descripcion": "Croquante et facile à ronger. Riche en cartilage, qui contient naturellement de la glucosamine et de la chondroïtine. La ronger occupe votre chien, contribue à l’hygiène dentaire et c’est une bonne option pour les chiens à l’estomac sensible ou qui doivent limiter leurs sources de protéines."
+        }
+      }
+    }
+  ]
+}
