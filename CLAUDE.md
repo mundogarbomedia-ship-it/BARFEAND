@@ -85,7 +85,7 @@ Lee este archivo antes de tocar nada. Responde siempre en castellano y de forma 
 - **Datos legales:** los mismos que El Rebost del Nord. Titular: **El Rebost del Nord**, NRT **F308823Z**, Av. Príncep Benlloch, 85, local 2, AD500 Andorra la Vella. Ley de protección de datos: **Llei 29/2021** (autoridad: APDA).
 - **Tienda online:** términos en `elrebostdelnord.com/termes-i-condicions/` (ES: `/es/terminos-y-condiciones/`) y envíos en `/enviaments/` (ES: `/es/envios/`). No hay versión francesa: desde FR se enlaza la catalana.
 - **Punto de venta externo:** SÜNA, Av. del Pessebre 90, Escaldes-Engordany (colaborador, no es del usuario).
-- **Contacto:** carnisseria@elrebostdelnord.com, WhatsApp y móvil +376 678 536 y teléfono fijo de la tienda +376 867 648. También vendemos a tiendas (mayoristas).
+- **Contacto:** botiga@elrebostdelnord.com, WhatsApp y móvil +376 678 536 y teléfono fijo de la tienda +376 867 648. También vendemos a tiendas (mayoristas).
 
 ## Cómo describir BARFEAND (criterio del 13 de octubre de 2026)
 
