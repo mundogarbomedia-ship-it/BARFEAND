@@ -118,7 +118,7 @@
 .nav .language-link[aria-current="page"]{background:var(--pink-soft);border-color:var(--pink)}
 @media(max-width:1000px){.language-switch{padding:14px 7px;gap:8px}.nav .language-switch .language-link{min-width:40px;padding:8px;font-size:.9rem}}
 /* Logo de la cabecera: 52 px en escritorio, 38 px en móvil */
-@media(min-width:1001px) and (max-width:1100px){.brand img{height:46px}.header__inner{gap:20px}.nav{gap:10px}}
+@media(min-width:1001px) and (max-width:1100px){.brand img{height:46px}.header__inner{gap:20px}.nav{gap:10px}}@media(min-width:1001px) and (max-width:1160px){.nav>a:not(.button){white-space:nowrap}.nav{gap:9px}.nav>a:not(.button){font-size:.79rem}.nav .button--small{padding-inline:15px}}
 @media(max-width:768px){.brand img{height:38px}}
 /* Pie: montañas «Elaborat a Andorra» */
 .footer__andorra{align-self:flex-start;width:200px;height:auto;margin-top:18px;opacity:.9}
