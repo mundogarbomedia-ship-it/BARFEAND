@@ -5,7 +5,7 @@
       "animal": "pollastre",
       "peso": "70 g",
       "precio": "3,00 €",
-      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-pollastre-coll-deshidratat.webp", "ancho": 900, "alto": 900 },
+      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-pollastre-coll-deshidratat.webp", "ancho": 1000, "alto": 1000 },
       "tienda": {
         "ca": "https://elrebostdelnord.com/producte/coll-pollastre-deshidratat/",
         "es": "https://elrebostdelnord.com/es/producto-3/coll-pollastre-deshidratat/"
@@ -33,7 +33,7 @@
       "animal": "conill",
       "peso": "30 g",
       "precio": "3,50 €",
-      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-conill-fetge-deshidratat.webp", "ancho": 900, "alto": 900 },
+      "foto": { "src": "https://elrebostdelnord.com/wp-content/uploads/2026/11/snack-conill-fetge-deshidratat.webp", "ancho": 1000, "alto": 1000 },
       "tienda": {
         "ca": "https://elrebostdelnord.com/producte/fetge-conill-deshidratat/",
         "es": "https://elrebostdelnord.com/es/producto-3/fetge-conill-deshidratat/"
