@@ -29,6 +29,30 @@
       "destacada": true,
       "permiso": { "web": true, "instagram": true, "fecha": "2026-11-20" },
       "obsequi": true
+    },
+    {
+      "id": "mitjo-2026-11",
+      "fecha": "2026-11-23",
+      "animales": [
+        { "nombre": "Mitjo", "especie": "gat" }
+      ],
+      "receta": "pollastre",
+      "textos": {
+        "ca": { "text": "En Mitjo té gana: el seu sopar de BARFEAND de pollastre, de la nevera al bol." },
+        "es": { "text": "Mitjo tiene hambre: su cena de BARFEAND de pollo, de la nevera al bol." },
+        "fr": { "text": "Mitjo a faim : son dîner BARFEAND au poulet, du frigo à la gamelle." }
+      },
+      "persona": "",
+      "fotos": [],
+      "video": { "archivo": "videos/historias/mitjo-2026-11.mp4", "portada": "imagenes/historias/mitjo-2026-11-video.webp", "ancho": 720, "alto": 720 },
+      "enlace": {
+        "ca": { "url": "/blog/barf-per-a-gats/", "texto": "Llegeix l’article sobre el sopar d’en Mitjo" },
+        "es": { "url": "/es/blog/barf-para-gatos/", "texto": "Lee el artículo sobre la cena de Mitjo" }
+      },
+      "instagram": "",
+      "destacada": false,
+      "permiso": { "web": true, "instagram": true, "fecha": "2026-11-23" },
+      "obsequi": false
     }
   ]
 }
