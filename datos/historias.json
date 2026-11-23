@@ -4,54 +4,169 @@
       "id": "zeus-kala-2026-11",
       "fecha": "2026-11-20",
       "animales": [
-        { "nombre": "Zeus", "especie": "gos" },
-        { "nombre": "Kala", "especie": "gos", "raza": "shiba inu" }
+        {
+          "nombre": "Zeus",
+          "especie": "gos"
+        },
+        {
+          "nombre": "Kala",
+          "especie": "gos",
+          "raza": "shiba inu"
+        }
       ],
       "receta": "",
       "textos": {
-        "ca": { "text": "El Zeus i la Kala esperant els seus snacks de pollastre BARFEAND." },
-        "es": { "text": "Zeus y Kala esperando sus snacks de pollo BARFEAND." },
-        "fr": { "text": "Zeus et Kala attendent leurs snacks au poulet BARFEAND." }
+        "ca": {
+          "text": "El Zeus i la Kala esperant els seus snacks de pollastre BARFEAND."
+        },
+        "es": {
+          "text": "Zeus y Kala esperando sus snacks de pollo BARFEAND."
+        },
+        "fr": {
+          "text": "Zeus et Kala attendent leurs snacks au poulet BARFEAND."
+        }
       },
       "persona": "",
       "fotos": [
-        { "archivo": "imagenes/historias/zeus-kala-2026-11-1.webp", "ancho": 480, "alto": 500 },
-        { "archivo": "imagenes/historias/zeus-kala-2026-11-2.webp", "ancho": 480, "alto": 600 },
-        { "archivo": "imagenes/historias/zeus-kala-2026-11-3.webp", "ancho": 480, "alto": 560 }
+        {
+          "archivo": "imagenes/historias/zeus-kala-2026-11-1.webp",
+          "ancho": 480,
+          "alto": 500
+        },
+        {
+          "archivo": "imagenes/historias/zeus-kala-2026-11-2.webp",
+          "ancho": 480,
+          "alto": 600
+        },
+        {
+          "archivo": "imagenes/historias/zeus-kala-2026-11-3.webp",
+          "ancho": 480,
+          "alto": 560
+        }
       ],
-      "video": { "archivo": "videos/historias/zeus-kala-2026-11.mp4", "portada": "imagenes/historias/zeus-kala-2026-11-video.webp", "ancho": 480, "alto": 854 },
+      "video": {
+        "archivo": "videos/historias/zeus-kala-2026-11.mp4",
+        "portada": "imagenes/historias/zeus-kala-2026-11-video.webp",
+        "ancho": 480,
+        "alto": 854
+      },
       "enlace": {
-        "ca": { "url": "/blog/snacks-pollastre-deshidratat/", "texto": "Llegeix l’article sobre els snacks de pollastre" },
-        "es": { "url": "/es/blog/snacks-pollo-deshidratado/", "texto": "Lee el artículo sobre los snacks de pollo" },
-        "fr": { "url": "/fr/snacks-barf/", "texto": "Découvrir nos snacks BARFEAND" }
+        "ca": {
+          "url": "/blog/snacks-pollastre-deshidratat/",
+          "texto": "Llegeix l’article sobre els snacks de pollastre"
+        },
+        "es": {
+          "url": "/es/blog/snacks-pollo-deshidratado/",
+          "texto": "Lee el artículo sobre los snacks de pollo"
+        },
+        "fr": {
+          "url": "/fr/snacks-barf/",
+          "texto": "Découvrir nos snacks BARFEAND"
+        }
       },
       "instagram": "",
       "destacada": true,
-      "permiso": { "web": true, "instagram": true, "fecha": "2026-11-20" },
+      "permiso": {
+        "web": true,
+        "instagram": true,
+        "fecha": "2026-11-20"
+      },
       "obsequi": true
     },
     {
       "id": "mitjo-2026-11",
       "fecha": "2026-11-23",
       "animales": [
-        { "nombre": "Mitjo", "especie": "gat" }
+        {
+          "nombre": "Mitjo",
+          "especie": "gat"
+        }
       ],
       "receta": "pollastre",
       "textos": {
-        "ca": { "text": "En Mitjo té gana: el seu sopar de BARFEAND de pollastre, de la nevera al bol." },
-        "es": { "text": "Mitjo tiene hambre: su cena de BARFEAND de pollo, de la nevera al bol." },
-        "fr": { "text": "Mitjo a faim : son dîner BARFEAND au poulet, du frigo à la gamelle." }
+        "ca": {
+          "text": "En Mitjo té gana: el seu sopar de BARFEAND de pollastre, de la nevera al bol."
+        },
+        "es": {
+          "text": "Mitjo tiene hambre: su cena de BARFEAND de pollo, de la nevera al bol."
+        },
+        "fr": {
+          "text": "Mitjo a faim : son dîner BARFEAND au poulet, du frigo à la gamelle."
+        }
       },
       "persona": "",
       "fotos": [],
-      "video": { "archivo": "videos/historias/mitjo-2026-11.mp4", "portada": "imagenes/historias/mitjo-2026-11-video.webp", "ancho": 720, "alto": 720 },
+      "video": {
+        "archivo": "videos/historias/mitjo-2026-11.mp4",
+        "portada": "imagenes/historias/mitjo-2026-11-video.webp",
+        "ancho": 720,
+        "alto": 720
+      },
       "enlace": {
-        "ca": { "url": "/blog/barf-per-a-gats/", "texto": "Llegeix l’article sobre el sopar d’en Mitjo" },
-        "es": { "url": "/es/blog/barf-para-gatos/", "texto": "Lee el artículo sobre la cena de Mitjo" }
+        "ca": {
+          "url": "/blog/barf-per-a-gats/",
+          "texto": "Llegeix l’article sobre el sopar d’en Mitjo"
+        },
+        "es": {
+          "url": "/es/blog/barf-para-gatos/",
+          "texto": "Lee el artículo sobre la cena de Mitjo"
+        }
       },
       "instagram": "",
       "destacada": false,
-      "permiso": { "web": true, "instagram": true, "fecha": "2026-11-23" },
+      "permiso": {
+        "web": true,
+        "instagram": true,
+        "fecha": "2026-11-23"
+      },
+      "obsequi": false
+    },
+    {
+      "id": "negri-2026-11",
+      "fecha": "2026-11-23",
+      "animales": [
+        {
+          "nombre": "Negri",
+          "especie": "gat"
+        }
+      ],
+      "receta": "",
+      "textos": {
+        "ca": {
+          "text": "En Negri passa del pinso al BARF a poc a poc: el primer dia només pinso, i després el seu pinso de sempre barrejat amb BARF, cada dia una mica més."
+        },
+        "es": {
+          "text": "Negri pasa del pienso al BARF poco a poco: el primer día solo pienso, y después su pienso de siempre mezclado con BARF, cada día un poco más."
+        },
+        "fr": {
+          "text": "Negri passe des croquettes au BARF petit à petit : le premier jour seulement des croquettes, puis ses croquettes habituelles mélangées au BARF, un peu plus chaque jour."
+        }
+      },
+      "persona": "",
+      "fotos": [],
+      "video": {
+        "archivo": "videos/historias/negri-2026-11.mp4",
+        "portada": "imagenes/historias/negri-2026-11-video.webp",
+        "ancho": 540,
+        "alto": 960
+      },
+      "enlace": {
+        "ca": {
+          "url": "/blog/passar-de-pinso-a-barf/",
+          "texto": "Llegeix el pla de 10 dies d’en Negri"
+        },
+        "es": {
+          "url": "/es/blog/pasar-de-pienso-a-barf/",
+          "texto": "Lee el plan de 10 días de Negri"
+        }
+      },
+      "instagram": "",
+      "destacada": false,
+      "permiso": {
+        "web": true,
+        "instagram": true,
+        "fecha": "2026-11-23"
+      },
       "obsequi": false
     }
   ]
