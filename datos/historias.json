@@ -65,7 +65,7 @@
         }
       },
       "instagram": "",
-      "destacada": true,
+      "destacada": false,
       "permiso": {
         "web": true,
         "instagram": true,
@@ -168,6 +168,74 @@
         "fecha": "2026-11-23"
       },
       "obsequi": false
+    },
+    {
+      "id": "zeus-kala-2026-11-menjar",
+      "fecha": "2026-11-24",
+      "animales": [
+        {
+          "nombre": "Zeus",
+          "especie": "gos"
+        },
+        {
+          "nombre": "Kala",
+          "especie": "gos",
+          "raza": "shiba inu"
+        }
+      ],
+      "receta": "",
+      "textos": {
+        "ca": {
+          "text": "El Zeus i la Kala a l’hora de menjar: calculem la seva ració a barfeand.com i preparem el bol."
+        },
+        "es": {
+          "text": "Zeus y Kala a la hora de comer: calculamos su ración en barfeand.com y preparamos el bol."
+        },
+        "fr": {
+          "text": "Zeus et Kala à l’heure du repas : on calcule leur ration sur barfeand.com et on prépare la gamelle."
+        }
+      },
+      "persona": "",
+      "fotos": [
+        {
+          "archivo": "imagenes/historias/zeus-kala-2026-11-menjar-1.webp",
+          "ancho": 480,
+          "alto": 600
+        },
+        {
+          "archivo": "imagenes/historias/zeus-kala-2026-11-menjar-2.webp",
+          "ancho": 480,
+          "alto": 600
+        }
+      ],
+      "video": {
+        "archivo": "videos/historias/zeus-kala-2026-11-menjar.mp4",
+        "portada": "imagenes/historias/zeus-kala-2026-11-menjar-video.webp",
+        "ancho": 480,
+        "alto": 854
+      },
+      "enlace": {
+        "ca": {
+          "url": "/blog/passar-de-pinso-a-barf/",
+          "texto": "Com passar de pinso a BARF en 10 dies"
+        },
+        "es": {
+          "url": "/es/blog/pasar-de-pienso-a-barf/",
+          "texto": "Cómo pasar de pienso a BARF en 10 días"
+        },
+        "fr": {
+          "url": "/documentos/guide-transition-barf-10-jours.pdf",
+          "texto": "Guide de transition au BARF en 10 jours (PDF)"
+        }
+      },
+      "instagram": "",
+      "destacada": true,
+      "permiso": {
+        "web": true,
+        "instagram": true,
+        "fecha": "2026-11-20"
+      },
+      "obsequi": true
     }
   ]
 }
