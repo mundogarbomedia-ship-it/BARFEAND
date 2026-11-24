@@ -92,6 +92,16 @@
   .hs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hs-steps{grid-template-columns:1fr}
 }
+/* Ordenador y tableta: todas las tarjetas de la rejilla con la misma medida (en móvil, una por fila, sin cambios) */
+@media (min-width:651px){
+  .hs-grid{align-items:stretch}
+  .hs-card{display:flex;flex-direction:column;height:100%}
+  .hs-card>img,.hs-card>.hs-video{width:100%;max-width:none;height:auto;aspect-ratio:3/4;object-fit:cover;background:#000}
+  .hs-card__body{flex:1;display:flex;flex-direction:column}
+  .hs-card__body>.hs-tag,.hs-card__body>.hs-link,.hs-card__body>.hs-ig{align-self:flex-start}
+  .hs-card__body .hs-meta{margin-top:auto}
+  .hs-card:has(>.hs-video) .hs-gallery{display:none}
+}
 @media (max-width:650px){
   .hs-hero{padding:44px 0 56px}
   .hs-hero__actions .button{width:100%}

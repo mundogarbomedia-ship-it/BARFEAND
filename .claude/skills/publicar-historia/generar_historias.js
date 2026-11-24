@@ -28,6 +28,8 @@ const SIN_SITEMAP = args.includes("--sin-sitemap");
 
 const MARCA_INICIO = "<!-- historias:inicio -->";
 const MARCA_FIN = "<!-- historias:fin -->";
+// Versión de css/historias.css: súbela aquí cuando cambie ese CSS y el script la pone en las tres páginas.
+const VERSION_CSS = "20261124";
 
 const RECETAS = {
   pollastre: { color: "#FFD01A", ca: "Pollastre", es: "Pollo", fr: "Poulet", menjaCa: "pollastre", menjaEs: "pollo", menjaFr: "du poulet" },
@@ -363,7 +365,8 @@ function main() {
     const nl = html.includes("\r\n") ? "\r\n" : "\n";
     const contenido = a.tipo === "pagina" ? bloquePagina(historias, a.lang) : bloqueInicio(historias, a.lang);
     const medio = contenido ? nl + sangria + contenido.replace(/\r?\n/g, nl) + nl + sangria : nl + sangria;
-    const nuevo = html.slice(0, i + MARCA_INICIO.length) + medio + html.slice(f);
+    let nuevo = html.slice(0, i + MARCA_INICIO.length) + medio + html.slice(f);
+    if (a.tipo === "pagina") nuevo = nuevo.replace(/(\/css\/historias\.css\?v=)[^"']*/, `$1${VERSION_CSS}`);
     if (nuevo !== html) {
       fs.writeFileSync(ruta, nuevo);
       cambiadas.push(a);
